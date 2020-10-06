@@ -1,3 +1,7 @@
+| 这个作业属于哪个课程 | [数据采集与融合技术2020](https://edu.cnblogs.com/campus/fzu/DataCollectionandFusionTechnology2020) |
+| ----------------- |--------------- | 
+| 这个作业要求在哪里| [第二次作业](https://edu.cnblogs.com/campus/fzu/DataCollectionandFusionTechnology2020/homework/11271) |
+| 学号 | [031804103](https://www.cnblogs.com/holmze/) |
 # 第一题
 ## 要求
 在[中国气象网](http://www.weather.com.cn)给定城市集的7日天气预报，并保存在数据库。
