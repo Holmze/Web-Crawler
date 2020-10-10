@@ -4,7 +4,7 @@ from scrapy.spiders import CrawlSpider,Rule
 class ArticleSpider(CrawlSpider):
     name = 'articles'
     allowed_domains = ['cnblogs.com']
-    start_urls = ['https://www.cnblogs.com/']
+    start_urls = ['https://www.cnblogs.com/holmze/']
     rules = [Rule(LinkExtractor(allow = r'.*'),callback = 'parse_items',follow = True)]
 
     def parse_items(self,response):
