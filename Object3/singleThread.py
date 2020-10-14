@@ -74,4 +74,4 @@ imageSpider(start_url)
 # while(start_url is not None):
     # start_url = imageSpider(start_url)
     # print(start_url)
-print(time.time()-start_time)
+print("time:",time.time()-start_time)

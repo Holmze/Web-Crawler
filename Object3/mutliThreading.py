@@ -58,5 +58,5 @@ threads=[]
 imageSpider(start_url)
 for t in threads:
     t.join()
-print("The End")
-print(time.time()-start_time)
+# print("The End")
+print("time:",time.time()-start_time)
