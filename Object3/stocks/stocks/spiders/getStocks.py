@@ -15,7 +15,7 @@ class ArticleSpider(scrapy.Spider):
         # global count
         # count = 1
         # global count
-        print('%-8s %-6s %-8s %10s %10s %12s %10s %10s %12s'%('序号','代码','名称','最新价','涨跌幅(%)','跌涨额(￥)','成交量(手)','成交额(￥)','涨幅(%)'))
+        print('%-6s %-8s %10s %10s %12s %10s %10s %12s'%('代码','名称','最新价','涨跌幅(%)','跌涨额(￥)','成交量(手)','成交额(￥)','涨幅(%)'))
         return [scrapy.Request(url = url,callback = self.parse) for url in urls]
 
     def parse(self,response):

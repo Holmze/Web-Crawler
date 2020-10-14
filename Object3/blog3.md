@@ -391,4 +391,4 @@ class ArticleSpider(scrapy.Spider):
 ![](./img/3_stocks.jpg)
 ### 心得
 - 要把程序套进scrapy里面还是有一点难度的，要注意一下参数的传递或者设置为全局变量。
-- 为了避免命令行输出过多debug信息导致杂乱，可以在运行，命令后加上```-s LOG_FILE=all.log```
+- 为了避免命令行输出过多debug信息导致杂乱，可以在运行命令后加上```-s LOG_FILE=all.log```
