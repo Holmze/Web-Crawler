@@ -1,0 +1,1315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items>
+<item><url>https://www.cnblogs.com/holmze/p/13797920.html</url><title>2020软工第四次作业（结对编程第二次作业） - 氧化氟碳 - 博客园</title><text>
+    第二次结对作业1.Information这个作业属于哪个课程软件工程2020秋这个作业要求在哪里第四次作业（结对编程第二次作业）这个作业的目标锻炼协作能力，实现部分功能学号031804103 、 051806129GitHub address031804103&amp;0518061292.分工陈翰泽：代码review、测试、撰写博客、GitHub管理与维护谢润锋：设计、编码实现3.PSPPSPPair programming Process Stages预估耗时（分钟）实际耗时（分钟）Planning计划1515Estimate估计这个任务需要多少时间1010Development开发300270Analysis需求分析 (包括学习新技术)3025Design Spec生成设计文档3045Design Review设计复审2025Coding Standard代码规范 (为目前的开发制定合适的规范)1010Design具体设计120150Coding具体编码180240Code Review代码复审4545Test测试（自我测试，修改代码，提交修改）3045Reporting报告00Test Report测试报告3030Size Measurement计算工作量2020Postmortem &amp; Process Improvement Plan事后总结, 并提出过程改进计划2020合计8609404.解题思路与设计实现4.1 实现思路使用HTML+JavaScript+CSS创建一个网页，在文本框接收特定格式的输入信息（具体的输入格式见GitHub README或 6.2部分），在后台解析数据为json格式，提取关键词后形成节点，从根节点开始建立学术家族树。4.2 流程图4.3 关键部分实现4.3.1 调用d3框架我们使用了d3框架，使用的时候需要联网。&lt;head&gt;&lt;script type="text/javascript" src="http://d3js.org/d3.v3.min.js"&gt;&lt;/script&gt;&lt;/head&gt;
+4.3.2 接收数据文本域textarea用于接收输入数据。&lt;p style="text-align:center"&gt;
+    &lt;textarea cols="60" rows="10" id="text"&gt;&lt;/textarea&gt;
+&lt;/p&gt;
+4.3.3 解析数据我们在输入格式中规定，将输入分为：人际关系树、个人技能、职场经历三部分，每部分之间以空行分隔，且只能有一个空行，输入结束至少有一个空行，所以我们按照空行分割输入数据，然后按照关键字提取节点以及节点信息和关系。var content = document.all.text.value;
+var edge = new Map;
+var keyword = ["导师：","级硕士生：","级本科生：","级博士生："];
+var seen_s_w = new Map;
+var farther_flag = new Map;
+var seen = [];
+split_idx = [];
+var farther = new Map;
+
+// input data process
+arr_str = content.split("\n");
+var idx1;
+var idx2;
+var idx3;
+
+for (var idx = 0 ; idx &lt; arr_str.length ; idx ++ )
+{
+    if (arr_str[idx] == "")
+    {
+        split_idx.push(idx);
+    }
+}
+
+// get teacher and student relation
+for (idx1 = 0 ; idx1 &lt; split_idx[0] ; ) // layer 1
+{
+    idx2 = split_idx[0];
+    // get teacher
+    var layer1_term = arr_str[idx1].split("：");
+    var tutor_name = layer1_term[1];
+    edge[tutor_name] = [];
+    seen.push(tutor_name);
+    for (idx3 = idx1 + 1 ; idx3 &lt; idx2 ; idx3 ++)
+    {
+        var layer1_item = arr_str[idx3].split("：");
+        var layer1_node = layer1_item[0] + tutor_name;
+        farther[layer1_item[0]] = tutor_name;
+        edge[tutor_name].push(layer1_node);
+        edge[layer1_node] = [];
+        farther_flag[layer1_node] = 1;
+        seen.push(layer1_node);
+        var student = layer1_item[1].split("、");
+        for (var stu of student)
+        {
+            farther[stu] = layer1_node;
+            stu = stu + layer1_node;
+            farther[stu] = layer1_node;
+            edge[layer1_node].push(stu);
+            farther_flag[stu] = 1;
+            seen.push(stu);
+        }
+    }
+    idx1 = idx2 + 1;
+}
+//console.log(farther);
+if (split_idx.length &gt;= 2)
+{
+    for (idx3 = idx1 ; idx3 &lt; split_idx[1] ; idx3 ++)
+    {
+        var layer2_item = arr_str[idx3].split("：");
+        var current_f = farther[layer2_item[0]];
+        var layer2_node = layer2_item[0] + current_f;
+        edge[layer2_node] = [];
+        farther_flag[layer2_node] = 1;
+        seen.push(layer2_node);
+        var skill_or_work = layer2_item[1].split("、");
+        for (var sw of skill_or_work)
+        {
+            edge[layer2_node].push(sw);
+            farther_flag[sw] = 1;
+            seen.push(sw);
+            seen_s_w[sw] = 1;
+        }
+    }
+}
+//		console.log(edge);
+if (split_idx.length == 3)
+{
+    for (idx3 = split_idx[1] + 1 ; idx3 &lt; split_idx[2] ; idx3 ++)
+    {
+        var layer3_item = arr_str[idx3].split("：");
+        var current_f = farther[layer3_item[0]];
+        var layer3_node = layer3_item[0] + current_f;
+        edge[layer3_node] = [];
+        farther_flag[layer3_node] = 1;
+        seen.push(layer3_node);
+        var work = layer3_item[1].split("、");
+        for (var w of work)
+        {
+            edge[layer3_node].push(w);
+            farther_flag[w] = 1;
+            seen.push(w);
+            seen_s_w[w] = 1;
+        }
+    }
+}
+// find root node
+for (var val of seen)
+{
+    if (farther_flag[val] == null)
+    {
+        var root_name = val;
+    }
+}
+//console.log(root_name);
+4.3.4 DFS算法我们在处理完输入数据后，使用DFS（Depth First Search）算法按照输入格式代表的节点关系构建json树。function dfs(n,f) // construct object
+{
+    console.log(n,f);
+    var obj;
+    obj = {};
+    obj.name = n;
+    obj.children = [];
+    var item_list = edge[n];
+    if (item_list == null)
+    {
+        //console.log(n);
+        if (seen_s_w.hasOwnProperty(n) == false)
+        obj.name = n.substring(0,n.indexOf(f));
+        return obj;
+    }
+    for (var i = 0 ; i &lt; item_list.length ; i ++)
+    {
+        obj.children.push(dfs(item_list[i],n));
+    }
+    if (n.indexOf(f) != -1) // no farther
+    {
+        var c = n.substring(0,n.indexOf(f));
+        obj.name = c;
+    }
+    return obj;
+}
+5.附加特点设计与展示5.1 学术家族树的缩放与拖动功能// Transition nodes to their new position.节点过渡过程中的过渡效果
+//为图形添加过渡动画
+var nodeUpdate = node.transition()  //开始一个动画过渡
+    .duration(duration)  //过渡延迟时间,此处主要设置的是圆圈节点随斜线的过渡延迟
+    .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });//YES
+// Transition exiting nodes to the parent's new position.过渡现有的节点到父母的新位置。
+//最后处理消失的数据，添加消失动画
+var nodeExit = node.exit().transition()
+    .duration(duration)
+    .attr("transform", function(d) { return "translate(" + source.x + "," + source.y + ")"; })//YES
+    .remove();
+
+// Update the links…线操作相关
+//再处理连线集合
+var link = svg.selectAll("path.link")
+    .data(links, function(d) { return d.target.id; });
+// Enter any new links at the parent's previous position.
+//添加新的连线
+link.enter().insert("path", "g")
+    .attr("class", "link")
+    .attr("d", function(d) {
+        var o = {y: source.x0, x: source.y0};//YES
+        return diagonal({source: o, target: o});  //diagonal - 生成一个二维贝塞尔连接器, 用于节点连接图.
+    })
+    .attr('marker-end', 'url(#arrow)');
+// Transition links to their new position.将斜线过渡到新的位置
+//保留的连线添加过渡动画
+link.transition()
+    .duration(duration)
+    .attr("d", diagonal);
+// Transition exiting nodes to the parent's new position.过渡现有的斜线到父母的新位置。
+//消失的连线添加过渡动画
+link.exit().transition()
+    .duration(duration)
+    .attr("d", function(d) {
+        var o = {x: source.x, y: source.y};//NO
+        return diagonal({source: o, target: o});
+    })
+    .remove();
+// Stash the old positions for transition.将旧的斜线过渡效果隐藏
+nodes.forEach(function(d) {
+    d.x0 = d.y;
+    d.y0 = d.x;
+});
+}
+5.2 学术家族树节点的折叠功能//定义一个将某节点折叠的函数
+// Toggle children on click.切换子节点事件
+function click(d) {
+if (d.children) {
+    d._children = d.children;
+    d.children = null;
+} else {
+    d.children = d._children;
+    d._children = null;
+}
+update(d);
+}
+6.目录说明和使用说明6.1 目录说明title部分保存页面标题，即显示在浏览器标签上的标题style保存页面设计设计风格信息在head部分调用d3框架在body构建页面的具体部件以及部件信息
+body.spript中放置JavaScript代码作为后台运行代码6.2 使用说明step1首先使用chrome浏览器打开web.html文件step2按照输入格式在文本框输入文本，输入部分主要是：师生关系技能工作每个部分之间需用一个换行符分开，如果输入结束就在末尾加一个回车加以表示。支持的数据输入组合为：师生关系，师生关系+技能，师生关系+工作，师生关系+技能+工作，
+例如：导师：张三
+2016级博士生：天一、王二、吴五
+2015级硕士生：李四、王五、许六
+2016级硕士生：刘一、李二、李三
+2017级本科生：刘六、琪七、司四
+
+刘六：JAVA、数学建模
+李四：PYTHON、VUE
+
+李二：字节跳动、京东云
+刘一：阿里
+
+输入完毕后点击下方的提交键。step3在提交键下方出现学术家族树，并支持用鼠标的滚轮缩放以及鼠标拖动家族树，点击节点可以折叠此节点的所有子节点。7.mocha测试使用macha测试框架，使用教程--&gt;测试框架Mocha实例教程-阮一峰
+首先下载安装node.js in here，然后通过NPM安装mocha库和chai：npm install --g mocha
+npm install --g chai
+接下来编写测试程序，测试将输入文本处理为json文件的函数，编写五个样例进行测试。var get_json = require('./web.js').get_json;
+var expect = require('chai').expect;
+var str=`导师：张三
+2016级博士生：天一、王二、吴五
+2015级硕士生：李四、王五、许六
+2016级硕士生：刘一、李二、李三
+2017级本科生：刘六、琪七、司四
+
+刘六：JAVA、数学建模
+
+李二：字节跳动、京东云
+`;
+var ans='{"name":"张三","children":[{"name":"2016级博士生","children":[{"name":"天一","children":[]},{"name":"王二","children":[]},{"name":"吴五","children":[]}]},{"name":"2015级硕士生","children":[{"name":"李四","children":[]},{"name":"王五","children":[]},{"name":"许六","children":[]}]},{"name":"2016级硕士生","children":[{"name":"刘一","children":[]},{"name":"李二","children":[{"name":"字节跳动","children":[]},{"name":"京东云","children":[]}]},{"name":"李三","children":[]}]},{"name":"2017级本科生","children":[{"name":"刘六","children":[{"name":"JAVA","children":[]},{"name":"数学建模","children":[]}]},{"name":"琪七","children":[]},{"name":"司四","children":[]}]}]}';
+describe('测试数据处理函数', function() {
+    it('生成的字符串应该等于ans', function() {
+    expect(get_json(str)).to.be.equal(ans);
+    });
+});
+此处同时测试五个样例，更多mocha测试样例以及测试说明请看===&gt;README.md8.GitHub记录9.遇到的代码模块异常或结对困难及解决方法1 对输入数据的处理（一开始不能处理多行数据）原因：因为变量名和循环层数太多，所以在处理过程中搞混了变量名。（如前几版代码）因为目的是找出当前节点的父亲节点，所以解决方法是通过哈希表，省去了一顿变量和好多层循环，代码简洁许多。2 Json对象的建立（dfs过程中遇到的问题）一开始最后一层无法搜索到，发现原因是父亲节点没有存储好。解决方法依旧通过hash表存储父亲，然后直接访问，成功解决问题。建树过程主要是通过百度查找前辈们做过的精美树形结构然后进行综合起来参考。10.评价你的队友（商业互吹）陈翰泽：谢大佬思路清晰，执行能力强，交流能力出色。
+队友值得学习的地方：清晰且宽广的思路，以及高效的执行编码能力。队友需要改进的地方：变量名和函数名的设置有待提高，或者说是我跟不上大佬的思维吧。谢润锋：翰泽巨佬写博客小能手，github6的一匹，沟通积极并且及时。
+队友值得学习的地方：他写博客的技巧很多表述也很清晰，并且有很高的GitHub的熟练度，需要我认真学习。队友需要改进的地方：因为我们分工明确，并且出现问题能够及时互通，所以这次任务完成的较为顺利，没有较大的缺陷，只是阅读代码的能力有待提高。
+
+</text><lastUpdated>2020-10-11 22:19</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/13745347.html</url><title>2020数据采集与融合技术第一次作业 - 氧化氟碳 - 博客园</title><text>
+    数据采集与融合技术第一次作业第一题题目要求：用requests和BeautifulSoup库方法定向爬取给定网址的数据，屏幕打印爬取的大学排名信息。解答主要就是BS的基本使用code:import requests,bs4
+url = "http://www.shanghairanking.cn/rankings/bcur/2020"
+soup = bs4.BeautifulSoup(requests.get(url).content.decode(),"html.parser")
+information = []
+for child in soup.find("tbody").children:
+    res = child.find_all("td")
+    information.append([res[0].text.strip() + "    " + res[1].text.strip() + "    " + res[2].text.strip() + "    " +
+                        res[3].text.strip() + "    " + res[4].text.strip()])
+print("排名  学校名称  省份  学校类型  总分")
+for info in information:
+    print(info)
+result第二题题目要求：用requests和re库方法设计某个商城（自已选择）商品比价定向爬虫，爬取该商城，以关键词“书包”搜索页面的数据，爬取商品名称和价格。解答选择京东商城，爬书包太没劲了，故选择关键词为“RTX3080”。code## 并不完善的一份代码，暂时不支持中文搜索
+
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+import re
+
+print("please input:")
+item = input()
+url = 'https://search.jd.com/Search?keyword='+item ##这玩意好像每天都在变
+html = urlopen(url)
+bs = BeautifulSoup(html,'html.parser')
+goods = bs.find_all("li",{"data-sku":re.compile("\d+")})
+for good in goods:
+    # print(good.get_text())
+    # print(good)
+    good_info = good.find("div",{"class":"p-name p-name-type-2"}).find('em').get_text()
+    # print(good_info)
+    price = good.find('div',{'class':'p-price'}).strong.i.get_text()
+    print(good_info.replace("\n","").replace("\t",""),price,"￥")
+result第三题题目要求：爬取一个给定网页或者自选网页的所有JPG格式文件。解答查看具体网址的源代码后发现，主要的图片都在content内部，故使用BeautifulSoup4中的find_all函数在content内搜索图片路径。
+图片路径包括内链接（以“/...”开头，是给定网站内部的图片）与外链接（以“HTTP...”开头，是其他网站的图片），故对两种图片链接分类处理。
+得到所有图片的链接后，使用requests.get()获取图片数据。codefrom urllib.request import urlopen
+from bs4 import BeautifulSoup
+# from urllib import urlretrieve
+import requests
+
+url = 'http://xcb.fzu.edu.cn/'
+html = urlopen(url)
+bs = BeautifulSoup(html,'html.parser')
+name = 1
+for imgs in bs.find('div',{'class':'content'}).find_all('img'):
+    # if 'src' in imgs.attrs:
+    #     print(imgs)
+    img = imgs['src']
+    if img[-3:] != 'gif':
+        if img[:4] == 'http':
+            path = img
+        else:
+            path = url+img
+    else:
+        continue
+    print(path)
+    # img_data = urlopen(path)
+    # img_data = img_data.read()
+    img_file = requests.get(path).content
+    with open("Object1：爬取学生信息\images/"+str(name)+".jpg","wb") as f:
+        f.write(img_file)
+        f.close()
+        print(name,"over")
+        name += 1
+result
+
+</text><lastUpdated>2020-09-28 16:51</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/10423782.html</url><title>寒假训练营第四次作业 - 氧化氟碳 - 博客园</title><text>
+    使用miniedit工具搭建拓扑的过程截图及说明(5')这部分主要参考了-&gt;Ubuntu16.04源码安装Mininet通过修改参数连接控制器的详细过程截图及说明(20')这步当中有一段曲折的故事，ping了半天都ping不通，才发现忘记了s1和s2之间的链路连接控制器的过程遵循什么协议？简单描述一下这个过程(15')
+遵循Openflow协议。
+首先建立连接，经过类似tcp三次握手以后，建立底层的通信。
+然后一般要经过Hello、Features Request、Features Reply、Set config、PacketIn、PacketOut
+运行生成的脚本，检测主机之间是否互通(pingall)，并截图(10')把生成的python脚本上传到github仓库中(5')
+保存的时候出了些问题，貌似是配置文件出了点问题，得到的脚本是空文件。在百度谷歌上也找不到解决方法，所以没有办法了&gt;_&lt;本次训练营总结(30'):
+你觉得自己收获到了什么(包括知识、技能、意愿)？如何体现？(20')
+学习到mininet、GitHub、Ubuntu、count-min-sketch、tcpdump、GitHub、Linux、网络空间安全方面的相关知识等；巩固了python和c语言，强化了自己的逻辑思维能力和知识整合能力；明白了百度Google的强大、发现了很多以前没有的学习途径和平台，比如各种技术论坛、bilili、YouTube等等;面对一个问题不能盲目地想要马上解决，而是应该在整体上对解法有一个把握，形成思路，并把问题拆分后逐一解决......
+自己还存在着那些不足或者遗憾？(10')
+认识到了自己对计算机、对互联网的了解甚少；英语能力不足导致了在Google和在外网查找解决问题的方法以及看YouTube视频的时候障碍颇多；自己解决能力的问题还是比较薄弱，常常一个小问题需要很长时间；专注力有待提高，做作业的过程总忍不住看看手机；对问题的分析能力，以及对问题的划分能力有所不知，常常会卡在两个分块问题之间......这两天得了胃寒性感冒，身体状态不是很好，所以这次作业比较完成得粗糙，抱歉。
+
+</text><lastUpdated>2019-02-24 21:17</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/10393536.html</url><title>寒假训练营第三次作业 - 氧化氟碳 - 博客园</title><text>
+    part1网络课程学习学习福州大学网络课程 网络空间安全概论，形成学习笔记，发布专门博客，至少完成第五章的视频学习。传送门--&gt;2019寒假训练营第三次作业part1-网络空间安全概论第五章part2实验题背景
+黑客风波过后，一切又恢复了正常。但你总觉得有些不安，按照之前的方法：把所有请求都记录下来，的确能很准确地显示所有用户的请求情况。但是请求实在太多，把它们都记下来，需要花费巨大的空间来存储，导致许多预算用在了购买记录请求的空间上，而且服务器的速度也下降不少。有没有更好的办法？你觉得自己遇到了瓶颈，但别人肯定也遇到过同样的问题，何不借鉴别人的方法？查阅文献过程中，果然，发现一种叫做 sketch 的技术十分火热，可以解决这个问题，它可以显著地降低空间的使用。你很兴奋，你想尽快地把这个技术部署到服务器上。传送门--&gt;2019寒假训练营第三次作业part2 - 实验题
+
+</text><lastUpdated>2019-02-18 00:21</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/13735287.html</url><title>2020软工第三次作业（结对编程第一次作业） - 氧化氟碳 - 博客园</title><text>
+    这个作业属于哪个课程软件工程2020秋这个作业要求在哪里第三次作业（结对编程第一次作业）这个作业的目标锻炼协作能力，提出初步解决方案学号031804103、051806129PSP表格PSPPair programming Process Stages预估耗时（分钟）实际耗时（分钟）Planning计划1515Estimate估计这个任务需要多少时间1010Development开发240210Analysis需求分析 (包括学习新技术)4530Design Spec生成设计文档4545Design Review设计复审3025Coding Standard代码规范 (为目前的开发制定合适的规范)00Design具体设计120120Coding具体编码00Code Review代码复审00Test测试（自我测试，修改代码，提交修改）2015Reporting报告00Test Report测试报告3030Size Measurement计算工作量2020Postmortem &amp; Process Improvement Plan事后总结, 并提出过程改进计划2020合计595530背景学长学姐去哪儿——了解实验室或社团历史上的那些学长学姐们的去向和现状
+了解实验室学长们去向的现状：
+除了实验室群里长期潜水或偶尔冒泡的学长、导师口中的零星去向、临近的学长，似乎就无法了解了。好久以前的没见过的学长们，去了哪里。这不仅仅是?是否?选择这个实验室的依据之一，还是今后找工作的内推的重要支柱。可惜现状就不是很明确和了解，知晓的渠道也很有限。
+学长们其实也很想了解学弟们现在在做什么研究，有没有什么擅长的技能，比如会某个研究方向或数学建模技能的，也很希望能帮忙协助内推，比如这位学长，就只能给我发消息，也无法有效传递。
+另外，建一个实验室群，也不是很方便，因为在群里，你也不好意思经常问：学长们，你们在哪啊。
+甚至，等你工作了，和你同一个公司或一个组的同事，可能就是实验室同门，你们都相见不相识，多遗憾。题目请你和对友设计一套信息化的解决方案，兼顾实用性、有效性、安全性、隐私性、封闭性。
+可以是一个软件、APP或小程序，不仅仅包含主要界面和功能的原型，还需要描述不同角色用户，如何注册、添加、删除、认证加入等，从使用频率、使用便利度、使用有效性等角度出发，考虑如何维护该系统，如何确保安全性、隐私性、时效性和相对封闭性等，可以是软件化的方式实现上述特点，也可以依赖流程制度实现上述特性。但无论哪一种，都需要你们通过原型图、流程图、文字化方案来描述。清晰呈现一套也许你们也需要、客户也需要的完美的解决方案。GitHub讨论剪影解决方案主要参照《构建之法》第八章中所介绍的NABCD模型提出我们的解决方案。N:需求站在用户的角度思考与分析问题。本问题主要面向三类用户：老师、在校生、毕业生老师长期以来扮演着在校生和毕业生之间互相认识的媒介，但是科研任务繁忙，也无法完全记住每个同学的技能树和具体的研究进度，导致有些时候在校生和毕业生之间的交流难以成行。在校生在校生处在求学科研找工作的多重压力下，急需同门学长学姐分享科研经验经验或者帮助内推。然而在校生缺乏了解同门前辈的渠道，不知道前辈们曾经的研究方向是什么、在何处工作、是否能提供帮助。不管是一个一个加好友私聊还是直接在群聊中广播提问都不合适。毕业生毕业生拥有丰富的科研经验，同时也已经在产业界或学术界有了一番耕耘，有些时候遇到难题也希望求助与实验室同门师弟师妹们。然而毕业生离开实验室后难以了解实验室的新人，不知道新人们有何需求、新人们有何技能、新人们的研究方向和进度。更多时候只能通过老师了解哪些师弟师妹拥有自己所需要的技能。A:做法我们的做法是，让导师成为一个组织者，而不是在校生和毕业生之间认识的媒介，建立一个让所有实验室同门们互相了解的平台。在这个平台上大家可以互相了解，除了有个人简介和个人技能树之外，还可以找到每个人在各大社交平台（例如微博、知乎、GitHub等）的ID以互相了解，还可以利用平台提供的用户微信号加好友深入交流。平台力求做到相对封闭和安全，只有老师可以新建组织，实验室内部所有人员都可以邀请新人，但是必须经过导师的认证同意，实验室内部信息只有成员可见。平台允许一个用户处在多个组织中，且在每个组织中的身份可以不同，例如对于一个博士在读生，在本科阶段和硕士阶段所在实验室中的身份是毕业生，而在博士阶段所在实验室的身份则是在校生。用户发布的问题可以设置为部分所在组织成员可见或所有所在组织成员可见。平台力求实现时效性。每个用户可在自己的主页添加个人tag，可以是自己擅长的领域、擅长的技能、当前的研究方向和曾经的研究方向。在发布问题时发布者可以选择添加问题tag，平台将通过公众号推送给具有和问题tag相同或相关个人tag的问题可见成员，提醒有与自己相关的问题发布，而不是向所有实验室成员广播推送消息（这样的话和直接在QQ群、微信群提问没有区别）。B:好处在校生和毕业生的互相了解可以直接通过平台完成，导师除了前期组织以外无需花费太多的组织成本。成员间可以通过基本资料、技能树、各大社交平台互相了解，还可以通过发布问题的方式具体寻找某些技能拥有者或能提供帮助的用户。
+平台能够保证相对封闭和安全，进入组织需要导师的认证同意，而组织内部的内容对外部用户不可见，个人资料也只有同一组织的用户才可以访问和查看。C:竞争优势：作为功能型小程序，本方案的封闭性和安全性完全足够，因为只有通过自己微信的小程序才能登录自己的账号，且经过导师认证通过后的实验室内部用户较为可信，个人页面可以发布一些较为详细的个人信息，而不必担心隐私被实验室外部人群窃取。特殊的推送功能。通过每个用户添加个人tag，每个提问者在问题中添加问题tag，能够针对问题推送给潜在的目标用户，规避了一部分无效推送造成的垃圾信息。劣势：组织建立前期因为个人页面不完整、成员数量少，使用体验可能较差，推广任务较为艰巨。个人tag的设置与问题tag之间可能有差距，需要设计一个推送算法，尽量减小错误推送和遗漏推送。D:推广首先在校园内部分实验室做试点，尽量选择已成立多年，在校生和毕业生人数都不少的实验室。在某些奖励机制下，通过试点人群向外发散，因为大组可能包括了许多同时也在其他实验室的成员。同时尽量选择多个领域的实验室进行试点，因为用户发散的能力在跨领域中效果极为有限。设计原型展示动态与消息页面人脉·机遇页面问题区“我的”页面流程图老师学生（包括在校生和毕业生）
+
+</text><lastUpdated>2020-09-28 15:56</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/10674489.html</url><title>Coursera:Internet History ,Techornology and Security - 氧化氟碳 - 博客园</title><text>
+    WEEK1War Time Computing and CommunicationBletchley Park 布莱彻利庄园：a top-secret code breaking effort by the British government during World War II. 二战时期英国政府为了破译德国的“Enigma”电报加密装置而设立的，聚集了一大批高端的密码学、数学人才的基地。最后在Alan Truing(艾伦图灵)的主导下设计了第一个计算机。（以上中文注释来自笔者观看电影《模仿游戏》得到的资料）
+笔者的注释：严格意义上来说Alan Turing此时参与研制的计算机与现在常见的计算机有一些不同。在Bletchley Park诞生的计算机学术上称为电子模拟计算机，其数值是由一些例如指针转动、计算尺长度表示的（这点在本课程的视频Alan Turing and Bletchley Park中的计算机复制品的运作场景也可以得到印证，其运算的时候有很多个转盘同时在运动）。而现在常见的计算机被称作电子数字计算机，其数值是按位运算的，而且不断跳动。Bomba：波兰人研制的破解Enigma的机器主要针对的是德国人repeating the message header(重复使用信息头)Bombe：以Alan Turing为首的团队设计的机器，主要针对的是德国人sending stereotyped messages（模块化的信息，也就是有一定格式的军事指令）.Colossus（巨人）：针对德国加密机器升级版的机器，第一台被称作Mark 1.(难道Iron Man命名的灵感就来源于此？)第二台称作Mark 2.Mark 2直接参与了诺曼底登陆战。巨人计算机具有大多数现代计算机的特征，除了没有内存。通过纸条读取数据，Computing with Phone Lines这部分主要介绍了早期计算机之间的联通模式：通过电话线拨号实现信息传送
+local call to local computerdistance call to remote computer（有点类似于远程计算机）computer to computer（leased lines）：较昂贵，常见于银行系统WEEK2Supercomputers Justify a National Network这部分主要介绍了早期计算机之间的连接方式及其演变。
+1.电缆连接（有线连接、专线网络）leased lines
+通过电缆直接将计算机联系在一起。It is really expensive.The cost base on distance.成本与距离线性相关。传输速度慢信息需要排队通过Save Money with More "Hops"：通过连接更多的学校（因为当时只有学校拥有计算机），来分摊修建路电缆的费用已达到减少开支的方法。2.Bitnet比特网，校园网的主要方式
+为了节省开支而产生的连接方式缺点和优点一样明显：大号的文件可能会长时间占用线路，影响其他较小文件的传输，所以传输速度很慢。3.ARPANET：美国军方研制的，供给军队使用的网络
+the primary motivation was to improve the use of their compution equipment.ARPANET与Bitnet的主要区别：“packet switching”（分组交换）：sending data across the link and then keep sending it until it was done.
+packet:breakinga big message into small parts,labeling each one of them individually将数据分块成为数据包，以数据包为单位传输数据able to sneak and bypass the traffic jam能够避开交通堵塞（这里的traffic jam可以理解为处在busy的线路）allowing simultaneously multible message to be in fight at the same time（个人将这句话理解为允许同是传送不同消息，这里体现了ARPANET与Bitnet的重要不同）同一组数据在被分成数据包以后可能会经由不同路径进行传输，但是因为路径的不同数据包可能在不同时间送达。就好比我在淘宝上买东西了一个手办（message），但是店家把这个手办的分解成零件（packets），从北京中关村发到福州上街镇，但是可能每个零件从北京到福州的路径不一样例如有一个零件走的是（北京--&gt;济南--&gt;南京--&gt;杭州--&gt;福州），而另一个零件走的是（北京--&gt;太原--&gt;西安--&gt;重庆--&gt;贵阳--&gt;南宁--&gt;广州--&gt;福州），但无论通过什么路径，最后都能到福州，而我需要做的是按照说明书把手办拼起来。between getway and getway have links and routers（路由器，主要作用是转发信息）:breaking messages into packets,packets can take different paths,and then they arrive and they are reassembled(重组)Larry Smarr
+天文物理学家，因为接触到了一个需要超级超级计算能力的课题，于是不遗余力的推动超级计算机的建设。经过不断的努力，后来还建立了NSFNETThe frist "Internet"这部分主要讲述了一些Internet发展过程中的曲折故事和相关访谈。Doug Van Houweiling
+因为各方面原因大学难以拥有自己的超级计算机，于是另辟蹊径为密歇根大学的计算机建立了网络。最早的预算只够建立运输速度为56kb的线路，后来在一系列的争取以后，将其提高到了1.5mb。自此，NSFNet成为世界上最快的网络，取代ARPANET成为世界主流网络。Leonard KilenrockKatie Hafner（一个记者，曾经准备写关于互联网的专题报道）NSFNet:National Science Foundation,美国国家科学基金会,简称NSFWEEK3The Early World-Wide-Web这部分描述了早期的world-wide-web（万维网）Robert Cailliau :one of the co-inventor of the world-wide-web
+Physcists have need for spreeding documentation around .So they built something like centralized databases((集中式数据库) to kept high energy physics articles(高能量物理学文章).Robert将计算机分割为上层（browser浏览器)和下层（database数据库）The first server was up end of 1990 in the USA.Gopher：早期的信息检索工具，在WWW出现以前是主要的信息检索工具。Mosaic:Firefox浏览器前身，历史上著名的浏览器，运行时只有一个窗口，每个新窗口自动代替上一个界面。WWW的特点：every time that you clicked here, you had another window（与Mosaic的重要区别：每次点击都会打开一个新的页面）1994年，第一届国际万维网大会召开，A Search Engine for Physics Articles这部分介绍了物理学文章的搜索引擎use the database by the web.（此处的database就是前文中提到的存放物理学文章的centralized databases）The first Web server in America can query a database on a mainframe.（美国第一台网络服务器可以在数据库中查询数据）Paul kunz used a CREN server software ,which was written in C to creates the first Web server in America.
+get the query that the user had made and turn it into a database query.（获取用户所做的查询并将其转换为数据库查询）Making the Web Available to AllGopher：在web流行起来以前gopher是主流的网络资源检索工具Mosaic：另一款浏览器，由NCSA的Joseph Hardin牵头发明
+At 1990s,NCSA at Urbana-Champaign, University of Illinois, built an open source web browser that worked on Mac, Windows, and Unix. （支持多个多个系统）it is possible for people to share in real time images of their data, the spreadsheets of their data, and papers.有必要提一下的是，后来Mosaic项目的大部分员工创建了有名的网景公司（Netscape），该公司推出了现在很多人使用的Firefox浏览器。WEEK4Explosive Growth of the Internet and Web1994:Year of the Web（1994年时互联网发展的重要一年，互联网不再是纯粹的学术或者技术，而是带来了许多的资金投入，许多的it公司的建立等等）
+在当时许多的公司之中，Netscape与Microsoft无疑是强烈的竞争对手，但是当时的Netscape的体量和Microsoft相比还比较小，Netscape险些被Microsoft收购吞并。Mitchell Baker: one of the founders of Mozilla.
+Microsoft收购Netscape失败以后二者进入了竞争。Netscape is a failure product，because of it ，Baker was be laying off in 2001. But it wasn't really possible to take her place and she continued as a volunteer.在这段竞争岁月中，网景公司创造了现在依然很火的JavaScript语言。后来两家之间以价格为主要战场的商业战争不再赘述，毕竟我不需要分析这次市场竞争行为的利弊以及历史意义。（套路无非是恶性降价竞争，甚至免费的产品，以达到占领市场的目的。但是这个时候的发展重点依然是技术，而不是一味的打价格战。如果当时有融资这种东西的话，就和和这几年的某些公司在某些领域的竞争很像了）In 2003 the Mozilla foundation was formedBrendan Eich:JavaScript主要创造者与架构师
+JavaScript和Java的关系不大（我长期以来一直以为JavaScript时Java的延申或者在某一方面的定制版本，这次课纠正了我这个思维定势）JavaScript是一种对初学者和业余程序员都比较友好的语言。Commercialization of the Web这部分主要讲述了网络商业化Microsoft give their browser away free, which made it impossible for Netscape to charge for the browser.（微软为了竞争而对用户免费提供浏览器）the World Wide Web Consortium（万维网联盟） was created in October of 1994.
+Jeff Bezos: the founder of Amazon.com(亚马逊创始人贝索斯，没错就是最近离婚的那个)
+books is the frist product to sell online.Music is the second.最早亚马逊买的是书，后来扩展到CD一类的音乐产品。说到网购平台，突然想起来最近看到的一个关于马云的视频，感触颇深，视频来自虎扑步行街--&gt;传送门WEEK5LinkHops:one portion of the path between source and destination. Data packets pass through bridges(网桥), routers and gateways（网关） as they travel between source and destination. Each time packets are passed to the next network device, a hop occurs.[插入图片Hop-count-trans.png]Packet-switching(分组交换)：break message into packets(将信息分割成数据包，)
+bridge,router,gateway is forwarding packets(网桥、路由器、网关负责的是储存与中转数据包)，but not longs term storage of message.shared Network infratructure only focuses on packets,not reliability or anyting else.（共享网络只关注数据包而不是可靠性或其他）layered network model(分层网络模型)：OSI model（Open System Interconnection model开发系统互连模型）：为了简化解决方案，以便解决问题、管理，就将网络划分为几个部分。在每层中只需要考虑本层的问题，不需要被其他层的问题影响。Layered Architecture(分层架构)
+Link:一段传输介质，例如光缆，数据通过一个link就是一个hop，路由器接受上一个link的数据并将收到的数据push到下一个link。就好比在淘宝上买东西了一个手办（message），但是店家把这个手办的分解成零件（packets），每个packets在来福州的路上会经过许多中转站（rounter），而每个中转站之间的要用各种交通工具运输（link），中转站之间的运输就是hop。how to avoid the chaos when they're sharing?
+with a technique called, Carrier Sense Media Access with Collision Detection.To aviod garbled messages,systems must observe "rules"(Protocols)Ethernet rules are simplecommon link technologies:Ethernet（以太网）,WiFi,Cable modem（电缆调制解调器）,DSL(数字用户线路[拨号上网])，Satellite（卫星）,Optical（光纤）Internet Protocol(互联网协议)IP drop data if it go bad.如果数据包出错或传输数据有故障，可以丢弃这个数据包，避免出现错误残破的数据包。the address is broken into two parts. There is the network number part which is the prefix(前缀), and then there is the computer number within network.As soon as the packets enter the network, it only looks at the prefix.网络只关心IP地址的前缀，就是只关心来自哪个网络。portable cpmputer:dynamic host configuration protocol：动态主机配置协议，主要用于解决移动计算机例如笔记本电脑、iPad等无固定本地连接的IP地址分配问题。即分配临时的本地IP，一般格式为192.168.xxx.xxx，而这个IP地址只属于本地网络，可以理解为IP地址的分支。这个方法也可以用来解决IP地址数量不足的问题。network address translation（在IP数据包通过路由器或防火墙时重写来源IP地址或目的IP地址）Time-to-live (TTL) is a value in an Internet Protocol (IP) packet that tells a network router whether or not the packet has been in the network too long and should be discarded.告诉路由器数据包是否在网络中存在太久。当数据包的hops数超过255（32bit）是被丢弃。原理是如果一个数据包经过了255hops都还没送达，可以认为数据进入了死循环。为了避免占用网络引起网络拥堵，故产生了这种诊断方式。WEEK6Transport/ReliabilityTCP层建立在IP层之上，TCP层的作用是弥补IP层可能出现的一些问题。TCP（Transmission Control Protocol 传输控制协议）layer:The purpose of the TCP layer is to compensate for the possible errors in the IP layer as well as make best use of available resources.the key idea in TCP/IP is that when we send some data, we break it into packets and then we send each one. And then we keep them until they get an acknowledgement（确认送达的回复） from the other side and then and only then do we throw them away. And at some point, if a packet gets lost It can be sent again, until it finally is acknowledged in the destination system.(预防传输过程出错而设置的机制，直到发送方确认发送完成才结束传输，若出现传输错误就重新发送，直到完全成功传输为止)It figures out which packets have or have not made it across the Internet layer.作为一个球迷，笔者将TCP理解为莫德里奇（IP）身边的卡塞米罗（TCP），帮助IP防守的同时和IP协作使得球队（network）的运转更加流畅和顺利。（这是笔者的自嗨，换成加图索和皮尔洛或者类似的谁和谁一样成立，看不懂请忽略 ^_^ ）the slow start algorithm at a high level。
+随着越来越多的计算机接入网络，网速变得很慢，许多数据包丢失。（是不是因为太长时间没有送达，上一周讲到的Time-to-live机制起作用了？）Van Jacobson对此的对策是：TCP congestion control.这个机制简单描述就是，控制进入网络的packet数量（有点类似北京n环限号出行以缓解堵车的既视感），当收到确认送达的acknowledgement的时候才向网络发送packet。但是这个机制有一个难点就是起步的时候发送方不知道现在的网络状况如何（因为发送第一个数据包的时候没有上一个数据包的acknowledgement）。所以van Jacobson设计了Slow Start Algorithm（慢启动算法），也就是在数据传输的初期以慢速发送。这样就能够防止网络堵塞。补充：不是只有收到上一个数据包的acknowledgement才发送下一个数据包（这样未免太慢了，顾此失彼），而是在发送开始的时候压低速度，后面在不影响网络速度的前提下逐步提高传输速度。Domain Name System(域名系统)：the visible name that we could switch the mapping from the name of the IP address transparently(可以从IP地址名称切换映射的可见名称),a big distributed data base(分布式数据系统).[使用更加便于人类记忆的命名方式代替IP地址，IP地址是从左往右就是从大到小，而域名系统相反，例如www.si.umich.edu这个域名，edu代表这个域名属于教育机构，umich代表了教育机构里面的密歇根大学，si代表的是密歇根大学的信息学院，www是服务器]the transport control protocol has a responsibility of compensating for the imperfections of the IP layerWEEK7Applicationclient application(客户端应用程序)server application（服务器应用程序）client app make request ,and server make response back.客户端发送请求，服务器返回响应内容。two basic problemwhich application gets the data:
+this is using a mechanism(机制) called ports(端口).ports allow a IP address or a single computer or a single server.端口依附于IP存在，类似于IP地址的分支路径。不同的端口对应不同的功能与服务。下图是我的电脑的部分端口信息application protocols(应用程序协议),在端口进行信息交换的规则。过程：click--&gt;request--&gt;response--&gt;displaybrowers(浏览器)：request the server application ,HTML comes back ,which discribe how this page document supposed to show.And show to user.HTTP：超文本传输协议，一种广泛使用的网络协议，一些网站前面加了“ http:// ”的意思就是该网站遵循HTTP协议If we know how to talk, if we know what port to talk to, and we know what protocol to talk to that port we can write a client that meets the needs of that server and extract the data.(如果我们知道如何通信，如果我们知道要与哪个端口通信，如果我们知道要与那个端口通信的协议，我们就可以编写一个满足服务器需求的客户机并提取数据。)Information that's sort of qualitatively the same as all naming or identity information, but it's spread randomly across the whole packet. (信息在质量上与所有命名或身份信息相同，但它在整个数据包中随机传播)WEEK8Hiding Data from OthersIt is does not exist of absolute security.Security is a cost benefit analysis(成本效益分析)security is naturally imperfect(安全是天生不完美的),世界上不存在绝对的安全，过度的安全会限制本身的各个活动，我们应该采用的是折衷方案。confidentiality(保密性),encryption(加密) and decryption(解密)
+plain text and ciphertext(纯文本和密文)：Encryption is the act of going from plain text to ciphertext.And returning the ciphertext back to the plain text is decryption.secret key
+symmetric key(对称密钥), which means that both parties have to be in possession of the same information,  basically use the same key material to encrypt as you do to decrypt.(双方必须拥有相同的信息,基本上使用与解密相同的密钥材料进行加密)the problem that secret key has, that led to the need to invent a public key, is the fact that you need to at some point have a secure communication.(密钥机制的问题在于需要有一个完全安全的方式进行解密方式的传输)shift(移位加密)：将文本的字母向上/向下移动n位(n=shift number,1 &lt; shift number &lt; 26)
+移位加密的破译方式很简单暴力，就是把1~25的shift number都使一次（很显然shift number为0或者26没有意义，shift number大于等于26可视为0~25的变种）rot13:常用的移位加密方法，但加密与解密方式相同，所以解密只需要再进行一次加密。public key
+it has a way of distributing the key in a using insecure medium.(公钥有一种方法在不安全介质中分发密钥)Insuring Data IntergrityCryptographic Hashing(哈希):map from a message to the hash（散列） or the digest（摘要）
+takes a large amount of text and reduces it down to some small set of numbers(将大量的文本缩小)hashing passwords(哈希密码):when creating a password,run a cryptographic hash on it, store the cryptographic hash.when log in next,just input the plain text to the system,and the system will run the presented password through the same cryptographic hash.
+hash cannot go backward.(哈希是单向的)，you can go from the frame text to the hash, but you can't go from the hash to the plain text, which is very different than encryption and decryption.(哈希与加密解密的最大不同就是哈希是不可逆的，无法通过散列还原文本),you need to run the plain text through the hash again and then comparethe system doesn't know what is the password, but it know what is not the password.哈希的方法广泛运用与密码的保存和确认识别中，如果运营商能够将密码以明文形式发送给用户，这个运营商的密码机制肯定是不安全的，因为黑客可以通过截获邮件获得密码。运营商应该保存的是密码的哈希值，但是因为哈希的不可逆性，运营商本身也无法知道真正的密码是多少，而用户下次登陆输入密码后将密码的明文进行哈希以后发送给运营商，运营商通过对比保存的密码哈希来确认身份。哈希还可以用于确认邮件是否被恶意篡改，方法为，在一段信息的后面加上一个特定的字符串，对整个文本进行哈希加密，然后将哈希的值的前几位加在文本后面。文本接收方把收到的文本后面加上特定字符串后进行哈希，如果文本被恶意篡改过，哈希值的前几位会不同WEEK 9Securing Web Connectionspublic key encryption(公钥加密)，it relies on two asymmetric keys(依赖于两个不对称的键).There is a public key, which is actually, does not need any protection whatsoever, and a private key(私钥).You generate the public key and the private key. You send out the public key, the public is used to do the encryption. And then private key is used to do the decryption. And they're related mathematically(在数学上是相关的)if you're going to use public private key encryption, you have to generate a pair.（公钥私钥必须成对存在）choose a random number really big--&gt;look around for a nearby prime number and you choose two of those(选择两个附近的质数)--&gt;multiply them--&gt;through some calculations, you compute the public and the private keys from that large number.破解公钥加密的难点在于，很难计算出一个很大的数是由哪两个也很大质数相乘得到的，而文件的接收方由于知道其中的一个质数，解密起来非常简单。Message was encrypt by application protocols(such as  HTTP).it stay encrypted all the way through the entire network.all of the sequencing and re-transmission that happens in the TCP layer(所有的排序和传输都发生在TCP层).The rest of the internet just move the data.Transport Layer Security(SSL、HTTPS):it's between the TCP layer and the application layer.Identity on the WebSecure Socket Layer, an public private key encryption.在TCP层和application层之间的SSL层是一个为安全提供保障的部分，为网络连接提供安全的网络接口。运用了SSL的超文本传输协议就是HTTPS。SSL后来进化为TLS。the certificate authority which is a trusted, third-party that signs these certificates(受信任的证书颁发机构，第三方签署了证书，以确认对话的对象是不是真正的服务器)
+
+</text><lastUpdated>2019-04-09 00:20</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/10393050.html</url><title>2019寒假训练营第三次作业part2 - 实验题 - 氧化氟碳 - 博客园</title><text>
+    热身题服务器正在运转着，也不知道这个技术可不可用，万一服务器被弄崩了，那损失可不小。
+所以, 决定在虚拟机上试验一下，不小心弄坏了也没关系。需要在的电脑上装上虚拟机和linux系统
+安装虚拟机(可参考Vmware、Virtual Box等)
+安装ubuntu系统(推荐安装16.04版本)
+写一个helloworld程序，在ubuntu系统上编译运行
+（你可能需要了解linux系统的终端和一些基本命令、文本编辑工具nano、如何编译代码、运行程序）1.安装虚拟机Vmware：在官网下载页面选择workstation pro，下载并安装。运行workstation pro节目如下2.安装Ubuntu系统
+安装系统，以及配置c、c++编译器主要参考了以下两篇博文：win10安装内置Ubuntu系统Windows10内置Ubutnu配置C/C++编译环境3.在VMware上创建Ubuntu虚拟机主要参考了Vmware虚拟机安装Ubuntu 16.04 LTS(长期支持)版本+VMware tools安装4.在Ubuntu系统上编译运行hello world程序先在桌面添加名为1.cpp的helloworld程序在Ubuntu系统上运行基本题了解新技术众多sketch的技术中，Count-min sketch 常用也并不复杂，但你可能需要稍微了解一点点散列的知识。从它入手不失为一个好选择，把它记录在你的技术博客上：1.简单描述什么是sketchsketch是基于哈希的数据结构，通过合理设置哈希函数（也称散列函数），在将数据进行哈希运算后（可能包含多次哈希运算，即多重哈希，目的是提高精确度），将具有相同哈希值的键值数据存入相同的特定区域内，以减少空间开销。将各个区域内的数据值作为测量结果，存在一定的误差，但可以使用各种方式减小误差。2.描述Count-min sketch的算法过程
+摘自维基百科：In computing, the count–min sketch (CM sketch) is a probabilistic data structure that serves as a frequency table of events in a stream of data. It uses hash functions to map events to frequencies, but unlike a hash table uses only sub-linear space, at the expense of overcounting some events due to collisions.（ 在计算中，count-min sketch（CM sketch）是一种概率数据结构，用作数据流中事件的频率表。它使用散列函数将事件映射到频率，但不像散列表仅使用子线性空间，代价是由于冲突导致一些事件过度计数。）目的：统计一个实时的数据流中元素出现的频率，并且准备随时回答某个元素出现的频率，不需要的精确的计数。技巧：因为储存所有元素的话太耗费内存空间，所有不存储所有的不同的元素，只存储它们Sketch的计数。实现大致过程：
+建立一个1~x的数组，作为储存计数的载体。对于一个新元素，哈希到0~x中的一个数x0，作为该元素的数组索引。查询元素出现频率时，返回元素对于数组索引中储存的数即可。实现新技术(30')大致了解了Count-min sketch，接下来就需要实现它了。本着不需要重复造轮子的思想，你上github一查，果然发现了相关代码。
+并不需要深刻理解代码，你只需要会用，你的目标是在虚拟机上跑通Count-min sketch：1.克隆一种版本（python或者c语言）的代码，大致了解如何使用这个代码，在ubuntu系统上编译。自己任意编写一个小测试，成功运行这个代码。通过pip安装countminsketch0.2在GitHub上找到了一个countminsketch项目因为代码比较久远，需要把xrange()函数更替为range()函数出现Unicode-objects must be encoded before hashing问题时，发现是update() 方法必须指定要指定编码格式，否则会报错。应在update（）内添加.encode("utf8")在网络上下载《飘》的英文版编写程序，统计文中的地名“tala”的出现次数运行成程序三次，结果分别为2.你也可以自己实现Count-min sketch。获取用户请求(15')现在需要获取用户的请求信息，其实请求就是网络传输的数据包，可以使用自己的网络环境来模拟服务器的请求,使用工具来捕获这个数据包：1.安装并使用抓包工具tcpdump2.输入tcpdump -n 获取数据包的信息在这部分中，因为Ubuntu的版本原因，卡了很久。最后改成Ubuntu16.04后才能顺利抓包。&gt;_&lt;本来是像抓100000条内容的，但因为种种原因，不得已中断了两次，最后只有80000多条3.使用linux 重定向的方法把该信息用文本文件存起来，文件命名为 pakcet_capture.txt。编写一个py程序，处理得到的数据得到的Request.txt测试新技术完事具备，只欠东风：用跑通的Count-min sketch程序读文件，获得最后的处理结果，请求大小超过阈值T认定为黑客，此处T自己定义。对于你所完成题目，把实现思路和实现结果记录在博客中，把代码提交到github的仓库上。
+稍微改造一下第二次作业中的代码，添加了count-min sketch算法
+地址得到的名单开放题(50')理论部分(25')
+解释为什么 sketch 可以省空间count-min sketch算法使用了hash函数，通过压缩映射，使得散列值的空间远远小于输入值的空间。用流程图描述Count-min sketch的算法过程拿它和你改进后方法进行对比，分析优劣优点：引入了count-min sketch后，很大程度上减小了空间占用和处理速度。缺点：
+可能是笔者不是很懂count-min sketch算法中m,d值的设置，抑或是算法本身的原因，得到的数据不甚准确，每次计算得到的值基本不同。但因为是针对大体量数据进行的计算，一些误差可以看淡甚至忽略不计。但若是对较少数据量的计算，误差则会严重影响精度（例如本文中给出的，对《飘》中地名的统计，难以得到较为准确的数据）吐槽Count-min sketch笔者在GitHub上找到的代码过于久远，py中的xrange()函数已经被弃用了，需要手动改成range()。readme文件有些地方说得晦涩难懂，花了一些功夫才搞懂怎么使用。实验部分(25')
+1.here--&gt;整合了两个步骤，减少了代码读写，由packet_capture直接得到结果改进中的问题：
+整合后代码的运算结果与原来的结果有出入，可能的原因是原算法的第一步筛选过程中错误筛除了一些内容。新程序出现了一些莫名其妙的数组越界错误，但检查后并未发现packet_capture.txt中有存在单行内容因为无空格以至于split()函数无法分割的问题。所以加了一个len(list())&gt;a绕开这个问题2.实时处理请求还未能实现，
+主要障碍有：
+是不懂得如何在程序中启动tcpdump进行抓包因为Ubuntu虚拟机上py配置出了一些问题，不得已将packet_capture.txt文件移动到win10下进行处理对这部分的一些想法：
+基本流程应该是：
+数据生成-&gt;实时采集-&gt;将数据保存在缓存中-&gt;实时计算-&gt;计算结果存储-&gt;被查询引入一些大数据处理框架。大数据处理系统可分为批式大数据和流式大数据两类。其中，批式大数据又被称为历史大数据，流式大数据又被称为实时大数据。流式大数据系统包括了：Spark Streaming、Storm、Flink等可否模仿CentOS与wireshark之间利用PIPE接口实现数据从虚拟机上实时拷贝到win系统中进行处理这篇文章中提到了关于python调用tcpdump的相关内容
+
+</text><lastUpdated>2019-02-18 00:03</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/13619620.html</url><title>2020软工第一次作业 - 氧化氟碳 - 博客园</title><text>
+    这个作业属于哪个课程软件工程2020秋这个作业要求在哪里第一次作业这个作业的目标自我介绍，和老师助教同学互相了解；初步熟悉git和博客平台学号031804103自我介绍我叫chz，来自福建泉州。喜欢足球和古典音乐，尤其是莫扎特和柴可夫斯基，好读书不求甚解。去年徒步爬过一次华山，体验是此后半年都没有爬山的欲望，在山顶等日出的时候想起射雕五绝爬完华山还能打五天五夜，怪不得我成不了武林高手。技能树和技术偏好技能树：
+比较经常用Python和Java；玩过Hadoop，所以也略懂一点Linux；懂一些Latex写作；跑过几个C++的DEMO；爬虫和机器学习的技能正在修炼；GitHub一些基本操作还算可以，高阶功能还不太熟悉；用markdown写过一些文档/笔记，比如：Holmze的数学建模笔记技术偏好：emmmm没有什么强烈的偏好（主要是也都需要现学），条件允许的话希望是后端。代码量没有统计过，大概3~4k？希望这学期之后能翻倍。希望获得什么&amp;希望担任的角色希望的收获
+首先当然是coding能力啦；丰富技能树，深度广度都可以；团队协作的能力，尤其是和其他程序员的交互；希望提高理解他人代码的能力；希望的角色：希望能负责一个需要合作并且可以锻炼能力的任务；或者做个组织调度的角色，很喜欢哈维阿隆索那种风格。缺少什么技能（虽然我觉得技能是一直缺乏的，怎么样都不够用）：
+写大型工程代码的能力和他人交互交流的能力快速阅读理解其他程序员代码的能力截图：cnblog markdown:GitHub page:
+
+</text><lastUpdated>2020-09-05 20:48</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/13681302.html</url><title>2020软工第二次作业 - 氧化氟碳 - 博客园</title><text>
+    这个作业属于哪个课程软件工程2020秋这个作业要求在哪里第二次作业（个人编程作业）这个作业的目标热身+练手，锻炼现学现用的能力学号031804103PSP表格PSP2.1Personal Software Process Stages预估耗时（分钟）实际耗时（分钟）Planning计划2015Estimate估计这个任务需要多少时间1010Development开发300420Analysis需求分析 (包括学习新技术)120150Design Spec生成设计文档6075Design Review设计复审3020Coding Standard代码规范 (为目前的开发制定合适的规范)3030Design具体设计6060Coding具体编码120120Code Review代码复审3030Test测试（自我测试，修改代码，提交修改）120150Reporting报告90120Test Report测试报告6060Size Measurement计算工作量2020Postmortem &amp; Process Improvement Plan事后总结, 并提出过程改进计划3025合计11001305解题思路初见说实话，这次出作业之前，我属实被隔壁K班的作业吓到了，所以第一眼看到这次作业我是往复杂的方向想的。第一次看题的时候比较仓促，下载了数据，大概看了知道是大数据统计题（作为大数据专业的，这次作业如此挣扎，惭愧...），以为要做的是GitHub各种commit变化情况，因为这个数据包含的信息实在是太多了。但是仔细看题后，发现其实关注的信息类型只有PushEvent、IssueCommentEvent、IssuesEvent、PullRequestEvent四种，这倒是很符合大数据5V特性（Volume、Variety、Value、Velocity、Veracity）里面的价值密度低。
+把题目完整读完以后，发现还有python的示例代码，对这次作业产生了一种：代码不难，主要是熟悉git、PSP、code style的感觉。后来证明我只对了一半，低估了代码难度。沉思这个小标题正好是我很喜欢的一个曲子，曾经苦练过几个月，也是我高三时期的起床铃声，顺便分享一个我最喜欢的版本：
+接下来主要是安排作业计划和思考解题思路，由于要参加数学建模，作业计划被安排到了作业截止周才开工，所以这次作业做的比较仓促的原因主要在于我低估了难度。idea one：Sketch大数据量的统计，首先想到了之前看过的一些paper，比如 An Improved Data Stream Summary:The Count-Min Sketch and Its Applications，用来做一些有损统计能很有效降低数据量和加速查询，还可以在精度和空间开销之间做权衡，我也实现/跑过几个类似的demo，所以想到这个idea我还是很兴奋的。
+但是后来再读了一遍题目并重读了paper以后，发现本题的主要问题在于大数据量的读取，处理后的数据本身就是比较小的，查询的优化空间也不大，最重要的是本题似乎不允许有损统计。idea two：Hadoop回到大数据统计的问题上，，想到了本题少次大量读入的特点，我就想到了之前玩过的HDFS（Hadoop Distance File System）和MapReduce。分布式的存储和计算对大数据量的处理任务还是很有效的，无奈并不很精通Hadoop，这个作业也不是简单的word count，测试平台有没有这种特殊的环境也是个问题。idea three：Python前两个idea被pass以后，似乎也想不到什么有创意的idea了，所以只好选择比较中规中矩的思路，一方面是自己比较熟悉py，另一方面是时间比较紧，就直接参考（xiu gai）样例代码了。
+看了看样例代码，发现已经是功能完整的版本了，只是没有注释，看起来比较费工夫。那问题就变成了，如何提速样例代码的速度设计实现过程额,其实不能说是设计实现过程，而是找漏洞&amp;加速的过程。下面涉及到的测试截图的数据量都是大概300MB。
+下面是大致的流程图前期准备涉及到了json的读写、命令行的解析，所以初步找了些资料学习一下json教程argparse教程分段测试时间，寻找瓶颈这个小部分的主要思路是大致把样例代码的初始化部分分块，分别测试耗时。稍微测试了一下样例代码，发现读取文件和处理文件耗时明显很高。所以接下来的主要优化工作在于这两部分的改良（mo gai）。处理数据在这部分发现了参考代码的一个破绽（不知道是不是故意的嗷），在阅读代码的过程中发现了这样两个函数：    def __parseDict(self, d: dict, prefix: str):
+        _d = {}
+        for k in d.keys():
+            if str(type(d[k]))[-6:-2] == 'dict':
+                _d.update(self.__parseDict(d[k], k))
+            else:
+                _k = f'{prefix}__{k}' if prefix != '' else k
+                _d[_k] = d[k]
+        return _d
+    def __listOfNestedDict2ListOfDict(self, a: list):
+        records = []
+        for d in a:
+            _d = self.__parseDict(d, '')
+            records.append(_d)
+        return records
+仔细阅读可以发现，这两个函数其实是嵌套的，相当于一个二重循环。其主要作用是把一个嵌套的字典传进来，返回一个整理过的非嵌套的字典，比较便于访问。但是这样做的代价是对于整个数据二重循环了一遍，应该是处理文件阶段的一个比较大的瓶颈，为了考证这个猜想，进一步对处理数据部分再次拆分测试时间。将处理数据进一步拆分为重构数据和统计数据阶段。可以看到，rebuild data的阶段占据了处理数据的绝大部分时间。
+其实这两个函数并不是必须的，完全可以在统计阶段直接访问嵌套字典，而不需要重构数据。对处理数据的代码进行修改，并free掉上述两个函数和调用这两个函数的语句，再次进行实验：速度提升很明显，把总用时缩短到了原来的一半，处理数据的耗时大幅缩短。读取文件读取文件部分没有发现什么大问题，所以就是提速的问题了。idea one：mmap久闻mmap大名，据说加速的效果很可观。于是找了个blog学习了一下。mmap参考blogmmap是一种内存映射文件的方法，即将一个文件或者其它对象映射到进程的地址空间，实现文件磁盘地址和进程虚拟地址空间中一段虚拟地址的一一对映关系。实现这样的映射关系后，进程就可以采用指针的方式读写操作这一段内存，而系统会自动回写脏页面到对应的文件磁盘上，即完成了对文件的操作而不必再调用read,write等系统调用函数。相反，内核空间对这段区域的修改也直接反映用户空间，从而可以实现不同进程间的文件共享。
+摸索了一段时候以后尝试着实现了一下，代替了读文件后的一些解析操作的操作，效果还不错，总时间大概缩短了1s。idea two：多线程在这之前，修改数据量都是直接批量复制多个文件，也就是目录下存在多个json文件，那么可不可以让他并行读取呢？之前在Java上做过多线程读取文件，所以也想把多线程用到读文件的部分去。这个idea其实很早就想到了，但是觉得不太好实现，事实上经过了一段曲折后，费了很大劲并没有多少提高，后来才知道python的多线程，并不是真正的并发。所以也就引出了下一个idea。idea three：多进程既然多线程不可以，那就试试多进程咯，这个总可以了吧。而且，这边并不知道有多少个文件，所以并不能用单纯的多进程，而需要进程池（multiprocessing pool）。这部分比多线程的实现更加曲折和费劲，最后代码也被我大量魔改，所以难以（lan de）复现多线程的代码和结果了。折腾了很久，重构了很多代码。这边为了解决线程调用函数返回的问题，干脆在线程中用写文件的形式保存结果，因为写文件的开销很小，进程池处理结束后再去文件读处理后的结果，这一步也顺便在写文件的过程中实现了前面提到了嵌套函数二重循环的功能，在写入循环中实现了相同功能。最后得到了一个比较理想的结果：代码说明读取文件，主要通过进程池调用def readFile(self, f, dict_address): 
+    json_list = []
+    if f[-5:] == '.json':
+        json_path = f
+        x = open(dict_address + '\\' + json_path, 'r', encoding='utf-8')
+        with mmap.mmap(x.fileno(), 0, access=mmap.ACCESS_READ) as m:
+            m.seek(0, 0)
+            obj = m.read()
+            obj = str(obj, encoding="utf-8")
+            str_list = [_x for _x in obj.split('\n') if len(_x) &gt; 0]
+            for _str in str_list:
+                try:
+                    json_list.append(json.loads(_str))
+                except:
+                    pass
+        self.saveJson(json_list, f)
+读文件后对进程的处理结果保存在文件中def saveJson(self, json_list, filename): 
+    batch_message = []
+    for item in json_list:
+        if item['type'] not in ["PushEvent", "IssueCommentEvent", \
+        "IssuesEvent", "PullRequestEvent"]:
+            continue
+        batch_message.append({'actor__login': item['actor']['login'],\
+         'type': item['type'], 'repo__name': item['repo']['name']})
+    with open('json_temp\\' + filename, 'w', encoding='utf-8') as F:
+        json.dump(batch_message, F)
+单元测试安装coverage：pip install coverage
+然后找了个测试教程
+测试了一下初始化函数覆盖率为64%，但是我在查看具体的报告时发现，覆盖率测试把进程池调用的函数模块认定为missing.....所以实际上的覆盖率要高一点。
+测试：代码规范my code style总结相当曲折和艰难的一次作业，时间比较赶，所以各方面都比较仓促和粗糙。不过也接触了很多之前没用过的工具，提高了我的专注程度，感觉就像延续了几天的建模比赛的节奏。之前的coding都没有代码规范的概念，也不会去关注性能（除了之前打oj）。总的来说收获还是蛮大的，过程中学到的东西和积累的快速学习能力都是宝贵财富。
+同时也深刻理解到了python的缺点：性能。虽然打起来很快很舒服，但是终究是比不过C++和Java的。
+
+</text><lastUpdated>2020-09-16 20:50</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/13772670.html</url><title>数据采集与融合技术第二次作业 - 氧化氟碳 - 博客园</title><text>
+    这个作业属于哪个课程数据采集与融合技术2020这个作业要求在哪里第二次作业学号031804103第一题要求在中国气象网给定城市集的7日天气预报，并保存在数据库。思路解析网站源码与架构用BeautifulSoup解析出所需的信息将数据保存在数据库（SQLite）codefrom bs4 import BeautifulSoup
+from bs4 import UnicodeDammit
+import urllib.request
+import sqlite3
+
+class WeatherDB: ##database
+
+    def openDB(self):
+        self.con=sqlite3.connect("weathers.db")
+        self.cursor=self.con.cursor()
+        try:
+            self.cursor.execute("create table weathers (wCity varchar(16),wDate varchar(16),wWeather varchar(64),wTemp varchar(32),constraint pk_weather primary key (wCity,wDate))")
+        except:
+            self.cursor.execute("delete from weathers")
+
+    def closeDB(self):
+        self.con.commit()
+        self.con.close()
+
+    def insert(self,city,date,weather,temp):
+        try:
+            self.cursor.execute("insert into weathers (wCity,wDate,wWeather,wTemp) values (?,?,?,?)" ,(city,date,weather,temp))
+        except Exception as err:
+            print(err)
+
+    def show(self):
+        self.cursor.execute("select * from weathers")
+        rows=self.cursor.fetchall()
+        print("%-16s%-16s%-32s%-16s" % ("city","date","weather","temp"))
+        for row in rows:
+            print("%-16s%-16s%-32s%-16s" % (row[0],row[1],row[2],row[3]))
+
+class WeatherForecast:
+    def __init__(self):
+        self.headers = {
+            "User-Agent": "Mozilla/5.0 (Windows; U; Windows NT 6.0 x64; en-US; rv:1.9pre) Gecko/2008072421 Minefield/3.0.2pre"}
+        self.cityCode={"北京":"101010100","上海":"101020100","广州":"101280101"} #城市编码
+
+    def forecastCity(self,city):
+        if city not in self.cityCode.keys():
+            print(city+" code cannot be found")
+            return
+        url="http://www.weather.com.cn/weather/"+self.cityCode[city]+".shtml"
+        try:
+            req=urllib.request.Request(url,headers=self.headers)
+            data=urllib.request.urlopen(req)
+            data=data.read()
+            dammit=UnicodeDammit(data,["utf-8","gbk"])
+            data=dammit.unicode_markup
+            soup=BeautifulSoup(data,"lxml")
+            lis=soup.select("ul[class='t clearfix'] li")
+            for li in lis:
+                try:
+                    date=li.select('h1')[0].text
+                    weather=li.select('p[class="wea"]')[0].text
+                    temp=li.select('p[class="tem"] span')[0].text+"/"+li.select('p[class="tem"] i')[0].text
+                    print(city,date,weather,temp)
+                    self.db.insert(city,date,weather,temp)
+                except Exception as err:
+                    print(err)
+        except Exception as err:
+            print(err)
+
+    def process(self,cities): ##传进城市列表
+        self.db=WeatherDB()
+        self.db.openDB()
+
+        for city in cities:
+            self.forecastCity(city)
+
+        #self.db.show()
+        self.db.closeDB()
+
+ws=WeatherForecast()
+ws.process(["北京","上海","广州"])
+# print("completed")
+运行结果心得体会第一次用与CSS有关的爬取解析、选择所需要的数据，而不再局限于HTML第二题要求用requests和BeautifulSoup库方法定向爬取股票相关信息。
+候选网站：东方财富网、​新浪股票思路选择东方财富网网页的HTML不能直接得到所需数据，而且数据是不断更新的考虑截获页面的请求数据，即刷新网站时向服务器发起的JSON文件请求查找以后发现JSON文件请求大概是这样开头的URL：http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQueryxxxxxxxxxxxx......翻页只需要改变json请求URL中的一个数值即可实现，为了减轻PC压力，只爬取前五页的数据得到JSON后用正则表达式匹配得到数据codeimport re
+import requests
+
+url_head = 'http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&amp;pn='
+url_tail = '&amp;pz=20&amp;po=1&amp;np=1&amp;ut=bd1d9ddb04089700cf9c27f6f7426281&amp;fltt=2&amp;invt=2&amp;fid=f3&amp;fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&amp;fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&amp;_=1601446076157'
+
+def get_stock(url,count):
+    json_page = requests.get(url).content.decode(encoding='utf-8')
+    # json_page = json_page.read()
+    pat = "\"diff\":\[\{.*\}\]"
+    table = re.compile(pat,re.S).findall(json_page)
+    pat = "\},\{"
+    stocks = re.split(pat,table[0])
+    # count = 1
+    for stock in stocks:
+        # print(stock)
+        pat = ","
+        infs = re.split(pat,stock)
+        # print(infs[13])
+        pat = ":"
+        name = re.split(pat,infs[13])
+        money = re.split(pat,infs[1])
+        num = re.split(pat,infs[11])
+        Quote_change = re.split(pat,infs[2])  # 涨跌幅
+        Ups_and_downs = re.split(pat,infs[3])  # 涨跌额
+        Volume = re.split(pat,infs[4])  #成交量
+        Turnover = re.split(pat,infs[5])  #成交额
+        Increase = re.split(pat,infs[6])  #涨幅
+        # print(count,num[1],name[1],money[1],Quote_change[1]+"%",Ups_and_downs[1]+"￥",str(Volume[1])+"手",Turnover[1]+"￥",Increase[1]+"%")
+        print('%-8s %-10s %-10s %10s %10s %15s %15s %18s %12s'%(count,num[1],name[1],money[1],Quote_change[1],Ups_and_downs[1],Volume[1],Turnover[1],Increase[1]))
+        count += 1
+    return count
+
+print('%-8s %-6s %-8s %10s %10s %12s %10s %10s %12s'%('序号','代码','名称','最新价','涨跌幅(%)','跌涨额(￥)','成交量(手)','成交额(￥)','涨幅(%)'))
+count = 1
+for i in range(1,6):
+    count = get_stock(url_head+str(i)+url_tail,count)
+运行结果心得体会第一次遇到需要查找页面向服务器发起请求url才能得到数据的情况,强化了自己使用正则表达式的熟练程度第三题要求根据自选3位数+学号后3位选取股票，获取印股票信息。抓包方法同作问题二思路学号结尾是103,搜了一下能匹配的并不多,故选择了横店影视(603103)与第二题的解析思路差不多,只是所需要的信息位置比较难找codeimport re
+import requests
+url = 'http://push2.eastmoney.com/api/qt/stock/get?ut=fa5fd1943c7b386f172d6893dbfba10b&amp;invt=2&amp;fltt=2&amp;fields=f43,f57,f58,f169,f170,f46,f44,f51,f168,f47,f164,f163,f116,f60,f45,f52,f50,f48,f167,f117,f71,f161,f49,f530,f135,f136,f137,f138,f139,f141,f142,f144,f145,f147,f148,f140,f143,f146,f149,f55,f62,f162,f92,f173,f104,f105,f84,f85,f183,f184,f185,f186,f187,f188,f189,f190,f191,f192,f107,f111,f86,f177,f78,f110,f262,f263,f264,f267,f268,f250,f251,f252,f253,f254,f255,f256,f257,f258,f266,f269,f270,f271,f273,f274,f275,f127,f199,f128,f193,f196,f194,f195,f197,f80,f280,f281,f282,f284,f285,f286,f287,f292&amp;secid=1.603103&amp;cb=jQuery112409262947646562985_1601451983153&amp;_=1601451983154'
+json_page = requests.get(url).content.decode(encoding='utf-8')
+pat = "\"data\":{.*}"
+table = re.compile(pat,re.S).findall(json_page)
+pat = ","
+infs = re.split(pat,table[0])
+pat = ':'
+print("代码:"+str(re.split(pat,infs[11])[1]))
+print("名称:"+str(re.split(pat,infs[12])[1]))
+print("今开:"+str(re.split(pat,infs[3])[1]))
+print("最高:"+str(re.split(pat,infs[1])[1]))
+print("涨停:"+str(re.split(pat,infs[8])[1]))
+print("换手:"+str(re.split(pat,infs[54])[1]+"%"))
+print("成交量:"+str(re.split(pat,infs[4])[1]+"万手"))
+运行结果心得体会单个页面的请求相对更加难找信息,因为涉及到的requests太多,寻找JSON对应的URL也花了一些时间,但总体上和第二题没有太大区别.
+
+</text><lastUpdated>2020-10-08 00:26</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/10393098.html</url><title>2019寒假训练营第三次作业part1-网络空间安全概论第五章 - 氧化氟碳 - 博客园</title><text>
+    第五章 网络攻防技术5.1 网路信息收集技术--网络踩点黑客入侵系统之前，需要了解目标系统可能存在的：
+管理上的安全缺陷和漏洞网络协议安全缺陷与漏洞系统安全缺陷与漏洞黑客实施入侵过程中，需要掌握：
+目标网络的内部拓扑结构目标系统与外部网络的连接方式与链路路径防火墙的端口过滤与访问控制配置使用的身份认证与访问控制机制网络踩点：
+通过有计划的信息收集，了解攻击目标的隐私信息、网络环境和信息安全状况根据踩点结果，攻击者寻找出攻击目标可能存在的薄弱环节，为进一步的攻击提供指引网络踩点常用手段
+Google Hacking
+通过网络搜索引擎查找特点安全漏洞或是私密信息常用的搜索引擎：www.ZoomEye.orgwww.google.comwww.altavista.comwww.dogpile.comGoogle Hacking客户端软件：Athena,Wikto,SiteDigger能否利用搜索引擎在WEB中找到所需信息，关键在于能否合理提取搜索关键字防范Google Hacking将敏感信息从公共媒体上删除发现存在非预期泄露的敏感信息后，应采取行动进行清楚发表信息时，尽量不要出现真实个人信息做为网络管理者，不要轻易在讨论组或技术论坛发布求助技术贴，防止将单位内部网络拓扑结构或路由器配置泄露给他人关注中国国家漏洞库CNNVD等安全漏洞信息库发布的技术信息，及时更新软件或操作系统补丁WhoIs查询
+DNS注册信息WhoIs查询：查询特定域名的3R详细注册信息
+3R:
+已注册域名的注册人（Registrant）信息，包括域名登记人信息、联系方式、域名注册时间和更新时间、权威DNS IP地址等。注册商（Registrar）信息官方注册局（Registry）信息官方注册局一般会提供注册商和Referral URL信息，具体注册信息则位于注册商数据库中DNS WhoIs查询思路
+ICANN：因特网技术协调机构，负责协调以下因特网标识符的分配工作：
+域名、IP地址、网络通信协议的参数指标和端口号位于DNS/IP层次化管理结构的顶层，因此是手动WHOIS查询的最佳入口点一般思路
+在www.iana.org 得到某个提供whois查询服务的机构进一步查询域名注册商在域名注册商上查询注册信息IP WhoIs查询：查询特定的IP地址的详细注册信息
+ICANN的地址管理组织ASO总体负责IP地址分配工作具体IP网段分配记录和注册者信息都储存于各个洲际互联网管理局RIR的数据库中有时需要到国家/地区互联网注册局NIR（中国为CNNIC）或ISP查询更细致信息查询过程
+ARIN的Whois Web服务，告知这段IP由AONIC管辖APNIC的Whois Web服务，给出该网段其他详细信息whois查询安全防范
+及时更新管理性事务联系人的信息尝试使用虚拟的人名来作为管理性事务联系人使用域名注册商提供的私密注册服务，确保敏感信息不被公开DNS查询
+DNS：一个提供域名到IP地址的映射或者将IP地址映射成域名的分布式数据库系统DNS区域传送：
+辅助DNS服务器使用来自主服务器的数据刷新自己的ZONE数据库为运行中的DNS服务提供一定的冗余度，防止因主服务器故障而导致域名解析器服务不可用DNS区域传送一般仅限于辅助DNS服务器才能向主服务器发起请求DNS服务：允许不受信任的因特网用户执行DNS区域传送请求，是严重的配置错误
+在错误配置时DNS服务器会接受任何一个主机的DNS区域传送请求如果没有使用公用/私用DNS机制分割外部公用DNS信息和内部私用DNS信息，任何攻击者都可以得到机构的所有内部主机和IP地址解决方案：对外的DNS服务器配置为禁止DNS区域传送，且该服务器不能包含内部网络相关主机的敏感信息
+5.2网路信息收集技术--网络扫描网络扫描：攻击者通过扫描技术找到目标可能的入侵漏洞类型主机扫描：向目标系统发出特定的数据包，并分析目标系统返回的相应结果的行为
+使用ICMP协议常见扫描技术
+ICMP Ping扫描端口扫描防范
+使用例如Snort入侵扫描检测系统，或者McAfee桌面防火墙工具，来检测主机扫描活动根据业务要求，仔细考虑允许哪些类型的ICMP通信进入网络
+使用访问控制列表机制ACL只允许制定的ICMP数据包到达特定主机端口扫描：攻击者通过连接到目标系统的TCP/UDP端口，已确定有哪些服务正处于监听状态
+常见端口扫描技术
+TCP端口扫描TCP SYN扫描TCP FIN扫描TCP圣诞树扫描TCP空扫描TCP ACK扫描TCP窗口扫描TCP RPC扫描UDP扫描防范措施
+端口扫描监测
+网络入侵系统如Snort端口扫描的预防
+开启防火墙禁用所有不必要的服务类UNIX:/etc/inetd.conf文件中注释掉不必要的服务，修改系统、使用脚本，禁用此类服务win32：在“控制面板/服务”中关闭服务操作系统/网络服务辨识
+操作系统类型探测技术：TCP/IP协议栈指纹分析
+不同的操作系统在实现TCP/IP协议栈时都存在着差异RFC中没有对TCP/IP协议实现给予精确的定义不同的操作系统产生商，在实现TCP/IP协议栈时，也没有完全按照RFC所定义的标准来实现不同的网络服务在实现应用层协议时也存在差异防范措施
+使用端口扫描检测工具，发现对操作系统的探查活动部署安全的防火墙以保护目标主机漏洞扫描
+安全漏洞：通常指硬件、软件或策略上存在的安全缺陷，利用这些安全缺陷，攻击者能够在未授权的情况下访问、控制、甚至破坏目标系统目的：探测目标网络的特定操作系统、网络服务、应用程序中是否存在已公布安全漏洞防范措施
+在黑客之前扫描漏洞补丁自动更新和分发，修补漏洞保证所安装软件的来源安全开启操作系统和应用软件的自动更新机制
+5.3网路信息收集技术--网络查点查点：对选择好的攻击目标，发起主动的连接和查询，针对性的收集发起实际攻击所需的具体信息内容网络服务旗标抓取：利用客户端工具连接至远程网络服务并观察输出以搜集关键信息的技术手段
+通用网络服务查点
+通用网络服务Windows平台网络服务查点：利用Windows平台特有的网络服务协议
+NETBIOS名字服务查询SMB会话查询目录查询MSRPC查点防范措施：
+关闭不必要的服务及窗口关闭打印与共享服务（SMB）不要让主机名暴露使用者身份关闭不必要共享，特别是可写共享关闭默认共享限制IPC$默认共享的匿名空连接等
+5.4Windows系统渗透基础控制注入攻击：现代计算机系统遵循冯诺依曼体系结构，没有在内存中严格区分计算机程序的数据和指令，使得程序外部的指令数据有可能被当作指令代码执行。攻击者目标：劫持应用程序控制流来执行目标系统上的任意代码，最终达到远程控制目标系统的目的劫持攻击技术：
+缓冲区溢出：
+栈溢出
+利用方式：符改函数返回地址堆溢出格式化字符串漏洞整数溢出指针释放后再次被使用Windows系统主要的网络服务程序：NetBIOS网络服务SMB网络服务MSRPC网络服务RDP远程桌面服务远程渗透Windows系统的途径缓冲区溢出攻击认证欺骗客户端软件漏洞利用设备驱动漏洞利用针对系统渗透攻击的常见防范措施及时更新应用软件、操作系统、硬件设备驱动程序的安全补丁禁用不必要的网络服务使用防火墙来限制可能存在漏洞的服务的访问强制用户使用强口令，并定期更换口令审计与日治使用扫描软件主动发现系统是否存在已知安全漏洞，安装入侵检测/防御系统客户端应用程序尽量使用受限权限，而非管理员或同等级权限的用户登录因特网运行并及时更新防病毒软件禁用以受攻击的硬件设备
+5.5Internet协议安全问题终端设备、路由器以及其他因特网连接设备，都要运行一系列协议，这些协议控制因特网中信息的接受和发送，因特网的主要协议成为TCP/IP协议网络安全五大属性（CIA)机密性完整性可用性真实性不可抵赖性网络攻击基本模式被动威胁
+截获（窃听）（破坏机密性）
+嗅探监听主动威胁
+篡改（破坏完整性）
+数据包篡改中断（破坏可用性）
+拒绝服务伪造（破坏真实性）
+欺骗因特网协议栈层次结构网络层基础协议：IP协议、ARP地址协议解析协议、BGP边界网关协议等动态路由协议IP源地址欺骗攻击：路由器只根据目标IP地址进行路由转发，不对源IP地址做验证，常被利用于发起匿名Dos攻击传输层协议：UDP和TCP协议基于TCP协议安全缺陷引发的TCP RST攻击（伪造TCP重置报文攻击）TCP会话劫持攻击应用层协议：目前流行的应用层协议如HTTP、FTP、SMTP/POP3、DNS等均缺乏合理的身份验证机制，加上大多采用铭文传输通信数据，因此普遍存在被嗅探、欺骗、中间人攻击等风险。DNS协议    - 拒绝式服务攻击（DoS）：用超出目标处理能力的海量数据包消耗可用系统资源、宽带资源等，或造成程序缓冲区溢出错误，导致其无法处理合法用户的正常请求，最终致使网络服务瘫痪，甚至系统死机。
+        - 弱点攻击
+        - 洪泛攻击
+TCP/IP网络协议栈攻击防范措施
+网络接口层，检测和防御网络威胁，对网关路由器等关键网络节点设备进行安全防护，优化网络结构，增强链路层加密强度网络层，采用多种过滤和检测技术来发现和阻断网络中欺骗攻击，增强防火墙、路由器和网关设备的安全策略，关键服务器使用静态绑定IP-MAC映射表、使用IPsec协议加密通讯等预防机制传输层加密传输和安全控制机制，包括身份认证和访问应用层加密，用户级身份认证，数字签名技术，授权和访问控制技术以及审计、入侵检测5.6基本的web安全跨站脚本攻击（XSS)：攻击者利用网页开发时留下的漏洞，通过巧妙的方式注入恶意代码到网页，使用户加载网页时会运行攻击者恶意制造的代码，脚本可以是JavaScript、VBSvript、ActiveX、Flash、HTML。攻击成功后，攻击者会得到敏感信息，以获取更高用户权限，以被攻击者身份执行操作
+反射型XSS- 储存型XSS
+- DOM-XSS
+- 防范XSS攻击
+    - 在浏览器设置中关闭JavaScript，关闭cookie或设置为为只读，提高浏览器的安全等级设置，尽量使用非IE的安全浏览器来降低风险
+    - 只信任值得信任的站点或内容，不要轻易点击不明链接
+SQL注入：利用web应用程序输入验证不完善的漏洞，将一段精心构造的SQL命令注入到后台数据库引擎执行
+SQL注入的危害数据库中的用户隐私信息被泄露对特定网页进行篡改通过修改数据库一些字段的值，嵌入木马链接，进行挂马攻击数据库的系统管理员账户被修改服务器被黑客安装后门进行远程控制破坏硬盘数据，瘫痪全系统SQL注入的主要原因是web应用程序没有对用户输入进行严格的转义字符过滤和类型检查防范：
+使用类型安全的参数编码机制对来自程序外部的用户输入，必须进行完备检查将动态SQL语句替换为存储过程，预编译SQL或ADO命令对象加强SQL数据库服务器的配置与连接，以最小权限配置原则配置web应用程序连接数据库的操作权限，避免将敏感数据明文存放于数据库中跨站请求伪造（CSRF)csrf实际上是利用了web身份验证的漏洞：基于cookies的身份验证只能保证请求发自用户的浏览器，却不能保证请求时用户自愿发出的- 对CSRF攻击的防御
+    - 服务端
+    - 客户端
+    - 设备端
+- 预防措施
+    - 不要点击未知的链接或图片
+    - 及时退出已登录账户
+    - 为计算机系统安装安全防护软件，及时更新特征库和软件升级
+    - 安装浏览器插件扩展防护
+5.7社会工程学攻击攻击形式
+信息收集心理诱导身份伪造施加影响希望获得的信息
+可能直接导致攻击对象的财产或身份被盗能力也这些信息获取目标组织的薄弱环节向攻击目标发动更有针对性的攻击防范
+了解熟悉社会工程学诈骗对自己的基础信息保持足够的警惕不要通过不安全的方式透露个人、家庭、公司一些看似无关紧要的信息涉及敏感信息，务必核实对方身份使用防火墙保护个人电脑，同时提高垃圾邮件过滤器的门槛!
+
+</text><lastUpdated>2019-02-17 23:17</lastUpdated></item>
+</items><?xml version="1.0" encoding="utf-8"?>
+<items>
+<item><url>https://www.cnblogs.com/holmze/p/13797920.html</url><title>2020软工第四次作业（结对编程第二次作业） </title><text>
+    第二次结对作业1.Information这个作业属于哪个课程软件工程2020秋这个作业要求在哪里第四次作业（结对编程第二次作业）这个作业的目标锻炼协作能力，实现部分功能学号031804103 、 051806129GitHub address031804103&amp;0518061292.分工陈翰泽：代码review、测试、撰写博客、GitHub管理与维护谢润锋：设计、编码实现3.PSPPSPPair programming Process Stages预估耗时（分钟）实际耗时（分钟）Planning计划1515Estimate估计这个任务需要多少时间1010Development开发300270Analysis需求分析 (包括学习新技术)3025Design Spec生成设计文档3045Design Review设计复审2025Coding Standard代码规范 (为目前的开发制定合适的规范)1010Design具体设计120150Coding具体编码180240Code Review代码复审4545Test测试（自我测试，修改代码，提交修改）3045Reporting报告00Test Report测试报告3030Size Measurement计算工作量2020Postmortem &amp; Process Improvement Plan事后总结, 并提出过程改进计划2020合计8609404.解题思路与设计实现4.1 实现思路使用HTML+JavaScript+CSS创建一个网页，在文本框接收特定格式的输入信息（具体的输入格式见GitHub README或 6.2部分），在后台解析数据为json格式，提取关键词后形成节点，从根节点开始建立学术家族树。4.2 流程图4.3 关键部分实现4.3.1 调用d3框架我们使用了d3框架，使用的时候需要联网。&lt;head&gt;&lt;script type="text/javascript" src="http://d3js.org/d3.v3.min.js"&gt;&lt;/script&gt;&lt;/head&gt;
+4.3.2 接收数据文本域textarea用于接收输入数据。&lt;p style="text-align:center"&gt;
+    &lt;textarea cols="60" rows="10" id="text"&gt;&lt;/textarea&gt;
+&lt;/p&gt;
+4.3.3 解析数据我们在输入格式中规定，将输入分为：人际关系树、个人技能、职场经历三部分，每部分之间以空行分隔，且只能有一个空行，输入结束至少有一个空行，所以我们按照空行分割输入数据，然后按照关键字提取节点以及节点信息和关系。var content = document.all.text.value;
+var edge = new Map;
+var keyword = ["导师：","级硕士生：","级本科生：","级博士生："];
+var seen_s_w = new Map;
+var farther_flag = new Map;
+var seen = [];
+split_idx = [];
+var farther = new Map;
+
+// input data process
+arr_str = content.split("\n");
+var idx1;
+var idx2;
+var idx3;
+
+for (var idx = 0 ; idx &lt; arr_str.length ; idx ++ )
+{
+    if (arr_str[idx] == "")
+    {
+        split_idx.push(idx);
+    }
+}
+
+// get teacher and student relation
+for (idx1 = 0 ; idx1 &lt; split_idx[0] ; ) // layer 1
+{
+    idx2 = split_idx[0];
+    // get teacher
+    var layer1_term = arr_str[idx1].split("：");
+    var tutor_name = layer1_term[1];
+    edge[tutor_name] = [];
+    seen.push(tutor_name);
+    for (idx3 = idx1 + 1 ; idx3 &lt; idx2 ; idx3 ++)
+    {
+        var layer1_item = arr_str[idx3].split("：");
+        var layer1_node = layer1_item[0] + tutor_name;
+        farther[layer1_item[0]] = tutor_name;
+        edge[tutor_name].push(layer1_node);
+        edge[layer1_node] = [];
+        farther_flag[layer1_node] = 1;
+        seen.push(layer1_node);
+        var student = layer1_item[1].split("、");
+        for (var stu of student)
+        {
+            farther[stu] = layer1_node;
+            stu = stu + layer1_node;
+            farther[stu] = layer1_node;
+            edge[layer1_node].push(stu);
+            farther_flag[stu] = 1;
+            seen.push(stu);
+        }
+    }
+    idx1 = idx2 + 1;
+}
+//console.log(farther);
+if (split_idx.length &gt;= 2)
+{
+    for (idx3 = idx1 ; idx3 &lt; split_idx[1] ; idx3 ++)
+    {
+        var layer2_item = arr_str[idx3].split("：");
+        var current_f = farther[layer2_item[0]];
+        var layer2_node = layer2_item[0] + current_f;
+        edge[layer2_node] = [];
+        farther_flag[layer2_node] = 1;
+        seen.push(layer2_node);
+        var skill_or_work = layer2_item[1].split("、");
+        for (var sw of skill_or_work)
+        {
+            edge[layer2_node].push(sw);
+            farther_flag[sw] = 1;
+            seen.push(sw);
+            seen_s_w[sw] = 1;
+        }
+    }
+}
+//		console.log(edge);
+if (split_idx.length == 3)
+{
+    for (idx3 = split_idx[1] + 1 ; idx3 &lt; split_idx[2] ; idx3 ++)
+    {
+        var layer3_item = arr_str[idx3].split("：");
+        var current_f = farther[layer3_item[0]];
+        var layer3_node = layer3_item[0] + current_f;
+        edge[layer3_node] = [];
+        farther_flag[layer3_node] = 1;
+        seen.push(layer3_node);
+        var work = layer3_item[1].split("、");
+        for (var w of work)
+        {
+            edge[layer3_node].push(w);
+            farther_flag[w] = 1;
+            seen.push(w);
+            seen_s_w[w] = 1;
+        }
+    }
+}
+// find root node
+for (var val of seen)
+{
+    if (farther_flag[val] == null)
+    {
+        var root_name = val;
+    }
+}
+//console.log(root_name);
+4.3.4 DFS算法我们在处理完输入数据后，使用DFS（Depth First Search）算法按照输入格式代表的节点关系构建json树。function dfs(n,f) // construct object
+{
+    console.log(n,f);
+    var obj;
+    obj = {};
+    obj.name = n;
+    obj.children = [];
+    var item_list = edge[n];
+    if (item_list == null)
+    {
+        //console.log(n);
+        if (seen_s_w.hasOwnProperty(n) == false)
+        obj.name = n.substring(0,n.indexOf(f));
+        return obj;
+    }
+    for (var i = 0 ; i &lt; item_list.length ; i ++)
+    {
+        obj.children.push(dfs(item_list[i],n));
+    }
+    if (n.indexOf(f) != -1) // no farther
+    {
+        var c = n.substring(0,n.indexOf(f));
+        obj.name = c;
+    }
+    return obj;
+}
+5.附加特点设计与展示5.1 学术家族树的缩放与拖动功能// Transition nodes to their new position.节点过渡过程中的过渡效果
+//为图形添加过渡动画
+var nodeUpdate = node.transition()  //开始一个动画过渡
+    .duration(duration)  //过渡延迟时间,此处主要设置的是圆圈节点随斜线的过渡延迟
+    .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });//YES
+// Transition exiting nodes to the parent's new position.过渡现有的节点到父母的新位置。
+//最后处理消失的数据，添加消失动画
+var nodeExit = node.exit().transition()
+    .duration(duration)
+    .attr("transform", function(d) { return "translate(" + source.x + "," + source.y + ")"; })//YES
+    .remove();
+
+// Update the links…线操作相关
+//再处理连线集合
+var link = svg.selectAll("path.link")
+    .data(links, function(d) { return d.target.id; });
+// Enter any new links at the parent's previous position.
+//添加新的连线
+link.enter().insert("path", "g")
+    .attr("class", "link")
+    .attr("d", function(d) {
+        var o = {y: source.x0, x: source.y0};//YES
+        return diagonal({source: o, target: o});  //diagonal - 生成一个二维贝塞尔连接器, 用于节点连接图.
+    })
+    .attr('marker-end', 'url(#arrow)');
+// Transition links to their new position.将斜线过渡到新的位置
+//保留的连线添加过渡动画
+link.transition()
+    .duration(duration)
+    .attr("d", diagonal);
+// Transition exiting nodes to the parent's new position.过渡现有的斜线到父母的新位置。
+//消失的连线添加过渡动画
+link.exit().transition()
+    .duration(duration)
+    .attr("d", function(d) {
+        var o = {x: source.x, y: source.y};//NO
+        return diagonal({source: o, target: o});
+    })
+    .remove();
+// Stash the old positions for transition.将旧的斜线过渡效果隐藏
+nodes.forEach(function(d) {
+    d.x0 = d.y;
+    d.y0 = d.x;
+});
+}
+5.2 学术家族树节点的折叠功能//定义一个将某节点折叠的函数
+// Toggle children on click.切换子节点事件
+function click(d) {
+if (d.children) {
+    d._children = d.children;
+    d.children = null;
+} else {
+    d.children = d._children;
+    d._children = null;
+}
+update(d);
+}
+6.目录说明和使用说明6.1 目录说明title部分保存页面标题，即显示在浏览器标签上的标题style保存页面设计设计风格信息在head部分调用d3框架在body构建页面的具体部件以及部件信息
+body.spript中放置JavaScript代码作为后台运行代码6.2 使用说明step1首先使用chrome浏览器打开web.html文件step2按照输入格式在文本框输入文本，输入部分主要是：师生关系技能工作每个部分之间需用一个换行符分开，如果输入结束就在末尾加一个回车加以表示。支持的数据输入组合为：师生关系，师生关系+技能，师生关系+工作，师生关系+技能+工作，
+例如：导师：张三
+2016级博士生：天一、王二、吴五
+2015级硕士生：李四、王五、许六
+2016级硕士生：刘一、李二、李三
+2017级本科生：刘六、琪七、司四
+
+刘六：JAVA、数学建模
+李四：PYTHON、VUE
+
+李二：字节跳动、京东云
+刘一：阿里
+
+输入完毕后点击下方的提交键。step3在提交键下方出现学术家族树，并支持用鼠标的滚轮缩放以及鼠标拖动家族树，点击节点可以折叠此节点的所有子节点。7.mocha测试使用macha测试框架，使用教程--&gt;测试框架Mocha实例教程-阮一峰
+首先下载安装node.js in here，然后通过NPM安装mocha库和chai：npm install --g mocha
+npm install --g chai
+接下来编写测试程序，测试将输入文本处理为json文件的函数，编写五个样例进行测试。var get_json = require('./web.js').get_json;
+var expect = require('chai').expect;
+var str=`导师：张三
+2016级博士生：天一、王二、吴五
+2015级硕士生：李四、王五、许六
+2016级硕士生：刘一、李二、李三
+2017级本科生：刘六、琪七、司四
+
+刘六：JAVA、数学建模
+
+李二：字节跳动、京东云
+`;
+var ans='{"name":"张三","children":[{"name":"2016级博士生","children":[{"name":"天一","children":[]},{"name":"王二","children":[]},{"name":"吴五","children":[]}]},{"name":"2015级硕士生","children":[{"name":"李四","children":[]},{"name":"王五","children":[]},{"name":"许六","children":[]}]},{"name":"2016级硕士生","children":[{"name":"刘一","children":[]},{"name":"李二","children":[{"name":"字节跳动","children":[]},{"name":"京东云","children":[]}]},{"name":"李三","children":[]}]},{"name":"2017级本科生","children":[{"name":"刘六","children":[{"name":"JAVA","children":[]},{"name":"数学建模","children":[]}]},{"name":"琪七","children":[]},{"name":"司四","children":[]}]}]}';
+describe('测试数据处理函数', function() {
+    it('生成的字符串应该等于ans', function() {
+    expect(get_json(str)).to.be.equal(ans);
+    });
+});
+此处同时测试五个样例，更多mocha测试样例以及测试说明请看===&gt;README.md8.GitHub记录9.遇到的代码模块异常或结对困难及解决方法1 对输入数据的处理（一开始不能处理多行数据）原因：因为变量名和循环层数太多，所以在处理过程中搞混了变量名。（如前几版代码）因为目的是找出当前节点的父亲节点，所以解决方法是通过哈希表，省去了一顿变量和好多层循环，代码简洁许多。2 Json对象的建立（dfs过程中遇到的问题）一开始最后一层无法搜索到，发现原因是父亲节点没有存储好。解决方法依旧通过hash表存储父亲，然后直接访问，成功解决问题。建树过程主要是通过百度查找前辈们做过的精美树形结构然后进行综合起来参考。10.评价你的队友（商业互吹）陈翰泽：谢大佬思路清晰，执行能力强，交流能力出色。
+队友值得学习的地方：清晰且宽广的思路，以及高效的执行编码能力。队友需要改进的地方：变量名和函数名的设置有待提高，或者说是我跟不上大佬的思维吧。谢润锋：翰泽巨佬写博客小能手，github6的一匹，沟通积极并且及时。
+队友值得学习的地方：他写博客的技巧很多表述也很清晰，并且有很高的GitHub的熟练度，需要我认真学习。队友需要改进的地方：因为我们分工明确，并且出现问题能够及时互通，所以这次任务完成的较为顺利，没有较大的缺陷，只是阅读代码的能力有待提高。
+
+</text><lastUpdated>2020-10-11 22:19</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/13745347.html</url><title>2020数据采集与融合技术第一次作业 </title><text>
+    数据采集与融合技术第一次作业第一题题目要求：用requests和BeautifulSoup库方法定向爬取给定网址的数据，屏幕打印爬取的大学排名信息。解答主要就是BS的基本使用code:import requests,bs4
+url = "http://www.shanghairanking.cn/rankings/bcur/2020"
+soup = bs4.BeautifulSoup(requests.get(url).content.decode(),"html.parser")
+information = []
+for child in soup.find("tbody").children:
+    res = child.find_all("td")
+    information.append([res[0].text.strip() + "    " + res[1].text.strip() + "    " + res[2].text.strip() + "    " +
+                        res[3].text.strip() + "    " + res[4].text.strip()])
+print("排名  学校名称  省份  学校类型  总分")
+for info in information:
+    print(info)
+result第二题题目要求：用requests和re库方法设计某个商城（自已选择）商品比价定向爬虫，爬取该商城，以关键词“书包”搜索页面的数据，爬取商品名称和价格。解答选择京东商城，爬书包太没劲了，故选择关键词为“RTX3080”。code## 并不完善的一份代码，暂时不支持中文搜索
+
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+import re
+
+print("please input:")
+item = input()
+url = 'https://search.jd.com/Search?keyword='+item ##这玩意好像每天都在变
+html = urlopen(url)
+bs = BeautifulSoup(html,'html.parser')
+goods = bs.find_all("li",{"data-sku":re.compile("\d+")})
+for good in goods:
+    # print(good.get_text())
+    # print(good)
+    good_info = good.find("div",{"class":"p-name p-name-type-2"}).find('em').get_text()
+    # print(good_info)
+    price = good.find('div',{'class':'p-price'}).strong.i.get_text()
+    print(good_info.replace("\n","").replace("\t",""),price,"￥")
+result第三题题目要求：爬取一个给定网页或者自选网页的所有JPG格式文件。解答查看具体网址的源代码后发现，主要的图片都在content内部，故使用BeautifulSoup4中的find_all函数在content内搜索图片路径。
+图片路径包括内链接（以“/...”开头，是给定网站内部的图片）与外链接（以“HTTP...”开头，是其他网站的图片），故对两种图片链接分类处理。
+得到所有图片的链接后，使用requests.get()获取图片数据。codefrom urllib.request import urlopen
+from bs4 import BeautifulSoup
+# from urllib import urlretrieve
+import requests
+
+url = 'http://xcb.fzu.edu.cn/'
+html = urlopen(url)
+bs = BeautifulSoup(html,'html.parser')
+name = 1
+for imgs in bs.find('div',{'class':'content'}).find_all('img'):
+    # if 'src' in imgs.attrs:
+    #     print(imgs)
+    img = imgs['src']
+    if img[-3:] != 'gif':
+        if img[:4] == 'http':
+            path = img
+        else:
+            path = url+img
+    else:
+        continue
+    print(path)
+    # img_data = urlopen(path)
+    # img_data = img_data.read()
+    img_file = requests.get(path).content
+    with open("Object1：爬取学生信息\images/"+str(name)+".jpg","wb") as f:
+        f.write(img_file)
+        f.close()
+        print(name,"over")
+        name += 1
+result
+
+</text><lastUpdated>2020-09-28 16:51</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/13772670.html</url><title>数据采集与融合技术第二次作业 </title><text>
+    这个作业属于哪个课程数据采集与融合技术2020这个作业要求在哪里第二次作业学号031804103第一题要求在中国气象网给定城市集的7日天气预报，并保存在数据库。思路解析网站源码与架构用BeautifulSoup解析出所需的信息将数据保存在数据库（SQLite）codefrom bs4 import BeautifulSoup
+from bs4 import UnicodeDammit
+import urllib.request
+import sqlite3
+
+class WeatherDB: ##database
+
+    def openDB(self):
+        self.con=sqlite3.connect("weathers.db")
+        self.cursor=self.con.cursor()
+        try:
+            self.cursor.execute("create table weathers (wCity varchar(16),wDate varchar(16),wWeather varchar(64),wTemp varchar(32),constraint pk_weather primary key (wCity,wDate))")
+        except:
+            self.cursor.execute("delete from weathers")
+
+    def closeDB(self):
+        self.con.commit()
+        self.con.close()
+
+    def insert(self,city,date,weather,temp):
+        try:
+            self.cursor.execute("insert into weathers (wCity,wDate,wWeather,wTemp) values (?,?,?,?)" ,(city,date,weather,temp))
+        except Exception as err:
+            print(err)
+
+    def show(self):
+        self.cursor.execute("select * from weathers")
+        rows=self.cursor.fetchall()
+        print("%-16s%-16s%-32s%-16s" % ("city","date","weather","temp"))
+        for row in rows:
+            print("%-16s%-16s%-32s%-16s" % (row[0],row[1],row[2],row[3]))
+
+class WeatherForecast:
+    def __init__(self):
+        self.headers = {
+            "User-Agent": "Mozilla/5.0 (Windows; U; Windows NT 6.0 x64; en-US; rv:1.9pre) Gecko/2008072421 Minefield/3.0.2pre"}
+        self.cityCode={"北京":"101010100","上海":"101020100","广州":"101280101"} #城市编码
+
+    def forecastCity(self,city):
+        if city not in self.cityCode.keys():
+            print(city+" code cannot be found")
+            return
+        url="http://www.weather.com.cn/weather/"+self.cityCode[city]+".shtml"
+        try:
+            req=urllib.request.Request(url,headers=self.headers)
+            data=urllib.request.urlopen(req)
+            data=data.read()
+            dammit=UnicodeDammit(data,["utf-8","gbk"])
+            data=dammit.unicode_markup
+            soup=BeautifulSoup(data,"lxml")
+            lis=soup.select("ul[class='t clearfix'] li")
+            for li in lis:
+                try:
+                    date=li.select('h1')[0].text
+                    weather=li.select('p[class="wea"]')[0].text
+                    temp=li.select('p[class="tem"] span')[0].text+"/"+li.select('p[class="tem"] i')[0].text
+                    print(city,date,weather,temp)
+                    self.db.insert(city,date,weather,temp)
+                except Exception as err:
+                    print(err)
+        except Exception as err:
+            print(err)
+
+    def process(self,cities): ##传进城市列表
+        self.db=WeatherDB()
+        self.db.openDB()
+
+        for city in cities:
+            self.forecastCity(city)
+
+        #self.db.show()
+        self.db.closeDB()
+
+ws=WeatherForecast()
+ws.process(["北京","上海","广州"])
+# print("completed")
+运行结果心得体会第一次用与CSS有关的爬取解析、选择所需要的数据，而不再局限于HTML第二题要求用requests和BeautifulSoup库方法定向爬取股票相关信息。
+候选网站：东方财富网、​新浪股票思路选择东方财富网网页的HTML不能直接得到所需数据，而且数据是不断更新的考虑截获页面的请求数据，即刷新网站时向服务器发起的JSON文件请求查找以后发现JSON文件请求大概是这样开头的URL：http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQueryxxxxxxxxxxxx......翻页只需要改变json请求URL中的一个数值即可实现，为了减轻PC压力，只爬取前五页的数据得到JSON后用正则表达式匹配得到数据codeimport re
+import requests
+
+url_head = 'http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&amp;pn='
+url_tail = '&amp;pz=20&amp;po=1&amp;np=1&amp;ut=bd1d9ddb04089700cf9c27f6f7426281&amp;fltt=2&amp;invt=2&amp;fid=f3&amp;fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&amp;fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&amp;_=1601446076157'
+
+def get_stock(url,count):
+    json_page = requests.get(url).content.decode(encoding='utf-8')
+    # json_page = json_page.read()
+    pat = "\"diff\":\[\{.*\}\]"
+    table = re.compile(pat,re.S).findall(json_page)
+    pat = "\},\{"
+    stocks = re.split(pat,table[0])
+    # count = 1
+    for stock in stocks:
+        # print(stock)
+        pat = ","
+        infs = re.split(pat,stock)
+        # print(infs[13])
+        pat = ":"
+        name = re.split(pat,infs[13])
+        money = re.split(pat,infs[1])
+        num = re.split(pat,infs[11])
+        Quote_change = re.split(pat,infs[2])  # 涨跌幅
+        Ups_and_downs = re.split(pat,infs[3])  # 涨跌额
+        Volume = re.split(pat,infs[4])  #成交量
+        Turnover = re.split(pat,infs[5])  #成交额
+        Increase = re.split(pat,infs[6])  #涨幅
+        # print(count,num[1],name[1],money[1],Quote_change[1]+"%",Ups_and_downs[1]+"￥",str(Volume[1])+"手",Turnover[1]+"￥",Increase[1]+"%")
+        print('%-8s %-10s %-10s %10s %10s %15s %15s %18s %12s'%(count,num[1],name[1],money[1],Quote_change[1],Ups_and_downs[1],Volume[1],Turnover[1],Increase[1]))
+        count += 1
+    return count
+
+print('%-8s %-6s %-8s %10s %10s %12s %10s %10s %12s'%('序号','代码','名称','最新价','涨跌幅(%)','跌涨额(￥)','成交量(手)','成交额(￥)','涨幅(%)'))
+count = 1
+for i in range(1,6):
+    count = get_stock(url_head+str(i)+url_tail,count)
+运行结果心得体会第一次遇到需要查找页面向服务器发起请求url才能得到数据的情况,强化了自己使用正则表达式的熟练程度第三题要求根据自选3位数+学号后3位选取股票，获取印股票信息。抓包方法同作问题二思路学号结尾是103,搜了一下能匹配的并不多,故选择了横店影视(603103)与第二题的解析思路差不多,只是所需要的信息位置比较难找codeimport re
+import requests
+url = 'http://push2.eastmoney.com/api/qt/stock/get?ut=fa5fd1943c7b386f172d6893dbfba10b&amp;invt=2&amp;fltt=2&amp;fields=f43,f57,f58,f169,f170,f46,f44,f51,f168,f47,f164,f163,f116,f60,f45,f52,f50,f48,f167,f117,f71,f161,f49,f530,f135,f136,f137,f138,f139,f141,f142,f144,f145,f147,f148,f140,f143,f146,f149,f55,f62,f162,f92,f173,f104,f105,f84,f85,f183,f184,f185,f186,f187,f188,f189,f190,f191,f192,f107,f111,f86,f177,f78,f110,f262,f263,f264,f267,f268,f250,f251,f252,f253,f254,f255,f256,f257,f258,f266,f269,f270,f271,f273,f274,f275,f127,f199,f128,f193,f196,f194,f195,f197,f80,f280,f281,f282,f284,f285,f286,f287,f292&amp;secid=1.603103&amp;cb=jQuery112409262947646562985_1601451983153&amp;_=1601451983154'
+json_page = requests.get(url).content.decode(encoding='utf-8')
+pat = "\"data\":{.*}"
+table = re.compile(pat,re.S).findall(json_page)
+pat = ","
+infs = re.split(pat,table[0])
+pat = ':'
+print("代码:"+str(re.split(pat,infs[11])[1]))
+print("名称:"+str(re.split(pat,infs[12])[1]))
+print("今开:"+str(re.split(pat,infs[3])[1]))
+print("最高:"+str(re.split(pat,infs[1])[1]))
+print("涨停:"+str(re.split(pat,infs[8])[1]))
+print("换手:"+str(re.split(pat,infs[54])[1]+"%"))
+print("成交量:"+str(re.split(pat,infs[4])[1]+"万手"))
+运行结果心得体会单个页面的请求相对更加难找信息,因为涉及到的requests太多,寻找JSON对应的URL也花了一些时间,但总体上和第二题没有太大区别.
+
+</text><lastUpdated>2020-10-08 00:26</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/13735287.html</url><title>2020软工第三次作业（结对编程第一次作业） </title><text>
+    这个作业属于哪个课程软件工程2020秋这个作业要求在哪里第三次作业（结对编程第一次作业）这个作业的目标锻炼协作能力，提出初步解决方案学号031804103、051806129PSP表格PSPPair programming Process Stages预估耗时（分钟）实际耗时（分钟）Planning计划1515Estimate估计这个任务需要多少时间1010Development开发240210Analysis需求分析 (包括学习新技术)4530Design Spec生成设计文档4545Design Review设计复审3025Coding Standard代码规范 (为目前的开发制定合适的规范)00Design具体设计120120Coding具体编码00Code Review代码复审00Test测试（自我测试，修改代码，提交修改）2015Reporting报告00Test Report测试报告3030Size Measurement计算工作量2020Postmortem &amp; Process Improvement Plan事后总结, 并提出过程改进计划2020合计595530背景学长学姐去哪儿——了解实验室或社团历史上的那些学长学姐们的去向和现状
+了解实验室学长们去向的现状：
+除了实验室群里长期潜水或偶尔冒泡的学长、导师口中的零星去向、临近的学长，似乎就无法了解了。好久以前的没见过的学长们，去了哪里。这不仅仅是?是否?选择这个实验室的依据之一，还是今后找工作的内推的重要支柱。可惜现状就不是很明确和了解，知晓的渠道也很有限。
+学长们其实也很想了解学弟们现在在做什么研究，有没有什么擅长的技能，比如会某个研究方向或数学建模技能的，也很希望能帮忙协助内推，比如这位学长，就只能给我发消息，也无法有效传递。
+另外，建一个实验室群，也不是很方便，因为在群里，你也不好意思经常问：学长们，你们在哪啊。
+甚至，等你工作了，和你同一个公司或一个组的同事，可能就是实验室同门，你们都相见不相识，多遗憾。题目请你和对友设计一套信息化的解决方案，兼顾实用性、有效性、安全性、隐私性、封闭性。
+可以是一个软件、APP或小程序，不仅仅包含主要界面和功能的原型，还需要描述不同角色用户，如何注册、添加、删除、认证加入等，从使用频率、使用便利度、使用有效性等角度出发，考虑如何维护该系统，如何确保安全性、隐私性、时效性和相对封闭性等，可以是软件化的方式实现上述特点，也可以依赖流程制度实现上述特性。但无论哪一种，都需要你们通过原型图、流程图、文字化方案来描述。清晰呈现一套也许你们也需要、客户也需要的完美的解决方案。GitHub讨论剪影解决方案主要参照《构建之法》第八章中所介绍的NABCD模型提出我们的解决方案。N:需求站在用户的角度思考与分析问题。本问题主要面向三类用户：老师、在校生、毕业生老师长期以来扮演着在校生和毕业生之间互相认识的媒介，但是科研任务繁忙，也无法完全记住每个同学的技能树和具体的研究进度，导致有些时候在校生和毕业生之间的交流难以成行。在校生在校生处在求学科研找工作的多重压力下，急需同门学长学姐分享科研经验经验或者帮助内推。然而在校生缺乏了解同门前辈的渠道，不知道前辈们曾经的研究方向是什么、在何处工作、是否能提供帮助。不管是一个一个加好友私聊还是直接在群聊中广播提问都不合适。毕业生毕业生拥有丰富的科研经验，同时也已经在产业界或学术界有了一番耕耘，有些时候遇到难题也希望求助与实验室同门师弟师妹们。然而毕业生离开实验室后难以了解实验室的新人，不知道新人们有何需求、新人们有何技能、新人们的研究方向和进度。更多时候只能通过老师了解哪些师弟师妹拥有自己所需要的技能。A:做法我们的做法是，让导师成为一个组织者，而不是在校生和毕业生之间认识的媒介，建立一个让所有实验室同门们互相了解的平台。在这个平台上大家可以互相了解，除了有个人简介和个人技能树之外，还可以找到每个人在各大社交平台（例如微博、知乎、GitHub等）的ID以互相了解，还可以利用平台提供的用户微信号加好友深入交流。平台力求做到相对封闭和安全，只有老师可以新建组织，实验室内部所有人员都可以邀请新人，但是必须经过导师的认证同意，实验室内部信息只有成员可见。平台允许一个用户处在多个组织中，且在每个组织中的身份可以不同，例如对于一个博士在读生，在本科阶段和硕士阶段所在实验室中的身份是毕业生，而在博士阶段所在实验室的身份则是在校生。用户发布的问题可以设置为部分所在组织成员可见或所有所在组织成员可见。平台力求实现时效性。每个用户可在自己的主页添加个人tag，可以是自己擅长的领域、擅长的技能、当前的研究方向和曾经的研究方向。在发布问题时发布者可以选择添加问题tag，平台将通过公众号推送给具有和问题tag相同或相关个人tag的问题可见成员，提醒有与自己相关的问题发布，而不是向所有实验室成员广播推送消息（这样的话和直接在QQ群、微信群提问没有区别）。B:好处在校生和毕业生的互相了解可以直接通过平台完成，导师除了前期组织以外无需花费太多的组织成本。成员间可以通过基本资料、技能树、各大社交平台互相了解，还可以通过发布问题的方式具体寻找某些技能拥有者或能提供帮助的用户。
+平台能够保证相对封闭和安全，进入组织需要导师的认证同意，而组织内部的内容对外部用户不可见，个人资料也只有同一组织的用户才可以访问和查看。C:竞争优势：作为功能型小程序，本方案的封闭性和安全性完全足够，因为只有通过自己微信的小程序才能登录自己的账号，且经过导师认证通过后的实验室内部用户较为可信，个人页面可以发布一些较为详细的个人信息，而不必担心隐私被实验室外部人群窃取。特殊的推送功能。通过每个用户添加个人tag，每个提问者在问题中添加问题tag，能够针对问题推送给潜在的目标用户，规避了一部分无效推送造成的垃圾信息。劣势：组织建立前期因为个人页面不完整、成员数量少，使用体验可能较差，推广任务较为艰巨。个人tag的设置与问题tag之间可能有差距，需要设计一个推送算法，尽量减小错误推送和遗漏推送。D:推广首先在校园内部分实验室做试点，尽量选择已成立多年，在校生和毕业生人数都不少的实验室。在某些奖励机制下，通过试点人群向外发散，因为大组可能包括了许多同时也在其他实验室的成员。同时尽量选择多个领域的实验室进行试点，因为用户发散的能力在跨领域中效果极为有限。设计原型展示动态与消息页面人脉·机遇页面问题区“我的”页面流程图老师学生（包括在校生和毕业生）
+
+</text><lastUpdated>2020-09-28 15:56</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/10393536.html</url><title>寒假训练营第三次作业 </title><text>
+    part1网络课程学习学习福州大学网络课程 网络空间安全概论，形成学习笔记，发布专门博客，至少完成第五章的视频学习。传送门--&gt;2019寒假训练营第三次作业part1-网络空间安全概论第五章part2实验题背景
+黑客风波过后，一切又恢复了正常。但你总觉得有些不安，按照之前的方法：把所有请求都记录下来，的确能很准确地显示所有用户的请求情况。但是请求实在太多，把它们都记下来，需要花费巨大的空间来存储，导致许多预算用在了购买记录请求的空间上，而且服务器的速度也下降不少。有没有更好的办法？你觉得自己遇到了瓶颈，但别人肯定也遇到过同样的问题，何不借鉴别人的方法？查阅文献过程中，果然，发现一种叫做 sketch 的技术十分火热，可以解决这个问题，它可以显著地降低空间的使用。你很兴奋，你想尽快地把这个技术部署到服务器上。传送门--&gt;2019寒假训练营第三次作业part2 - 实验题
+
+</text><lastUpdated>2019-02-18 00:21</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/10674489.html</url><title>Coursera:Internet History ,Techornology and Security </title><text>
+    WEEK1War Time Computing and CommunicationBletchley Park 布莱彻利庄园：a top-secret code breaking effort by the British government during World War II. 二战时期英国政府为了破译德国的“Enigma”电报加密装置而设立的，聚集了一大批高端的密码学、数学人才的基地。最后在Alan Truing(艾伦图灵)的主导下设计了第一个计算机。（以上中文注释来自笔者观看电影《模仿游戏》得到的资料）
+笔者的注释：严格意义上来说Alan Turing此时参与研制的计算机与现在常见的计算机有一些不同。在Bletchley Park诞生的计算机学术上称为电子模拟计算机，其数值是由一些例如指针转动、计算尺长度表示的（这点在本课程的视频Alan Turing and Bletchley Park中的计算机复制品的运作场景也可以得到印证，其运算的时候有很多个转盘同时在运动）。而现在常见的计算机被称作电子数字计算机，其数值是按位运算的，而且不断跳动。Bomba：波兰人研制的破解Enigma的机器主要针对的是德国人repeating the message header(重复使用信息头)Bombe：以Alan Turing为首的团队设计的机器，主要针对的是德国人sending stereotyped messages（模块化的信息，也就是有一定格式的军事指令）.Colossus（巨人）：针对德国加密机器升级版的机器，第一台被称作Mark 1.(难道Iron Man命名的灵感就来源于此？)第二台称作Mark 2.Mark 2直接参与了诺曼底登陆战。巨人计算机具有大多数现代计算机的特征，除了没有内存。通过纸条读取数据，Computing with Phone Lines这部分主要介绍了早期计算机之间的联通模式：通过电话线拨号实现信息传送
+local call to local computerdistance call to remote computer（有点类似于远程计算机）computer to computer（leased lines）：较昂贵，常见于银行系统WEEK2Supercomputers Justify a National Network这部分主要介绍了早期计算机之间的连接方式及其演变。
+1.电缆连接（有线连接、专线网络）leased lines
+通过电缆直接将计算机联系在一起。It is really expensive.The cost base on distance.成本与距离线性相关。传输速度慢信息需要排队通过Save Money with More "Hops"：通过连接更多的学校（因为当时只有学校拥有计算机），来分摊修建路电缆的费用已达到减少开支的方法。2.Bitnet比特网，校园网的主要方式
+为了节省开支而产生的连接方式缺点和优点一样明显：大号的文件可能会长时间占用线路，影响其他较小文件的传输，所以传输速度很慢。3.ARPANET：美国军方研制的，供给军队使用的网络
+the primary motivation was to improve the use of their compution equipment.ARPANET与Bitnet的主要区别：“packet switching”（分组交换）：sending data across the link and then keep sending it until it was done.
+packet:breakinga big message into small parts,labeling each one of them individually将数据分块成为数据包，以数据包为单位传输数据able to sneak and bypass the traffic jam能够避开交通堵塞（这里的traffic jam可以理解为处在busy的线路）allowing simultaneously multible message to be in fight at the same time（个人将这句话理解为允许同是传送不同消息，这里体现了ARPANET与Bitnet的重要不同）同一组数据在被分成数据包以后可能会经由不同路径进行传输，但是因为路径的不同数据包可能在不同时间送达。就好比我在淘宝上买东西了一个手办（message），但是店家把这个手办的分解成零件（packets），从北京中关村发到福州上街镇，但是可能每个零件从北京到福州的路径不一样例如有一个零件走的是（北京--&gt;济南--&gt;南京--&gt;杭州--&gt;福州），而另一个零件走的是（北京--&gt;太原--&gt;西安--&gt;重庆--&gt;贵阳--&gt;南宁--&gt;广州--&gt;福州），但无论通过什么路径，最后都能到福州，而我需要做的是按照说明书把手办拼起来。between getway and getway have links and routers（路由器，主要作用是转发信息）:breaking messages into packets,packets can take different paths,and then they arrive and they are reassembled(重组)Larry Smarr
+天文物理学家，因为接触到了一个需要超级超级计算能力的课题，于是不遗余力的推动超级计算机的建设。经过不断的努力，后来还建立了NSFNETThe frist "Internet"这部分主要讲述了一些Internet发展过程中的曲折故事和相关访谈。Doug Van Houweiling
+因为各方面原因大学难以拥有自己的超级计算机，于是另辟蹊径为密歇根大学的计算机建立了网络。最早的预算只够建立运输速度为56kb的线路，后来在一系列的争取以后，将其提高到了1.5mb。自此，NSFNet成为世界上最快的网络，取代ARPANET成为世界主流网络。Leonard KilenrockKatie Hafner（一个记者，曾经准备写关于互联网的专题报道）NSFNet:National Science Foundation,美国国家科学基金会,简称NSFWEEK3The Early World-Wide-Web这部分描述了早期的world-wide-web（万维网）Robert Cailliau :one of the co-inventor of the world-wide-web
+Physcists have need for spreeding documentation around .So they built something like centralized databases((集中式数据库) to kept high energy physics articles(高能量物理学文章).Robert将计算机分割为上层（browser浏览器)和下层（database数据库）The first server was up end of 1990 in the USA.Gopher：早期的信息检索工具，在WWW出现以前是主要的信息检索工具。Mosaic:Firefox浏览器前身，历史上著名的浏览器，运行时只有一个窗口，每个新窗口自动代替上一个界面。WWW的特点：every time that you clicked here, you had another window（与Mosaic的重要区别：每次点击都会打开一个新的页面）1994年，第一届国际万维网大会召开，A Search Engine for Physics Articles这部分介绍了物理学文章的搜索引擎use the database by the web.（此处的database就是前文中提到的存放物理学文章的centralized databases）The first Web server in America can query a database on a mainframe.（美国第一台网络服务器可以在数据库中查询数据）Paul kunz used a CREN server software ,which was written in C to creates the first Web server in America.
+get the query that the user had made and turn it into a database query.（获取用户所做的查询并将其转换为数据库查询）Making the Web Available to AllGopher：在web流行起来以前gopher是主流的网络资源检索工具Mosaic：另一款浏览器，由NCSA的Joseph Hardin牵头发明
+At 1990s,NCSA at Urbana-Champaign, University of Illinois, built an open source web browser that worked on Mac, Windows, and Unix. （支持多个多个系统）it is possible for people to share in real time images of their data, the spreadsheets of their data, and papers.有必要提一下的是，后来Mosaic项目的大部分员工创建了有名的网景公司（Netscape），该公司推出了现在很多人使用的Firefox浏览器。WEEK4Explosive Growth of the Internet and Web1994:Year of the Web（1994年时互联网发展的重要一年，互联网不再是纯粹的学术或者技术，而是带来了许多的资金投入，许多的it公司的建立等等）
+在当时许多的公司之中，Netscape与Microsoft无疑是强烈的竞争对手，但是当时的Netscape的体量和Microsoft相比还比较小，Netscape险些被Microsoft收购吞并。Mitchell Baker: one of the founders of Mozilla.
+Microsoft收购Netscape失败以后二者进入了竞争。Netscape is a failure product，because of it ，Baker was be laying off in 2001. But it wasn't really possible to take her place and she continued as a volunteer.在这段竞争岁月中，网景公司创造了现在依然很火的JavaScript语言。后来两家之间以价格为主要战场的商业战争不再赘述，毕竟我不需要分析这次市场竞争行为的利弊以及历史意义。（套路无非是恶性降价竞争，甚至免费的产品，以达到占领市场的目的。但是这个时候的发展重点依然是技术，而不是一味的打价格战。如果当时有融资这种东西的话，就和和这几年的某些公司在某些领域的竞争很像了）In 2003 the Mozilla foundation was formedBrendan Eich:JavaScript主要创造者与架构师
+JavaScript和Java的关系不大（我长期以来一直以为JavaScript时Java的延申或者在某一方面的定制版本，这次课纠正了我这个思维定势）JavaScript是一种对初学者和业余程序员都比较友好的语言。Commercialization of the Web这部分主要讲述了网络商业化Microsoft give their browser away free, which made it impossible for Netscape to charge for the browser.（微软为了竞争而对用户免费提供浏览器）the World Wide Web Consortium（万维网联盟） was created in October of 1994.
+Jeff Bezos: the founder of Amazon.com(亚马逊创始人贝索斯，没错就是最近离婚的那个)
+books is the frist product to sell online.Music is the second.最早亚马逊买的是书，后来扩展到CD一类的音乐产品。说到网购平台，突然想起来最近看到的一个关于马云的视频，感触颇深，视频来自虎扑步行街--&gt;传送门WEEK5LinkHops:one portion of the path between source and destination. Data packets pass through bridges(网桥), routers and gateways（网关） as they travel between source and destination. Each time packets are passed to the next network device, a hop occurs.[插入图片Hop-count-trans.png]Packet-switching(分组交换)：break message into packets(将信息分割成数据包，)
+bridge,router,gateway is forwarding packets(网桥、路由器、网关负责的是储存与中转数据包)，but not longs term storage of message.shared Network infratructure only focuses on packets,not reliability or anyting else.（共享网络只关注数据包而不是可靠性或其他）layered network model(分层网络模型)：OSI model（Open System Interconnection model开发系统互连模型）：为了简化解决方案，以便解决问题、管理，就将网络划分为几个部分。在每层中只需要考虑本层的问题，不需要被其他层的问题影响。Layered Architecture(分层架构)
+Link:一段传输介质，例如光缆，数据通过一个link就是一个hop，路由器接受上一个link的数据并将收到的数据push到下一个link。就好比在淘宝上买东西了一个手办（message），但是店家把这个手办的分解成零件（packets），每个packets在来福州的路上会经过许多中转站（rounter），而每个中转站之间的要用各种交通工具运输（link），中转站之间的运输就是hop。how to avoid the chaos when they're sharing?
+with a technique called, Carrier Sense Media Access with Collision Detection.To aviod garbled messages,systems must observe "rules"(Protocols)Ethernet rules are simplecommon link technologies:Ethernet（以太网）,WiFi,Cable modem（电缆调制解调器）,DSL(数字用户线路[拨号上网])，Satellite（卫星）,Optical（光纤）Internet Protocol(互联网协议)IP drop data if it go bad.如果数据包出错或传输数据有故障，可以丢弃这个数据包，避免出现错误残破的数据包。the address is broken into two parts. There is the network number part which is the prefix(前缀), and then there is the computer number within network.As soon as the packets enter the network, it only looks at the prefix.网络只关心IP地址的前缀，就是只关心来自哪个网络。portable cpmputer:dynamic host configuration protocol：动态主机配置协议，主要用于解决移动计算机例如笔记本电脑、iPad等无固定本地连接的IP地址分配问题。即分配临时的本地IP，一般格式为192.168.xxx.xxx，而这个IP地址只属于本地网络，可以理解为IP地址的分支。这个方法也可以用来解决IP地址数量不足的问题。network address translation（在IP数据包通过路由器或防火墙时重写来源IP地址或目的IP地址）Time-to-live (TTL) is a value in an Internet Protocol (IP) packet that tells a network router whether or not the packet has been in the network too long and should be discarded.告诉路由器数据包是否在网络中存在太久。当数据包的hops数超过255（32bit）是被丢弃。原理是如果一个数据包经过了255hops都还没送达，可以认为数据进入了死循环。为了避免占用网络引起网络拥堵，故产生了这种诊断方式。WEEK6Transport/ReliabilityTCP层建立在IP层之上，TCP层的作用是弥补IP层可能出现的一些问题。TCP（Transmission Control Protocol 传输控制协议）layer:The purpose of the TCP layer is to compensate for the possible errors in the IP layer as well as make best use of available resources.the key idea in TCP/IP is that when we send some data, we break it into packets and then we send each one. And then we keep them until they get an acknowledgement（确认送达的回复） from the other side and then and only then do we throw them away. And at some point, if a packet gets lost It can be sent again, until it finally is acknowledged in the destination system.(预防传输过程出错而设置的机制，直到发送方确认发送完成才结束传输，若出现传输错误就重新发送，直到完全成功传输为止)It figures out which packets have or have not made it across the Internet layer.作为一个球迷，笔者将TCP理解为莫德里奇（IP）身边的卡塞米罗（TCP），帮助IP防守的同时和IP协作使得球队（network）的运转更加流畅和顺利。（这是笔者的自嗨，换成加图索和皮尔洛或者类似的谁和谁一样成立，看不懂请忽略 ^_^ ）the slow start algorithm at a high level。
+随着越来越多的计算机接入网络，网速变得很慢，许多数据包丢失。（是不是因为太长时间没有送达，上一周讲到的Time-to-live机制起作用了？）Van Jacobson对此的对策是：TCP congestion control.这个机制简单描述就是，控制进入网络的packet数量（有点类似北京n环限号出行以缓解堵车的既视感），当收到确认送达的acknowledgement的时候才向网络发送packet。但是这个机制有一个难点就是起步的时候发送方不知道现在的网络状况如何（因为发送第一个数据包的时候没有上一个数据包的acknowledgement）。所以van Jacobson设计了Slow Start Algorithm（慢启动算法），也就是在数据传输的初期以慢速发送。这样就能够防止网络堵塞。补充：不是只有收到上一个数据包的acknowledgement才发送下一个数据包（这样未免太慢了，顾此失彼），而是在发送开始的时候压低速度，后面在不影响网络速度的前提下逐步提高传输速度。Domain Name System(域名系统)：the visible name that we could switch the mapping from the name of the IP address transparently(可以从IP地址名称切换映射的可见名称),a big distributed data base(分布式数据系统).[使用更加便于人类记忆的命名方式代替IP地址，IP地址是从左往右就是从大到小，而域名系统相反，例如www.si.umich.edu这个域名，edu代表这个域名属于教育机构，umich代表了教育机构里面的密歇根大学，si代表的是密歇根大学的信息学院，www是服务器]the transport control protocol has a responsibility of compensating for the imperfections of the IP layerWEEK7Applicationclient application(客户端应用程序)server application（服务器应用程序）client app make request ,and server make response back.客户端发送请求，服务器返回响应内容。two basic problemwhich application gets the data:
+this is using a mechanism(机制) called ports(端口).ports allow a IP address or a single computer or a single server.端口依附于IP存在，类似于IP地址的分支路径。不同的端口对应不同的功能与服务。下图是我的电脑的部分端口信息application protocols(应用程序协议),在端口进行信息交换的规则。过程：click--&gt;request--&gt;response--&gt;displaybrowers(浏览器)：request the server application ,HTML comes back ,which discribe how this page document supposed to show.And show to user.HTTP：超文本传输协议，一种广泛使用的网络协议，一些网站前面加了“ http:// ”的意思就是该网站遵循HTTP协议If we know how to talk, if we know what port to talk to, and we know what protocol to talk to that port we can write a client that meets the needs of that server and extract the data.(如果我们知道如何通信，如果我们知道要与哪个端口通信，如果我们知道要与那个端口通信的协议，我们就可以编写一个满足服务器需求的客户机并提取数据。)Information that's sort of qualitatively the same as all naming or identity information, but it's spread randomly across the whole packet. (信息在质量上与所有命名或身份信息相同，但它在整个数据包中随机传播)WEEK8Hiding Data from OthersIt is does not exist of absolute security.Security is a cost benefit analysis(成本效益分析)security is naturally imperfect(安全是天生不完美的),世界上不存在绝对的安全，过度的安全会限制本身的各个活动，我们应该采用的是折衷方案。confidentiality(保密性),encryption(加密) and decryption(解密)
+plain text and ciphertext(纯文本和密文)：Encryption is the act of going from plain text to ciphertext.And returning the ciphertext back to the plain text is decryption.secret key
+symmetric key(对称密钥), which means that both parties have to be in possession of the same information,  basically use the same key material to encrypt as you do to decrypt.(双方必须拥有相同的信息,基本上使用与解密相同的密钥材料进行加密)the problem that secret key has, that led to the need to invent a public key, is the fact that you need to at some point have a secure communication.(密钥机制的问题在于需要有一个完全安全的方式进行解密方式的传输)shift(移位加密)：将文本的字母向上/向下移动n位(n=shift number,1 &lt; shift number &lt; 26)
+移位加密的破译方式很简单暴力，就是把1~25的shift number都使一次（很显然shift number为0或者26没有意义，shift number大于等于26可视为0~25的变种）rot13:常用的移位加密方法，但加密与解密方式相同，所以解密只需要再进行一次加密。public key
+it has a way of distributing the key in a using insecure medium.(公钥有一种方法在不安全介质中分发密钥)Insuring Data IntergrityCryptographic Hashing(哈希):map from a message to the hash（散列） or the digest（摘要）
+takes a large amount of text and reduces it down to some small set of numbers(将大量的文本缩小)hashing passwords(哈希密码):when creating a password,run a cryptographic hash on it, store the cryptographic hash.when log in next,just input the plain text to the system,and the system will run the presented password through the same cryptographic hash.
+hash cannot go backward.(哈希是单向的)，you can go from the frame text to the hash, but you can't go from the hash to the plain text, which is very different than encryption and decryption.(哈希与加密解密的最大不同就是哈希是不可逆的，无法通过散列还原文本),you need to run the plain text through the hash again and then comparethe system doesn't know what is the password, but it know what is not the password.哈希的方法广泛运用与密码的保存和确认识别中，如果运营商能够将密码以明文形式发送给用户，这个运营商的密码机制肯定是不安全的，因为黑客可以通过截获邮件获得密码。运营商应该保存的是密码的哈希值，但是因为哈希的不可逆性，运营商本身也无法知道真正的密码是多少，而用户下次登陆输入密码后将密码的明文进行哈希以后发送给运营商，运营商通过对比保存的密码哈希来确认身份。哈希还可以用于确认邮件是否被恶意篡改，方法为，在一段信息的后面加上一个特定的字符串，对整个文本进行哈希加密，然后将哈希的值的前几位加在文本后面。文本接收方把收到的文本后面加上特定字符串后进行哈希，如果文本被恶意篡改过，哈希值的前几位会不同WEEK 9Securing Web Connectionspublic key encryption(公钥加密)，it relies on two asymmetric keys(依赖于两个不对称的键).There is a public key, which is actually, does not need any protection whatsoever, and a private key(私钥).You generate the public key and the private key. You send out the public key, the public is used to do the encryption. And then private key is used to do the decryption. And they're related mathematically(在数学上是相关的)if you're going to use public private key encryption, you have to generate a pair.（公钥私钥必须成对存在）choose a random number really big--&gt;look around for a nearby prime number and you choose two of those(选择两个附近的质数)--&gt;multiply them--&gt;through some calculations, you compute the public and the private keys from that large number.破解公钥加密的难点在于，很难计算出一个很大的数是由哪两个也很大质数相乘得到的，而文件的接收方由于知道其中的一个质数，解密起来非常简单。Message was encrypt by application protocols(such as  HTTP).it stay encrypted all the way through the entire network.all of the sequencing and re-transmission that happens in the TCP layer(所有的排序和传输都发生在TCP层).The rest of the internet just move the data.Transport Layer Security(SSL、HTTPS):it's between the TCP layer and the application layer.Identity on the WebSecure Socket Layer, an public private key encryption.在TCP层和application层之间的SSL层是一个为安全提供保障的部分，为网络连接提供安全的网络接口。运用了SSL的超文本传输协议就是HTTPS。SSL后来进化为TLS。the certificate authority which is a trusted, third-party that signs these certificates(受信任的证书颁发机构，第三方签署了证书，以确认对话的对象是不是真正的服务器)
+
+</text><lastUpdated>2019-04-09 00:20</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/10423782.html</url><title>寒假训练营第四次作业 </title><text>
+    使用miniedit工具搭建拓扑的过程截图及说明(5')这部分主要参考了-&gt;Ubuntu16.04源码安装Mininet通过修改参数连接控制器的详细过程截图及说明(20')这步当中有一段曲折的故事，ping了半天都ping不通，才发现忘记了s1和s2之间的链路连接控制器的过程遵循什么协议？简单描述一下这个过程(15')
+遵循Openflow协议。
+首先建立连接，经过类似tcp三次握手以后，建立底层的通信。
+然后一般要经过Hello、Features Request、Features Reply、Set config、PacketIn、PacketOut
+运行生成的脚本，检测主机之间是否互通(pingall)，并截图(10')把生成的python脚本上传到github仓库中(5')
+保存的时候出了些问题，貌似是配置文件出了点问题，得到的脚本是空文件。在百度谷歌上也找不到解决方法，所以没有办法了&gt;_&lt;本次训练营总结(30'):
+你觉得自己收获到了什么(包括知识、技能、意愿)？如何体现？(20')
+学习到mininet、GitHub、Ubuntu、count-min-sketch、tcpdump、GitHub、Linux、网络空间安全方面的相关知识等；巩固了python和c语言，强化了自己的逻辑思维能力和知识整合能力；明白了百度Google的强大、发现了很多以前没有的学习途径和平台，比如各种技术论坛、bilili、YouTube等等;面对一个问题不能盲目地想要马上解决，而是应该在整体上对解法有一个把握，形成思路，并把问题拆分后逐一解决......
+自己还存在着那些不足或者遗憾？(10')
+认识到了自己对计算机、对互联网的了解甚少；英语能力不足导致了在Google和在外网查找解决问题的方法以及看YouTube视频的时候障碍颇多；自己解决能力的问题还是比较薄弱，常常一个小问题需要很长时间；专注力有待提高，做作业的过程总忍不住看看手机；对问题的分析能力，以及对问题的划分能力有所不知，常常会卡在两个分块问题之间......这两天得了胃寒性感冒，身体状态不是很好，所以这次作业比较完成得粗糙，抱歉。
+
+</text><lastUpdated>2019-02-24 21:17</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/13681302.html</url><title>2020软工第二次作业 </title><text>
+    这个作业属于哪个课程软件工程2020秋这个作业要求在哪里第二次作业（个人编程作业）这个作业的目标热身+练手，锻炼现学现用的能力学号031804103PSP表格PSP2.1Personal Software Process Stages预估耗时（分钟）实际耗时（分钟）Planning计划2015Estimate估计这个任务需要多少时间1010Development开发300420Analysis需求分析 (包括学习新技术)120150Design Spec生成设计文档6075Design Review设计复审3020Coding Standard代码规范 (为目前的开发制定合适的规范)3030Design具体设计6060Coding具体编码120120Code Review代码复审3030Test测试（自我测试，修改代码，提交修改）120150Reporting报告90120Test Report测试报告6060Size Measurement计算工作量2020Postmortem &amp; Process Improvement Plan事后总结, 并提出过程改进计划3025合计11001305解题思路初见说实话，这次出作业之前，我属实被隔壁K班的作业吓到了，所以第一眼看到这次作业我是往复杂的方向想的。第一次看题的时候比较仓促，下载了数据，大概看了知道是大数据统计题（作为大数据专业的，这次作业如此挣扎，惭愧...），以为要做的是GitHub各种commit变化情况，因为这个数据包含的信息实在是太多了。但是仔细看题后，发现其实关注的信息类型只有PushEvent、IssueCommentEvent、IssuesEvent、PullRequestEvent四种，这倒是很符合大数据5V特性（Volume、Variety、Value、Velocity、Veracity）里面的价值密度低。
+把题目完整读完以后，发现还有python的示例代码，对这次作业产生了一种：代码不难，主要是熟悉git、PSP、code style的感觉。后来证明我只对了一半，低估了代码难度。沉思这个小标题正好是我很喜欢的一个曲子，曾经苦练过几个月，也是我高三时期的起床铃声，顺便分享一个我最喜欢的版本：
+接下来主要是安排作业计划和思考解题思路，由于要参加数学建模，作业计划被安排到了作业截止周才开工，所以这次作业做的比较仓促的原因主要在于我低估了难度。idea one：Sketch大数据量的统计，首先想到了之前看过的一些paper，比如 An Improved Data Stream Summary:The Count-Min Sketch and Its Applications，用来做一些有损统计能很有效降低数据量和加速查询，还可以在精度和空间开销之间做权衡，我也实现/跑过几个类似的demo，所以想到这个idea我还是很兴奋的。
+但是后来再读了一遍题目并重读了paper以后，发现本题的主要问题在于大数据量的读取，处理后的数据本身就是比较小的，查询的优化空间也不大，最重要的是本题似乎不允许有损统计。idea two：Hadoop回到大数据统计的问题上，，想到了本题少次大量读入的特点，我就想到了之前玩过的HDFS（Hadoop Distance File System）和MapReduce。分布式的存储和计算对大数据量的处理任务还是很有效的，无奈并不很精通Hadoop，这个作业也不是简单的word count，测试平台有没有这种特殊的环境也是个问题。idea three：Python前两个idea被pass以后，似乎也想不到什么有创意的idea了，所以只好选择比较中规中矩的思路，一方面是自己比较熟悉py，另一方面是时间比较紧，就直接参考（xiu gai）样例代码了。
+看了看样例代码，发现已经是功能完整的版本了，只是没有注释，看起来比较费工夫。那问题就变成了，如何提速样例代码的速度设计实现过程额,其实不能说是设计实现过程，而是找漏洞&amp;加速的过程。下面涉及到的测试截图的数据量都是大概300MB。
+下面是大致的流程图前期准备涉及到了json的读写、命令行的解析，所以初步找了些资料学习一下json教程argparse教程分段测试时间，寻找瓶颈这个小部分的主要思路是大致把样例代码的初始化部分分块，分别测试耗时。稍微测试了一下样例代码，发现读取文件和处理文件耗时明显很高。所以接下来的主要优化工作在于这两部分的改良（mo gai）。处理数据在这部分发现了参考代码的一个破绽（不知道是不是故意的嗷），在阅读代码的过程中发现了这样两个函数：    def __parseDict(self, d: dict, prefix: str):
+        _d = {}
+        for k in d.keys():
+            if str(type(d[k]))[-6:-2] == 'dict':
+                _d.update(self.__parseDict(d[k], k))
+            else:
+                _k = f'{prefix}__{k}' if prefix != '' else k
+                _d[_k] = d[k]
+        return _d
+    def __listOfNestedDict2ListOfDict(self, a: list):
+        records = []
+        for d in a:
+            _d = self.__parseDict(d, '')
+            records.append(_d)
+        return records
+仔细阅读可以发现，这两个函数其实是嵌套的，相当于一个二重循环。其主要作用是把一个嵌套的字典传进来，返回一个整理过的非嵌套的字典，比较便于访问。但是这样做的代价是对于整个数据二重循环了一遍，应该是处理文件阶段的一个比较大的瓶颈，为了考证这个猜想，进一步对处理数据部分再次拆分测试时间。将处理数据进一步拆分为重构数据和统计数据阶段。可以看到，rebuild data的阶段占据了处理数据的绝大部分时间。
+其实这两个函数并不是必须的，完全可以在统计阶段直接访问嵌套字典，而不需要重构数据。对处理数据的代码进行修改，并free掉上述两个函数和调用这两个函数的语句，再次进行实验：速度提升很明显，把总用时缩短到了原来的一半，处理数据的耗时大幅缩短。读取文件读取文件部分没有发现什么大问题，所以就是提速的问题了。idea one：mmap久闻mmap大名，据说加速的效果很可观。于是找了个blog学习了一下。mmap参考blogmmap是一种内存映射文件的方法，即将一个文件或者其它对象映射到进程的地址空间，实现文件磁盘地址和进程虚拟地址空间中一段虚拟地址的一一对映关系。实现这样的映射关系后，进程就可以采用指针的方式读写操作这一段内存，而系统会自动回写脏页面到对应的文件磁盘上，即完成了对文件的操作而不必再调用read,write等系统调用函数。相反，内核空间对这段区域的修改也直接反映用户空间，从而可以实现不同进程间的文件共享。
+摸索了一段时候以后尝试着实现了一下，代替了读文件后的一些解析操作的操作，效果还不错，总时间大概缩短了1s。idea two：多线程在这之前，修改数据量都是直接批量复制多个文件，也就是目录下存在多个json文件，那么可不可以让他并行读取呢？之前在Java上做过多线程读取文件，所以也想把多线程用到读文件的部分去。这个idea其实很早就想到了，但是觉得不太好实现，事实上经过了一段曲折后，费了很大劲并没有多少提高，后来才知道python的多线程，并不是真正的并发。所以也就引出了下一个idea。idea three：多进程既然多线程不可以，那就试试多进程咯，这个总可以了吧。而且，这边并不知道有多少个文件，所以并不能用单纯的多进程，而需要进程池（multiprocessing pool）。这部分比多线程的实现更加曲折和费劲，最后代码也被我大量魔改，所以难以（lan de）复现多线程的代码和结果了。折腾了很久，重构了很多代码。这边为了解决线程调用函数返回的问题，干脆在线程中用写文件的形式保存结果，因为写文件的开销很小，进程池处理结束后再去文件读处理后的结果，这一步也顺便在写文件的过程中实现了前面提到了嵌套函数二重循环的功能，在写入循环中实现了相同功能。最后得到了一个比较理想的结果：代码说明读取文件，主要通过进程池调用def readFile(self, f, dict_address): 
+    json_list = []
+    if f[-5:] == '.json':
+        json_path = f
+        x = open(dict_address + '\\' + json_path, 'r', encoding='utf-8')
+        with mmap.mmap(x.fileno(), 0, access=mmap.ACCESS_READ) as m:
+            m.seek(0, 0)
+            obj = m.read()
+            obj = str(obj, encoding="utf-8")
+            str_list = [_x for _x in obj.split('\n') if len(_x) &gt; 0]
+            for _str in str_list:
+                try:
+                    json_list.append(json.loads(_str))
+                except:
+                    pass
+        self.saveJson(json_list, f)
+读文件后对进程的处理结果保存在文件中def saveJson(self, json_list, filename): 
+    batch_message = []
+    for item in json_list:
+        if item['type'] not in ["PushEvent", "IssueCommentEvent", \
+        "IssuesEvent", "PullRequestEvent"]:
+            continue
+        batch_message.append({'actor__login': item['actor']['login'],\
+         'type': item['type'], 'repo__name': item['repo']['name']})
+    with open('json_temp\\' + filename, 'w', encoding='utf-8') as F:
+        json.dump(batch_message, F)
+单元测试安装coverage：pip install coverage
+然后找了个测试教程
+测试了一下初始化函数覆盖率为64%，但是我在查看具体的报告时发现，覆盖率测试把进程池调用的函数模块认定为missing.....所以实际上的覆盖率要高一点。
+测试：代码规范my code style总结相当曲折和艰难的一次作业，时间比较赶，所以各方面都比较仓促和粗糙。不过也接触了很多之前没用过的工具，提高了我的专注程度，感觉就像延续了几天的建模比赛的节奏。之前的coding都没有代码规范的概念，也不会去关注性能（除了之前打oj）。总的来说收获还是蛮大的，过程中学到的东西和积累的快速学习能力都是宝贵财富。
+同时也深刻理解到了python的缺点：性能。虽然打起来很快很舒服，但是终究是比不过C++和Java的。
+
+</text><lastUpdated>2020-09-16 20:50</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/10393050.html</url><title>2019寒假训练营第三次作业part2 </title><text>
+    热身题服务器正在运转着，也不知道这个技术可不可用，万一服务器被弄崩了，那损失可不小。
+所以, 决定在虚拟机上试验一下，不小心弄坏了也没关系。需要在的电脑上装上虚拟机和linux系统
+安装虚拟机(可参考Vmware、Virtual Box等)
+安装ubuntu系统(推荐安装16.04版本)
+写一个helloworld程序，在ubuntu系统上编译运行
+（你可能需要了解linux系统的终端和一些基本命令、文本编辑工具nano、如何编译代码、运行程序）1.安装虚拟机Vmware：在官网下载页面选择workstation pro，下载并安装。运行workstation pro节目如下2.安装Ubuntu系统
+安装系统，以及配置c、c++编译器主要参考了以下两篇博文：win10安装内置Ubuntu系统Windows10内置Ubutnu配置C/C++编译环境3.在VMware上创建Ubuntu虚拟机主要参考了Vmware虚拟机安装Ubuntu 16.04 LTS(长期支持)版本+VMware tools安装4.在Ubuntu系统上编译运行hello world程序先在桌面添加名为1.cpp的helloworld程序在Ubuntu系统上运行基本题了解新技术众多sketch的技术中，Count-min sketch 常用也并不复杂，但你可能需要稍微了解一点点散列的知识。从它入手不失为一个好选择，把它记录在你的技术博客上：1.简单描述什么是sketchsketch是基于哈希的数据结构，通过合理设置哈希函数（也称散列函数），在将数据进行哈希运算后（可能包含多次哈希运算，即多重哈希，目的是提高精确度），将具有相同哈希值的键值数据存入相同的特定区域内，以减少空间开销。将各个区域内的数据值作为测量结果，存在一定的误差，但可以使用各种方式减小误差。2.描述Count-min sketch的算法过程
+摘自维基百科：In computing, the count–min sketch (CM sketch) is a probabilistic data structure that serves as a frequency table of events in a stream of data. It uses hash functions to map events to frequencies, but unlike a hash table uses only sub-linear space, at the expense of overcounting some events due to collisions.（ 在计算中，count-min sketch（CM sketch）是一种概率数据结构，用作数据流中事件的频率表。它使用散列函数将事件映射到频率，但不像散列表仅使用子线性空间，代价是由于冲突导致一些事件过度计数。）目的：统计一个实时的数据流中元素出现的频率，并且准备随时回答某个元素出现的频率，不需要的精确的计数。技巧：因为储存所有元素的话太耗费内存空间，所有不存储所有的不同的元素，只存储它们Sketch的计数。实现大致过程：
+建立一个1~x的数组，作为储存计数的载体。对于一个新元素，哈希到0~x中的一个数x0，作为该元素的数组索引。查询元素出现频率时，返回元素对于数组索引中储存的数即可。实现新技术(30')大致了解了Count-min sketch，接下来就需要实现它了。本着不需要重复造轮子的思想，你上github一查，果然发现了相关代码。
+并不需要深刻理解代码，你只需要会用，你的目标是在虚拟机上跑通Count-min sketch：1.克隆一种版本（python或者c语言）的代码，大致了解如何使用这个代码，在ubuntu系统上编译。自己任意编写一个小测试，成功运行这个代码。通过pip安装countminsketch0.2在GitHub上找到了一个countminsketch项目因为代码比较久远，需要把xrange()函数更替为range()函数出现Unicode-objects must be encoded before hashing问题时，发现是update() 方法必须指定要指定编码格式，否则会报错。应在update（）内添加.encode("utf8")在网络上下载《飘》的英文版编写程序，统计文中的地名“tala”的出现次数运行成程序三次，结果分别为2.你也可以自己实现Count-min sketch。获取用户请求(15')现在需要获取用户的请求信息，其实请求就是网络传输的数据包，可以使用自己的网络环境来模拟服务器的请求,使用工具来捕获这个数据包：1.安装并使用抓包工具tcpdump2.输入tcpdump -n 获取数据包的信息在这部分中，因为Ubuntu的版本原因，卡了很久。最后改成Ubuntu16.04后才能顺利抓包。&gt;_&lt;本来是像抓100000条内容的，但因为种种原因，不得已中断了两次，最后只有80000多条3.使用linux 重定向的方法把该信息用文本文件存起来，文件命名为 pakcet_capture.txt。编写一个py程序，处理得到的数据得到的Request.txt测试新技术完事具备，只欠东风：用跑通的Count-min sketch程序读文件，获得最后的处理结果，请求大小超过阈值T认定为黑客，此处T自己定义。对于你所完成题目，把实现思路和实现结果记录在博客中，把代码提交到github的仓库上。
+稍微改造一下第二次作业中的代码，添加了count-min sketch算法
+地址得到的名单开放题(50')理论部分(25')
+解释为什么 sketch 可以省空间count-min sketch算法使用了hash函数，通过压缩映射，使得散列值的空间远远小于输入值的空间。用流程图描述Count-min sketch的算法过程拿它和你改进后方法进行对比，分析优劣优点：引入了count-min sketch后，很大程度上减小了空间占用和处理速度。缺点：
+可能是笔者不是很懂count-min sketch算法中m,d值的设置，抑或是算法本身的原因，得到的数据不甚准确，每次计算得到的值基本不同。但因为是针对大体量数据进行的计算，一些误差可以看淡甚至忽略不计。但若是对较少数据量的计算，误差则会严重影响精度（例如本文中给出的，对《飘》中地名的统计，难以得到较为准确的数据）吐槽Count-min sketch笔者在GitHub上找到的代码过于久远，py中的xrange()函数已经被弃用了，需要手动改成range()。readme文件有些地方说得晦涩难懂，花了一些功夫才搞懂怎么使用。实验部分(25')
+1.here--&gt;整合了两个步骤，减少了代码读写，由packet_capture直接得到结果改进中的问题：
+整合后代码的运算结果与原来的结果有出入，可能的原因是原算法的第一步筛选过程中错误筛除了一些内容。新程序出现了一些莫名其妙的数组越界错误，但检查后并未发现packet_capture.txt中有存在单行内容因为无空格以至于split()函数无法分割的问题。所以加了一个len(list())&gt;a绕开这个问题2.实时处理请求还未能实现，
+主要障碍有：
+是不懂得如何在程序中启动tcpdump进行抓包因为Ubuntu虚拟机上py配置出了一些问题，不得已将packet_capture.txt文件移动到win10下进行处理对这部分的一些想法：
+基本流程应该是：
+数据生成-&gt;实时采集-&gt;将数据保存在缓存中-&gt;实时计算-&gt;计算结果存储-&gt;被查询引入一些大数据处理框架。大数据处理系统可分为批式大数据和流式大数据两类。其中，批式大数据又被称为历史大数据，流式大数据又被称为实时大数据。流式大数据系统包括了：Spark Streaming、Storm、Flink等可否模仿CentOS与wireshark之间利用PIPE接口实现数据从虚拟机上实时拷贝到win系统中进行处理这篇文章中提到了关于python调用tcpdump的相关内容
+
+</text><lastUpdated>2019-02-18 00:03</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/13619620.html</url><title>2020软工第一次作业 </title><text>
+    这个作业属于哪个课程软件工程2020秋这个作业要求在哪里第一次作业这个作业的目标自我介绍，和老师助教同学互相了解；初步熟悉git和博客平台学号031804103自我介绍我叫chz，来自福建泉州。喜欢足球和古典音乐，尤其是莫扎特和柴可夫斯基，好读书不求甚解。去年徒步爬过一次华山，体验是此后半年都没有爬山的欲望，在山顶等日出的时候想起射雕五绝爬完华山还能打五天五夜，怪不得我成不了武林高手。技能树和技术偏好技能树：
+比较经常用Python和Java；玩过Hadoop，所以也略懂一点Linux；懂一些Latex写作；跑过几个C++的DEMO；爬虫和机器学习的技能正在修炼；GitHub一些基本操作还算可以，高阶功能还不太熟悉；用markdown写过一些文档/笔记，比如：Holmze的数学建模笔记技术偏好：emmmm没有什么强烈的偏好（主要是也都需要现学），条件允许的话希望是后端。代码量没有统计过，大概3~4k？希望这学期之后能翻倍。希望获得什么&amp;希望担任的角色希望的收获
+首先当然是coding能力啦；丰富技能树，深度广度都可以；团队协作的能力，尤其是和其他程序员的交互；希望提高理解他人代码的能力；希望的角色：希望能负责一个需要合作并且可以锻炼能力的任务；或者做个组织调度的角色，很喜欢哈维阿隆索那种风格。缺少什么技能（虽然我觉得技能是一直缺乏的，怎么样都不够用）：
+写大型工程代码的能力和他人交互交流的能力快速阅读理解其他程序员代码的能力截图：cnblog markdown:GitHub page:
+
+</text><lastUpdated>2020-09-05 20:48</lastUpdated></item>
+<item><url>https://www.cnblogs.com/holmze/p/10393098.html</url><title>2019寒假训练营第三次作业part1</title><text>
+    第五章 网络攻防技术5.1 网路信息收集技术--网络踩点黑客入侵系统之前，需要了解目标系统可能存在的：
+管理上的安全缺陷和漏洞网络协议安全缺陷与漏洞系统安全缺陷与漏洞黑客实施入侵过程中，需要掌握：
+目标网络的内部拓扑结构目标系统与外部网络的连接方式与链路路径防火墙的端口过滤与访问控制配置使用的身份认证与访问控制机制网络踩点：
+通过有计划的信息收集，了解攻击目标的隐私信息、网络环境和信息安全状况根据踩点结果，攻击者寻找出攻击目标可能存在的薄弱环节，为进一步的攻击提供指引网络踩点常用手段
+Google Hacking
+通过网络搜索引擎查找特点安全漏洞或是私密信息常用的搜索引擎：www.ZoomEye.orgwww.google.comwww.altavista.comwww.dogpile.comGoogle Hacking客户端软件：Athena,Wikto,SiteDigger能否利用搜索引擎在WEB中找到所需信息，关键在于能否合理提取搜索关键字防范Google Hacking将敏感信息从公共媒体上删除发现存在非预期泄露的敏感信息后，应采取行动进行清楚发表信息时，尽量不要出现真实个人信息做为网络管理者，不要轻易在讨论组或技术论坛发布求助技术贴，防止将单位内部网络拓扑结构或路由器配置泄露给他人关注中国国家漏洞库CNNVD等安全漏洞信息库发布的技术信息，及时更新软件或操作系统补丁WhoIs查询
+DNS注册信息WhoIs查询：查询特定域名的3R详细注册信息
+3R:
+已注册域名的注册人（Registrant）信息，包括域名登记人信息、联系方式、域名注册时间和更新时间、权威DNS IP地址等。注册商（Registrar）信息官方注册局（Registry）信息官方注册局一般会提供注册商和Referral URL信息，具体注册信息则位于注册商数据库中DNS WhoIs查询思路
+ICANN：因特网技术协调机构，负责协调以下因特网标识符的分配工作：
+域名、IP地址、网络通信协议的参数指标和端口号位于DNS/IP层次化管理结构的顶层，因此是手动WHOIS查询的最佳入口点一般思路
+在www.iana.org 得到某个提供whois查询服务的机构进一步查询域名注册商在域名注册商上查询注册信息IP WhoIs查询：查询特定的IP地址的详细注册信息
+ICANN的地址管理组织ASO总体负责IP地址分配工作具体IP网段分配记录和注册者信息都储存于各个洲际互联网管理局RIR的数据库中有时需要到国家/地区互联网注册局NIR（中国为CNNIC）或ISP查询更细致信息查询过程
+ARIN的Whois Web服务，告知这段IP由AONIC管辖APNIC的Whois Web服务，给出该网段其他详细信息whois查询安全防范
+及时更新管理性事务联系人的信息尝试使用虚拟的人名来作为管理性事务联系人使用域名注册商提供的私密注册服务，确保敏感信息不被公开DNS查询
+DNS：一个提供域名到IP地址的映射或者将IP地址映射成域名的分布式数据库系统DNS区域传送：
+辅助DNS服务器使用来自主服务器的数据刷新自己的ZONE数据库为运行中的DNS服务提供一定的冗余度，防止因主服务器故障而导致域名解析器服务不可用DNS区域传送一般仅限于辅助DNS服务器才能向主服务器发起请求DNS服务：允许不受信任的因特网用户执行DNS区域传送请求，是严重的配置错误
+在错误配置时DNS服务器会接受任何一个主机的DNS区域传送请求如果没有使用公用/私用DNS机制分割外部公用DNS信息和内部私用DNS信息，任何攻击者都可以得到机构的所有内部主机和IP地址解决方案：对外的DNS服务器配置为禁止DNS区域传送，且该服务器不能包含内部网络相关主机的敏感信息
+5.2网路信息收集技术--网络扫描网络扫描：攻击者通过扫描技术找到目标可能的入侵漏洞类型主机扫描：向目标系统发出特定的数据包，并分析目标系统返回的相应结果的行为
+使用ICMP协议常见扫描技术
+ICMP Ping扫描端口扫描防范
+使用例如Snort入侵扫描检测系统，或者McAfee桌面防火墙工具，来检测主机扫描活动根据业务要求，仔细考虑允许哪些类型的ICMP通信进入网络
+使用访问控制列表机制ACL只允许制定的ICMP数据包到达特定主机端口扫描：攻击者通过连接到目标系统的TCP/UDP端口，已确定有哪些服务正处于监听状态
+常见端口扫描技术
+TCP端口扫描TCP SYN扫描TCP FIN扫描TCP圣诞树扫描TCP空扫描TCP ACK扫描TCP窗口扫描TCP RPC扫描UDP扫描防范措施
+端口扫描监测
+网络入侵系统如Snort端口扫描的预防
+开启防火墙禁用所有不必要的服务类UNIX:/etc/inetd.conf文件中注释掉不必要的服务，修改系统、使用脚本，禁用此类服务win32：在“控制面板/服务”中关闭服务操作系统/网络服务辨识
+操作系统类型探测技术：TCP/IP协议栈指纹分析
+不同的操作系统在实现TCP/IP协议栈时都存在着差异RFC中没有对TCP/IP协议实现给予精确的定义不同的操作系统产生商，在实现TCP/IP协议栈时，也没有完全按照RFC所定义的标准来实现不同的网络服务在实现应用层协议时也存在差异防范措施
+使用端口扫描检测工具，发现对操作系统的探查活动部署安全的防火墙以保护目标主机漏洞扫描
+安全漏洞：通常指硬件、软件或策略上存在的安全缺陷，利用这些安全缺陷，攻击者能够在未授权的情况下访问、控制、甚至破坏目标系统目的：探测目标网络的特定操作系统、网络服务、应用程序中是否存在已公布安全漏洞防范措施
+在黑客之前扫描漏洞补丁自动更新和分发，修补漏洞保证所安装软件的来源安全开启操作系统和应用软件的自动更新机制
+5.3网路信息收集技术--网络查点查点：对选择好的攻击目标，发起主动的连接和查询，针对性的收集发起实际攻击所需的具体信息内容网络服务旗标抓取：利用客户端工具连接至远程网络服务并观察输出以搜集关键信息的技术手段
+通用网络服务查点
+通用网络服务Windows平台网络服务查点：利用Windows平台特有的网络服务协议
+NETBIOS名字服务查询SMB会话查询目录查询MSRPC查点防范措施：
+关闭不必要的服务及窗口关闭打印与共享服务（SMB）不要让主机名暴露使用者身份关闭不必要共享，特别是可写共享关闭默认共享限制IPC$默认共享的匿名空连接等
+5.4Windows系统渗透基础控制注入攻击：现代计算机系统遵循冯诺依曼体系结构，没有在内存中严格区分计算机程序的数据和指令，使得程序外部的指令数据有可能被当作指令代码执行。攻击者目标：劫持应用程序控制流来执行目标系统上的任意代码，最终达到远程控制目标系统的目的劫持攻击技术：
+缓冲区溢出：
+栈溢出
+利用方式：符改函数返回地址堆溢出格式化字符串漏洞整数溢出指针释放后再次被使用Windows系统主要的网络服务程序：NetBIOS网络服务SMB网络服务MSRPC网络服务RDP远程桌面服务远程渗透Windows系统的途径缓冲区溢出攻击认证欺骗客户端软件漏洞利用设备驱动漏洞利用针对系统渗透攻击的常见防范措施及时更新应用软件、操作系统、硬件设备驱动程序的安全补丁禁用不必要的网络服务使用防火墙来限制可能存在漏洞的服务的访问强制用户使用强口令，并定期更换口令审计与日治使用扫描软件主动发现系统是否存在已知安全漏洞，安装入侵检测/防御系统客户端应用程序尽量使用受限权限，而非管理员或同等级权限的用户登录因特网运行并及时更新防病毒软件禁用以受攻击的硬件设备
+5.5Internet协议安全问题终端设备、路由器以及其他因特网连接设备，都要运行一系列协议，这些协议控制因特网中信息的接受和发送，因特网的主要协议成为TCP/IP协议网络安全五大属性（CIA)机密性完整性可用性真实性不可抵赖性网络攻击基本模式被动威胁
+截获（窃听）（破坏机密性）
+嗅探监听主动威胁
+篡改（破坏完整性）
+数据包篡改中断（破坏可用性）
+拒绝服务伪造（破坏真实性）
+欺骗因特网协议栈层次结构网络层基础协议：IP协议、ARP地址协议解析协议、BGP边界网关协议等动态路由协议IP源地址欺骗攻击：路由器只根据目标IP地址进行路由转发，不对源IP地址做验证，常被利用于发起匿名Dos攻击传输层协议：UDP和TCP协议基于TCP协议安全缺陷引发的TCP RST攻击（伪造TCP重置报文攻击）TCP会话劫持攻击应用层协议：目前流行的应用层协议如HTTP、FTP、SMTP/POP3、DNS等均缺乏合理的身份验证机制，加上大多采用铭文传输通信数据，因此普遍存在被嗅探、欺骗、中间人攻击等风险。DNS协议    - 拒绝式服务攻击（DoS）：用超出目标处理能力的海量数据包消耗可用系统资源、宽带资源等，或造成程序缓冲区溢出错误，导致其无法处理合法用户的正常请求，最终致使网络服务瘫痪，甚至系统死机。
+        - 弱点攻击
+        - 洪泛攻击
+TCP/IP网络协议栈攻击防范措施
+网络接口层，检测和防御网络威胁，对网关路由器等关键网络节点设备进行安全防护，优化网络结构，增强链路层加密强度网络层，采用多种过滤和检测技术来发现和阻断网络中欺骗攻击，增强防火墙、路由器和网关设备的安全策略，关键服务器使用静态绑定IP-MAC映射表、使用IPsec协议加密通讯等预防机制传输层加密传输和安全控制机制，包括身份认证和访问应用层加密，用户级身份认证，数字签名技术，授权和访问控制技术以及审计、入侵检测5.6基本的web安全跨站脚本攻击（XSS)：攻击者利用网页开发时留下的漏洞，通过巧妙的方式注入恶意代码到网页，使用户加载网页时会运行攻击者恶意制造的代码，脚本可以是JavaScript、VBSvript、ActiveX、Flash、HTML。攻击成功后，攻击者会得到敏感信息，以获取更高用户权限，以被攻击者身份执行操作
+反射型XSS- 储存型XSS
+- DOM-XSS
+- 防范XSS攻击
+    - 在浏览器设置中关闭JavaScript，关闭cookie或设置为为只读，提高浏览器的安全等级设置，尽量使用非IE的安全浏览器来降低风险
+    - 只信任值得信任的站点或内容，不要轻易点击不明链接
+SQL注入：利用web应用程序输入验证不完善的漏洞，将一段精心构造的SQL命令注入到后台数据库引擎执行
+SQL注入的危害数据库中的用户隐私信息被泄露对特定网页进行篡改通过修改数据库一些字段的值，嵌入木马链接，进行挂马攻击数据库的系统管理员账户被修改服务器被黑客安装后门进行远程控制破坏硬盘数据，瘫痪全系统SQL注入的主要原因是web应用程序没有对用户输入进行严格的转义字符过滤和类型检查防范：
+使用类型安全的参数编码机制对来自程序外部的用户输入，必须进行完备检查将动态SQL语句替换为存储过程，预编译SQL或ADO命令对象加强SQL数据库服务器的配置与连接，以最小权限配置原则配置web应用程序连接数据库的操作权限，避免将敏感数据明文存放于数据库中跨站请求伪造（CSRF)csrf实际上是利用了web身份验证的漏洞：基于cookies的身份验证只能保证请求发自用户的浏览器，却不能保证请求时用户自愿发出的- 对CSRF攻击的防御
+    - 服务端
+    - 客户端
+    - 设备端
+- 预防措施
+    - 不要点击未知的链接或图片
+    - 及时退出已登录账户
+    - 为计算机系统安装安全防护软件，及时更新特征库和软件升级
+    - 安装浏览器插件扩展防护
+5.7社会工程学攻击攻击形式
+信息收集心理诱导身份伪造施加影响希望获得的信息
+可能直接导致攻击对象的财产或身份被盗能力也这些信息获取目标组织的薄弱环节向攻击目标发动更有针对性的攻击防范
+了解熟悉社会工程学诈骗对自己的基础信息保持足够的警惕不要通过不安全的方式透露个人、家庭、公司一些看似无关紧要的信息涉及敏感信息，务必核实对方身份使用防火墙保护个人电脑，同时提高垃圾邮件过滤器的门槛!
+
+</text><lastUpdated>2019-02-17 23:17</lastUpdated></item>
+</items>
