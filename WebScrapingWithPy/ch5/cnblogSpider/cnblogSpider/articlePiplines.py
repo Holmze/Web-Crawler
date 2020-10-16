@@ -1,3 +1,4 @@
+# scrapy runspider .\articlePiplines.py -s LOG_FILE=all.log
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider,Rule
 from cnblogSpider.items import Article

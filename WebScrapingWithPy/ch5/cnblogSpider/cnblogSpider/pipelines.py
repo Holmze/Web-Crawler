@@ -27,5 +27,5 @@ class CnblogspiderPipeline(object):
         article['text'] = ''.join(article['text'])
         article['title'] = str(article['title']).split('-')[0]
         print(article['lastUpdated'],":",article['title'],"in",article['url'])
-        print(article['text'])
+        # print(article['text'])
         return article
