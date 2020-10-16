@@ -1,0 +1,1133 @@
+2020-10-14 15:05:08 [scrapy.utils.log] INFO: Scrapy 2.3.0 started (bot: testSpider)
+2020-10-14 15:05:08 [scrapy.utils.log] INFO: Versions: lxml 4.5.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform Windows-10-10.0.17763-SP0
+2020-10-14 15:05:08 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-14 15:05:08 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'testSpider',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'testSpider.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['testSpider.spiders']}
+2020-10-14 15:05:08 [scrapy.extensions.telnet] INFO: Telnet Password: 5f8bd2d2a7d24f19
+2020-10-14 15:05:08 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-14 15:05:08 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-14 15:05:08 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-14 15:05:08 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-10-14 15:05:08 [scrapy.core.engine] INFO: Spider opened
+2020-10-14 15:05:08 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-14 15:05:08 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-14 15:05:08 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://edu.cnblogs.com/robots.txt> (referer: None)
+2020-10-14 15:05:08 [protego] DEBUG: Rule at line 8 without any user agent to enforce it on.
+2020-10-14 15:05:08 [protego] DEBUG: Rule at line 9 without any user agent to enforce it on.
+2020-10-14 15:05:08 [protego] DEBUG: Rule at line 10 without any user agent to enforce it on.
+2020-10-14 15:05:08 [protego] DEBUG: Rule at line 11 without any user agent to enforce it on.
+2020-10-14 15:05:08 [protego] DEBUG: Rule at line 12 without any user agent to enforce it on.
+2020-10-14 15:05:08 [protego] DEBUG: Rule at line 13 without any user agent to enforce it on.
+2020-10-14 15:05:08 [protego] DEBUG: Rule at line 18 without any user agent to enforce it on.
+2020-10-14 15:05:08 [protego] DEBUG: Rule at line 22 without any user agent to enforce it on.
+2020-10-14 15:05:08 [protego] DEBUG: Rule at line 31 without any user agent to enforce it on.
+2020-10-14 15:05:08 [protego] DEBUG: Rule at line 34 without any user agent to enforce it on.
+2020-10-14 15:05:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://edu.cnblogs.com/campus/fzu/SE2020/homework/11277> (referer: None)
+2020-10-14 15:05:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://cn.bing.com/robots.txt> (referer: None)
+2020-10-14 15:05:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://cn.bing.com/?FORM=Z9FD1> (referer: None)
+2020-10-14 15:05:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://github.com/robots.txt> (referer: None)
+2020-10-14 15:05:10 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/robots.txt> (referer: None)
+2020-10-14 15:05:10 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/easteast/> (referer: None)
+2020-10-14 15:05:10 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://github.com/Holmze/031804103-051806129> (referer: None)
+2020-10-14 15:05:10 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-14 15:05:10 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 2245,
+ 'downloader/request_count': 8,
+ 'downloader/request_method_count/GET': 8,
+ 'downloader/response_bytes': 107264,
+ 'downloader/response_count': 8,
+ 'downloader/response_status_count/200': 7,
+ 'downloader/response_status_count/404': 1,
+ 'elapsed_time_seconds': 2.036269,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 14, 7, 5, 10, 655397),
+ 'log_count/DEBUG': 18,
+ 'log_count/INFO': 10,
+ 'response_received_count': 8,
+ 'robotstxt/request_count': 4,
+ 'robotstxt/response_count': 4,
+ 'robotstxt/response_status_count/200': 3,
+ 'robotstxt/response_status_count/404': 1,
+ 'scheduler/dequeued': 4,
+ 'scheduler/dequeued/memory': 4,
+ 'scheduler/enqueued': 4,
+ 'scheduler/enqueued/memory': 4,
+ 'start_time': datetime.datetime(2020, 10, 14, 7, 5, 8, 619128)}
+2020-10-14 15:05:10 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-14 15:05:23 [scrapy.utils.log] INFO: Scrapy 2.3.0 started (bot: testSpider)
+2020-10-14 15:05:23 [scrapy.utils.log] INFO: Versions: lxml 4.5.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform Windows-10-10.0.17763-SP0
+2020-10-14 15:05:23 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-14 15:05:23 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'testSpider',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'testSpider.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['testSpider.spiders']}
+2020-10-14 15:05:23 [scrapy.extensions.telnet] INFO: Telnet Password: f9fad1f6d65f1272
+2020-10-14 15:05:23 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-14 15:05:23 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-14 15:05:23 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-14 15:05:23 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-10-14 15:05:23 [scrapy.core.engine] INFO: Spider opened
+2020-10-14 15:05:23 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-14 15:05:23 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-14 15:05:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/robots.txt> (referer: None)
+2020-10-14 15:05:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/13797920.html> (referer: None)
+2020-10-14 15:05:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'news.cnblogs.com': <GET https://news.cnblogs.com/>
+2020-10-14 15:05:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'q.cnblogs.com': <GET https://q.cnblogs.com/>
+2020-10-14 15:05:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'brands.cnblogs.com': <GET https://brands.cnblogs.com/>
+2020-10-14 15:05:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'ing.cnblogs.com': <GET https://ing.cnblogs.com/>
+2020-10-14 15:05:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'edu.cnblogs.com': <GET https://edu.cnblogs.com/>
+2020-10-14 15:05:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'passport.cnblogs.com': <GET https://passport.cnblogs.com/GetBlogApplyStatus.aspx>
+2020-10-14 15:05:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'msg.cnblogs.com': <GET https://msg.cnblogs.com/>
+2020-10-14 15:05:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'home.cnblogs.com': <GET https://home.cnblogs.com/>
+2020-10-14 15:05:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'account.cnblogs.com': <GET https://account.cnblogs.com/settings/account>
+2020-10-14 15:05:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'github.com': <GET https://github.com/Holmze/031804103-051806129>
+2020-10-14 15:05:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'nodejs.cn': <GET http://nodejs.cn/download/>
+2020-10-14 15:05:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'i.cnblogs.com': <GET https://i.cnblogs.com/EditPosts.aspx?postid=13797920>
+2020-10-14 15:05:26 [scrapy.dupefilters] DEBUG: Filtered duplicate request: <GET https://www.cnblogs.com/holmze/p/13797920.html#top> - no more duplicates will be shown (see DUPEFILTER_DEBUG to show all duplicates)
+2020-10-14 15:05:26 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://feed.cnblogs.com/blog/u/490223/rss/> from <GET https://www.cnblogs.com/holmze/rss/>
+2020-10-14 15:05:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/13797920.html> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-14 15:05:26 [scrapy.core.engine] DEBUG: Crawled (404) <GET http://feed.cnblogs.com/robots.txt> (referer: None)
+2020-10-14 15:05:26 [protego] DEBUG: Rule at line 7 without any user agent to enforce it on.
+2020-10-14 15:05:26 [protego] DEBUG: Rule at line 11 without any user agent to enforce it on.
+2020-10-14 15:05:26 [protego] DEBUG: Rule at line 14 without any user agent to enforce it on.
+2020-10-14 15:05:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://feed.cnblogs.com/blog/u/490223/rss/> (referer: None)
+2020-10-14 15:05:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-14 15:05:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'group.cnblogs.com': <GET https://group.cnblogs.com/>
+2020-10-14 15:05:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'wz.cnblogs.com': <GET https://wz.cnblogs.com/>
+2020-10-14 15:05:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'job.cnblogs.com': <GET https://job.cnblogs.com/>
+2020-10-14 15:05:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'zzk.cnblogs.com': <GET https://zzk.cnblogs.com/>
+2020-10-14 15:05:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.vpsor.cn': <GET https://www.vpsor.cn>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.aliyun.com': <GET https://www.aliyun.com>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'cloud.tencent.com': <GET https://cloud.tencent.com/act/developer?fromSource=gwzcw.3196334.3196334.3196334&utm_medium=cpc&utm_id=gwzcw.3196334.3196334.3196334>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.huaweicloud.com': <GET https://www.huaweicloud.com/>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'cloud.baidu.com': <GET https://cloud.baidu.com>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.jdcloud.com': <GET https://www.jdcloud.com>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.yisu.com': <GET https://www.yisu.com/>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.163yun.com': <GET https://www.163yun.com>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.gcpowertools.com.cn': <GET http://www.gcpowertools.com.cn>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.chinaz.com': <GET http://www.chinaz.com/>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'dev.yesky.com': <GET http://dev.yesky.com>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.hightopo.com': <GET http://www.hightopo.com/cn-index.html>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'wetest.qq.com': <GET http://wetest.qq.com/?from=links_cnblogs>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'yaq.qq.com': <GET http://yaq.qq.com/>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.ucancode.com': <GET http://www.ucancode.com/index.html>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to '163yun.cnblogs.com': <GET https://163yun.cnblogs.com/>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'kb.cnblogs.com': <GET https://kb.cnblogs.com>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'about.cnblogs.com': <GET https://about.cnblogs.com/>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.beian.miit.gov.cn': <GET http://www.beian.miit.gov.cn>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'ss.knet.cn': <GET https://ss.knet.cn/verifyseal.dll?sn=e131108110100433392itm000000&ct=df&a=1&pa=0.25787803245785335>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.beian.gov.cn': <GET http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011502001144>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.shjbzx.cn': <GET http://www.shjbzx.cn>
+2020-10-14 15:05:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/lijingcai/> (referer: https://www.cnblogs.com/)
+2020-10-14 15:05:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/keeya/p/13814593.html> (referer: https://www.cnblogs.com/)
+2020-10-14 15:05:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/lijingcai/p/13814404.html> (referer: https://www.cnblogs.com/)
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'mp.weixin.qq.com': <GET https://mp.weixin.qq.com/s/3sjjNBY6cM-HhZf-B58WuQ>
+2020-10-14 15:05:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiyuanMore/p/13810669.html> (referer: https://www.cnblogs.com/)
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'downloads.apache.org': <GET https://downloads.apache.org/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.elastic.co': <GET https://www.elastic.co/guide/en/elasticsearch/plugins/7.2/repository-hdfs.html>
+2020-10-14 15:05:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'hadoop.apache.org': <GET https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html>
+2020-10-14 15:05:29 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://www.cnblogs.com/holmze/p/ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-14 15:05:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/goodAndyxublog/p/13800796.html> (referer: https://www.cnblogs.com/)
+2020-10-14 15:05:29 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'studyidea.cn': <GET https://studyidea.cn>
+2020-10-14 15:05:29 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'zhuanlan.zhihu.com': <GET https://zhuanlan.zhihu.com/p/19848613>
+2020-10-14 15:05:29 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET https://b.cnblogs.com/skins.aspx> from <GET https://www.cnblogs.com/skins.aspx>
+2020-10-14 15:05:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiaoXuZhi/> (referer: https://www.cnblogs.com/)
+2020-10-14 15:05:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/aggsite/topdigged24h> (referer: https://www.cnblogs.com/)
+2020-10-14 15:05:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/aggsite/headline> (referer: https://www.cnblogs.com/)
+2020-10-14 15:05:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://b.cnblogs.com/robots.txt> (referer: None)
+2020-10-14 15:05:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/keeya/> (referer: https://www.cnblogs.com/)
+2020-10-14 15:05:30 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://www.cnblogs.com/mipengine/> from <GET http://www.cnblogs.com/mipengine/>
+2020-10-14 15:05:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/lijingcai/p/9516665.html> (referer: https://www.cnblogs.com/lijingcai/)
+2020-10-14 15:05:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/sitehome/p/200> (referer: https://www.cnblogs.com/)
+2020-10-14 15:05:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiyuanMore/> (referer: https://www.cnblogs.com/xiyuanMore/p/13810669.html)
+2020-10-14 15:05:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiaoXuZhi/archive/2019/12/26.html> (referer: https://www.cnblogs.com/xiaoXuZhi/)
+2020-10-14 15:05:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/comment/> (referer: https://www.cnblogs.com/)
+2020-10-14 15:05:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/lijingcai/archive/2018/08/22.html> (referer: https://www.cnblogs.com/lijingcai/)
+2020-10-14 15:05:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiaoXuZhi/p/XYH_String2.html> (referer: https://www.cnblogs.com/xiaoXuZhi/)
+2020-10-14 15:05:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://b.cnblogs.com/skins.aspx> (referer: https://www.cnblogs.com/)
+2020-10-14 15:05:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/KJ-23/> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-14 15:05:31 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://www.cnblogs.com/> from <GET http://www.cnblogs.com>
+2020-10-14 15:05:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/keeya/p/9952700.html> (referer: https://www.cnblogs.com/keeya/)
+2020-10-14 15:05:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/sitehome/p/3> (referer: https://www.cnblogs.com/)
+2020-10-14 15:05:31 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'b.cnblogs.com': <GET https://b.cnblogs.com/topic/>
+2020-10-14 15:05:31 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'skintemplate.cnblogs.com': <GET http://skintemplate.cnblogs.com/>
+2020-10-14 15:05:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/keeya/archive/2018/11/13.html> (referer: https://www.cnblogs.com/keeya/)
+2020-10-14 15:05:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xuanyuan/> (referer: https://www.cnblogs.com/aggsite/topdigged24h)
+2020-10-14 15:05:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/keeya/archive/2019/09/08.html> (referer: https://www.cnblogs.com/keeya/)
+2020-10-14 15:05:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiyuanMore/archive/2020/05/18.html> (referer: https://www.cnblogs.com/xiyuanMore/)
+2020-10-14 15:05:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiaoXuZhi/p/xyh_20201014.html> (referer: https://www.cnblogs.com/)
+2020-10-14 15:05:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiyuanMore/p/12961596.html> (referer: https://www.cnblogs.com/xiyuanMore/)
+2020-10-14 15:05:32 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'developers.google.com': <GET https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/?utm_source=devtools>
+2020-10-14 15:05:32 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.charlesproxy.com': <GET https://www.charlesproxy.com/>
+2020-10-14 15:05:32 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'juejin.im': <GET https://juejin.im/post/6844903718387875847>
+2020-10-14 15:05:32 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'zhitu.isux.us': <GET https://zhitu.isux.us/>
+2020-10-14 15:05:32 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'tinypng.com': <GET https://tinypng.com/>
+2020-10-14 15:05:32 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.jianshu.com': <GET https://www.jianshu.com/p/ffbb25380904>
+2020-10-14 15:05:32 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.ruanyifeng.com': <GET http://www.ruanyifeng.com/blog/2018/07/web-worker.html>
+2020-10-14 15:05:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/keeya/p/11487465.html> (referer: https://www.cnblogs.com/keeya/)
+2020-10-14 15:05:35 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/bluedoctor/> (referer: https://www.cnblogs.com/sitehome/p/200)
+2020-10-14 15:05:35 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/zhanlang/p/13357643.html> (referer: https://www.cnblogs.com/sitehome/p/200)
+2020-10-14 15:05:36 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://www.cnblogs.com/ad.aspx> from <GET http://www.cnblogs.com/ad.aspx>
+2020-10-14 15:05:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/mipengine/> (referer: None)
+2020-10-14 15:05:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiyuanMore/default.html?page=2> (referer: https://www.cnblogs.com/xiyuanMore/)
+2020-10-14 15:05:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/cmt/> (referer: https://www.cnblogs.com/)
+2020-10-14 15:05:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-14 15:05:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xuanyuan/archive/2020/08/11.html> (referer: https://www.cnblogs.com/xuanyuan/)
+2020-10-14 15:05:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xuanyuan/p/13475249.html> (referer: https://www.cnblogs.com/xuanyuan/)
+2020-10-14 15:05:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xuanyuan/archive/2020/08/19.html> (referer: https://www.cnblogs.com/xuanyuan/)
+2020-10-14 15:05:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/vipstone/> (referer: https://www.cnblogs.com/sitehome/p/3)
+2020-10-14 15:05:37 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://about.cnblogs.com/ad> from <GET https://www.cnblogs.com/ad.aspx>
+2020-10-14 15:05:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/keeya/default.html?page=2> (referer: https://www.cnblogs.com/keeya/)
+2020-10-14 15:05:38 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://about.cnblogs.com/robots.txt> (referer: None)
+2020-10-14 15:05:38 [protego] DEBUG: Rule at line 8 without any user agent to enforce it on.
+2020-10-14 15:05:38 [protego] DEBUG: Rule at line 9 without any user agent to enforce it on.
+2020-10-14 15:05:38 [protego] DEBUG: Rule at line 10 without any user agent to enforce it on.
+2020-10-14 15:05:38 [protego] DEBUG: Rule at line 11 without any user agent to enforce it on.
+2020-10-14 15:05:38 [protego] DEBUG: Rule at line 12 without any user agent to enforce it on.
+2020-10-14 15:05:38 [protego] DEBUG: Rule at line 13 without any user agent to enforce it on.
+2020-10-14 15:05:38 [protego] DEBUG: Rule at line 18 without any user agent to enforce it on.
+2020-10-14 15:05:38 [protego] DEBUG: Rule at line 22 without any user agent to enforce it on.
+2020-10-14 15:05:38 [protego] DEBUG: Rule at line 31 without any user agent to enforce it on.
+2020-10-14 15:05:38 [protego] DEBUG: Rule at line 34 without any user agent to enforce it on.
+2020-10-14 15:05:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xuanyuan/default.html?page=2> (referer: https://www.cnblogs.com/xuanyuan/)
+2020-10-14 15:05:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/mipengine/default.html?page=2> (referer: https://www.cnblogs.com/mipengine/)
+2020-10-14 15:05:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/bluedoctor/default.html?page=2> (referer: https://www.cnblogs.com/bluedoctor/)
+2020-10-14 15:05:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/mipengine/p/19_technology_sharing.html> (referer: https://www.cnblogs.com/mipengine/)
+2020-10-14 15:05:40 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.mipengine.org': <GET https://www.mipengine.org/doc/03-principle-of-mip.html>
+2020-10-14 15:05:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/zhanlang/> (referer: https://www.cnblogs.com/sitehome/p/200)
+2020-10-14 15:05:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/10393050.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:05:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/default.html?page=2> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:05:41 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'blog.csdn.net': <GET https://blog.csdn.net/wu9797/article/details/79489328>
+2020-10-14 15:05:41 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.jb51.net': <GET https://www.jb51.net/article/143962.htm>
+2020-10-14 15:05:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://about.cnblogs.com/ad> (referer: None)
+2020-10-14 15:05:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/keeya/p/10025260.html> (referer: https://www.cnblogs.com/keeya/default.html?page=2)
+2020-10-14 15:05:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiyuanMore/archive/2020/02/17.html> (referer: https://www.cnblogs.com/xiyuanMore/default.html?page=2)
+2020-10-14 15:05:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/keeya/p/11064327.html> (referer: https://www.cnblogs.com/keeya/default.html?page=2)
+2020-10-14 15:05:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/sitehome/p/4> (referer: https://www.cnblogs.com/sitehome/p/3)
+2020-10-14 15:05:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/mipengine/p/5_reasons_to_try_mip.html> (referer: https://www.cnblogs.com/mipengine/default.html?page=2)
+2020-10-14 15:05:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiaoXuZhi/default.html?page=2> (referer: https://www.cnblogs.com/xiaoXuZhi/)
+2020-10-14 15:05:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/keeya/archive/2018/11/27.html> (referer: https://www.cnblogs.com/keeya/default.html?page=2)
+2020-10-14 15:05:42 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://feed.cnblogs.com/blog/u/66597/rss/> from <GET https://www.cnblogs.com/bluedoctor/rss/>
+2020-10-14 15:05:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/zhanlang/p/12550179.html> (referer: https://www.cnblogs.com/zhanlang/)
+2020-10-14 15:05:43 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://www.cnblogs.com/mipengine/p/mip_cli_1_install.html> from <GET http://www.cnblogs.com/mipengine/p/mip_cli_1_install.html>
+2020-10-14 15:05:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/10322470.html> (referer: https://www.cnblogs.com/holmze/default.html?page=2)
+2020-10-14 15:05:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/10344384.html> (referer: https://www.cnblogs.com/holmze/default.html?page=2)
+2020-10-14 15:05:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/zhanlang/default.html?page=2> (referer: https://www.cnblogs.com/zhanlang/)
+2020-10-14 15:05:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/10393098.html> (referer: https://www.cnblogs.com/holmze/default.html?page=2)
+2020-10-14 15:05:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/archive/2019/02/17.html> (referer: https://www.cnblogs.com/holmze/default.html?page=2)
+2020-10-14 15:05:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xuanyuan/p/13585840.html> (referer: https://www.cnblogs.com/xuanyuan/)
+2020-10-14 15:05:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiaoXuZhi/p/5583592.html> (referer: https://www.cnblogs.com/xiaoXuZhi/default.html?page=2)
+2020-10-14 15:05:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiyuanMore/p/12323489.html> (referer: https://www.cnblogs.com/xiyuanMore/default.html?page=2)
+2020-10-14 15:05:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://feed.cnblogs.com/blog/u/66597/rss/> (referer: None)
+2020-10-14 15:05:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiaoXuZhi/p/3197121.html> (referer: https://www.cnblogs.com/xiaoXuZhi/default.html?page=2)
+2020-10-14 15:05:45 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2020-10-14 15:05:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/archive/2019/01/26.html> (referer: https://www.cnblogs.com/holmze/default.html?page=2)
+2020-10-14 15:05:45 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2020-10-14 15:05:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiaoXuZhi/p/3204909.html> (referer: https://www.cnblogs.com/xiaoXuZhi/default.html?page=2)
+2020-10-14 15:05:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiaoXuZhi/archive/2013/07/18.html> (referer: https://www.cnblogs.com/xiaoXuZhi/default.html?page=2)
+2020-10-14 15:05:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/Alier/p/6337151.html> (referer: https://www.cnblogs.com/holmze/p/10393050.html)
+2020-10-14 15:05:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/bluedoctor/p/12128475.html> (referer: https://www.cnblogs.com/bluedoctor/default.html?page=2)
+2020-10-14 15:05:49 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2020-10-14 15:05:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xuanyuan/p/13524351.html> (referer: https://www.cnblogs.com/xuanyuan/)
+2020-10-14 15:06:19 [scrapy.utils.log] INFO: Scrapy 2.3.0 started (bot: testSpider)
+2020-10-14 15:06:19 [scrapy.utils.log] INFO: Versions: lxml 4.5.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform Windows-10-10.0.17763-SP0
+2020-10-14 15:06:19 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-14 15:06:19 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'testSpider',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'testSpider.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['testSpider.spiders']}
+2020-10-14 15:06:19 [scrapy.extensions.telnet] INFO: Telnet Password: da9cba25befdad4f
+2020-10-14 15:06:20 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-14 15:06:20 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-14 15:06:20 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-14 15:06:20 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-10-14 15:06:20 [scrapy.core.engine] INFO: Spider opened
+2020-10-14 15:06:20 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-14 15:06:20 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-14 15:06:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/robots.txt> (referer: None)
+2020-10-14 15:06:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/13797920.html> (referer: None)
+2020-10-14 15:06:21 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'news.cnblogs.com': <GET https://news.cnblogs.com/>
+2020-10-14 15:06:21 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'q.cnblogs.com': <GET https://q.cnblogs.com/>
+2020-10-14 15:06:21 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'brands.cnblogs.com': <GET https://brands.cnblogs.com/>
+2020-10-14 15:06:21 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'ing.cnblogs.com': <GET https://ing.cnblogs.com/>
+2020-10-14 15:06:21 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'edu.cnblogs.com': <GET https://edu.cnblogs.com/>
+2020-10-14 15:06:21 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'passport.cnblogs.com': <GET https://passport.cnblogs.com/GetBlogApplyStatus.aspx>
+2020-10-14 15:06:21 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'msg.cnblogs.com': <GET https://msg.cnblogs.com/>
+2020-10-14 15:06:21 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'home.cnblogs.com': <GET https://home.cnblogs.com/>
+2020-10-14 15:06:21 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'account.cnblogs.com': <GET https://account.cnblogs.com/settings/account>
+2020-10-14 15:06:21 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'github.com': <GET https://github.com/Holmze/031804103-051806129>
+2020-10-14 15:06:21 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'nodejs.cn': <GET http://nodejs.cn/download/>
+2020-10-14 15:06:21 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'i.cnblogs.com': <GET https://i.cnblogs.com/EditPosts.aspx?postid=13797920>
+2020-10-14 15:06:21 [scrapy.dupefilters] DEBUG: Filtered duplicate request: <GET https://www.cnblogs.com/holmze/p/13797920.html#top> - no more duplicates will be shown (see DUPEFILTER_DEBUG to show all duplicates)
+2020-10-14 15:06:21 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://www.cnblogs.com/holmze/p/ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-14 15:06:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/13797920.html> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-14 15:06:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-14 15:06:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-14 15:06:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/13619620.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:06:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/10674489.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'group.cnblogs.com': <GET https://group.cnblogs.com/>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'wz.cnblogs.com': <GET https://wz.cnblogs.com/>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'job.cnblogs.com': <GET https://job.cnblogs.com/>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'zzk.cnblogs.com': <GET https://zzk.cnblogs.com/>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.vpsor.cn': <GET https://www.vpsor.cn>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.aliyun.com': <GET https://www.aliyun.com>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'cloud.tencent.com': <GET https://cloud.tencent.com/act/developer?fromSource=gwzcw.3196334.3196334.3196334&utm_medium=cpc&utm_id=gwzcw.3196334.3196334.3196334>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.huaweicloud.com': <GET https://www.huaweicloud.com/>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'cloud.baidu.com': <GET https://cloud.baidu.com>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.jdcloud.com': <GET https://www.jdcloud.com>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.yisu.com': <GET https://www.yisu.com/>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.163yun.com': <GET https://www.163yun.com>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.gcpowertools.com.cn': <GET http://www.gcpowertools.com.cn>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.chinaz.com': <GET http://www.chinaz.com/>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'dev.yesky.com': <GET http://dev.yesky.com>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.hightopo.com': <GET http://www.hightopo.com/cn-index.html>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'wetest.qq.com': <GET http://wetest.qq.com/?from=links_cnblogs>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'yaq.qq.com': <GET http://yaq.qq.com/>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.ucancode.com': <GET http://www.ucancode.com/index.html>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to '163yun.cnblogs.com': <GET https://163yun.cnblogs.com/>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'kb.cnblogs.com': <GET https://kb.cnblogs.com>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'about.cnblogs.com': <GET https://about.cnblogs.com/>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.beian.miit.gov.cn': <GET http://www.beian.miit.gov.cn>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'ss.knet.cn': <GET https://ss.knet.cn/verifyseal.dll?sn=e131108110100433392itm000000&ct=df&a=1&pa=0.25787803245785335>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.beian.gov.cn': <GET http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011502001144>
+2020-10-14 15:06:22 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.shjbzx.cn': <GET http://www.shjbzx.cn>
+2020-10-14 15:06:23 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'bbs.hupu.com': <GET https://bbs.hupu.com/26677132.html?share_from=kqapp>
+2020-10-14 15:06:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/13681302.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:06:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/archive/2020/09/28.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:06:23 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.sciencedirect.com': <GET https://www.sciencedirect.com/science/article/pii/S0196677403001913?via%3Dihub>
+2020-10-14 15:06:23 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.runoob.com': <GET https://www.runoob.com/python3/python3-json.html>
+2020-10-14 15:06:23 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'docs.python.org': <GET https://docs.python.org/zh-cn/3/howto/argparse.html>
+2020-10-14 15:06:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/archive/2019/04/09.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:06:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/13772670.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:06:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/archive/2020/09/16.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:06:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/archive/2020/10/11.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:06:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/default.html?page=2> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:06:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/archive/2020/09/05.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:06:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/archive/2020/10/08.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:06:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/archive/2019/02/18.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:06:24 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.weather.com.cn': <GET http://www.weather.com.cn>
+2020-10-14 15:06:24 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.eastmoney.com': <GET https://www.eastmoney.com/>
+2020-10-14 15:06:24 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'finance.sina.com.cn': <GET http://finance.sina.com.cn/stock/>
+2020-10-14 15:06:24 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'quote.eastmoney.com': <GET http://quote.eastmoney.com/sh603103.html>
+2020-10-14 15:06:25 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2020-10-14 15:06:25 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2020-10-14 15:06:25 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/13745347.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:06:25 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.shanghairanking.cn': <GET http://www.shanghairanking.cn/rankings/bcur/2020>
+2020-10-14 15:06:25 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'xcb.fzu.edu.cn': <GET http://xcb.fzu.edu.cn/html/2019ztjy>
+2020-10-14 15:06:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/sitehome/p/200> (referer: https://www.cnblogs.com/)
+2020-10-14 15:06:26 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://feed.cnblogs.com/blog/u/490223/rss/> from <GET https://www.cnblogs.com/holmze/rss/>
+2020-10-14 15:06:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/KJ-23/> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-14 15:06:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/songzhenhua/p/13194232.html?tdsourcetag=s_pctim_aiomsg> (referer: https://www.cnblogs.com/holmze/p/13681302.html)
+2020-10-14 15:06:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiaolincoding/> (referer: https://www.cnblogs.com/)
+2020-10-14 15:06:28 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2020-10-14 15:06:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/13735287.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:06:28 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.cnblogs.com/mipengine/> (failed 1 times): [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>]
+2020-10-14 15:06:35 [scrapy.utils.log] INFO: Scrapy 2.3.0 started (bot: testSpider)
+2020-10-14 15:06:35 [scrapy.utils.log] INFO: Versions: lxml 4.5.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform Windows-10-10.0.17763-SP0
+2020-10-14 15:06:35 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-14 15:06:35 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'testSpider',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'testSpider.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['testSpider.spiders']}
+2020-10-14 15:06:35 [scrapy.extensions.telnet] INFO: Telnet Password: 51fe909c628e659c
+2020-10-14 15:06:35 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-14 15:06:36 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-14 15:06:36 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-14 15:06:36 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-10-14 15:06:36 [scrapy.core.engine] INFO: Spider opened
+2020-10-14 15:06:36 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-14 15:06:36 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-14 15:06:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/robots.txt> (referer: None)
+2020-10-14 15:06:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/13797920.html> (referer: None)
+2020-10-14 15:06:37 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'news.cnblogs.com': <GET https://news.cnblogs.com/>
+2020-10-14 15:06:37 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'q.cnblogs.com': <GET https://q.cnblogs.com/>
+2020-10-14 15:06:37 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'brands.cnblogs.com': <GET https://brands.cnblogs.com/>
+2020-10-14 15:06:37 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'ing.cnblogs.com': <GET https://ing.cnblogs.com/>
+2020-10-14 15:06:37 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'edu.cnblogs.com': <GET https://edu.cnblogs.com/>
+2020-10-14 15:06:37 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'passport.cnblogs.com': <GET https://passport.cnblogs.com/GetBlogApplyStatus.aspx>
+2020-10-14 15:06:37 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'msg.cnblogs.com': <GET https://msg.cnblogs.com/>
+2020-10-14 15:06:37 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'home.cnblogs.com': <GET https://home.cnblogs.com/>
+2020-10-14 15:06:37 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'account.cnblogs.com': <GET https://account.cnblogs.com/settings/account>
+2020-10-14 15:06:37 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'github.com': <GET https://github.com/Holmze/031804103-051806129>
+2020-10-14 15:06:37 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'nodejs.cn': <GET http://nodejs.cn/download/>
+2020-10-14 15:06:37 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'i.cnblogs.com': <GET https://i.cnblogs.com/EditPosts.aspx?postid=13797920>
+2020-10-14 15:06:37 [scrapy.dupefilters] DEBUG: Filtered duplicate request: <GET https://www.cnblogs.com/holmze/p/13797920.html#top> - no more duplicates will be shown (see DUPEFILTER_DEBUG to show all duplicates)
+2020-10-14 15:06:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-14 15:06:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/KJ-23/> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-14 15:06:37 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://feed.cnblogs.com/blog/u/490223/rss/> from <GET https://www.cnblogs.com/holmze/rss/>
+2020-10-14 15:06:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-14 15:06:37 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'group.cnblogs.com': <GET https://group.cnblogs.com/>
+2020-10-14 15:06:37 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'wz.cnblogs.com': <GET https://wz.cnblogs.com/>
+2020-10-14 15:06:37 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'job.cnblogs.com': <GET https://job.cnblogs.com/>
+2020-10-14 15:06:37 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'zzk.cnblogs.com': <GET https://zzk.cnblogs.com/>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.vpsor.cn': <GET https://www.vpsor.cn>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.aliyun.com': <GET https://www.aliyun.com>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'cloud.tencent.com': <GET https://cloud.tencent.com/act/developer?fromSource=gwzcw.3196334.3196334.3196334&utm_medium=cpc&utm_id=gwzcw.3196334.3196334.3196334>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.huaweicloud.com': <GET https://www.huaweicloud.com/>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'cloud.baidu.com': <GET https://cloud.baidu.com>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.jdcloud.com': <GET https://www.jdcloud.com>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.yisu.com': <GET https://www.yisu.com/>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.163yun.com': <GET https://www.163yun.com>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.gcpowertools.com.cn': <GET http://www.gcpowertools.com.cn>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.chinaz.com': <GET http://www.chinaz.com/>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'dev.yesky.com': <GET http://dev.yesky.com>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.hightopo.com': <GET http://www.hightopo.com/cn-index.html>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'wetest.qq.com': <GET http://wetest.qq.com/?from=links_cnblogs>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'yaq.qq.com': <GET http://yaq.qq.com/>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.ucancode.com': <GET http://www.ucancode.com/index.html>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to '163yun.cnblogs.com': <GET https://163yun.cnblogs.com/>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'kb.cnblogs.com': <GET https://kb.cnblogs.com>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'about.cnblogs.com': <GET https://about.cnblogs.com/>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.beian.miit.gov.cn': <GET http://www.beian.miit.gov.cn>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'ss.knet.cn': <GET https://ss.knet.cn/verifyseal.dll?sn=e131108110100433392itm000000&ct=df&a=1&pa=0.25787803245785335>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.beian.gov.cn': <GET http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011502001144>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.shjbzx.cn': <GET http://www.shjbzx.cn>
+2020-10-14 15:06:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/aggsite/topdigged24h> (referer: https://www.cnblogs.com/)
+2020-10-14 15:06:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/keeya/> (referer: https://www.cnblogs.com/)
+2020-10-14 15:06:38 [scrapy.core.engine] DEBUG: Crawled (404) <GET http://feed.cnblogs.com/robots.txt> (referer: None)
+2020-10-14 15:06:38 [protego] DEBUG: Rule at line 7 without any user agent to enforce it on.
+2020-10-14 15:06:38 [protego] DEBUG: Rule at line 11 without any user agent to enforce it on.
+2020-10-14 15:06:38 [protego] DEBUG: Rule at line 14 without any user agent to enforce it on.
+2020-10-14 15:06:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/aggsite/headline> (referer: https://www.cnblogs.com/)
+2020-10-14 15:06:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/goodAndyxublog/p/13800796.html> (referer: https://www.cnblogs.com/)
+2020-10-14 15:06:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/cate/all> (referer: https://www.cnblogs.com/)
+2020-10-14 15:06:38 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET https://account.cnblogs.com:443/signin?ReturnUrl=https%3A%2F%2Fwww.cnblogs.com%2Faggsite%2Fmydigged> from <GET https://www.cnblogs.com/aggsite/mydigged>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'studyidea.cn': <GET https://studyidea.cn>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'mp.weixin.qq.com': <GET https://mp.weixin.qq.com/s/47s0YdRM6u1JNngNe6yghg>
+2020-10-14 15:06:38 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'zhuanlan.zhihu.com': <GET https://zhuanlan.zhihu.com/p/19848613>
+2020-10-14 15:06:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://account.cnblogs.com:443/robots.txt> (referer: None)
+2020-10-14 15:06:38 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET https://account.cnblogs.com:443/signin?ReturnUrl=https%3A%2F%2Fwww.cnblogs.com%2Faggsite%2Fmydigged>
+2020-10-14 15:06:39 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://www.cnblogs.com/holmze/p/ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-14 15:06:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/13797920.html> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-14 15:06:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/default.html?page=2> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:06:39 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET https://account.cnblogs.com:443/signin?ReturnUrl=https%3A%2F%2Fwww.cnblogs.com%2Faggsite%2Fmycommented> from <GET https://www.cnblogs.com/aggsite/mycommented>
+2020-10-14 15:06:39 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET https://account.cnblogs.com:443/signin?ReturnUrl=https%3A%2F%2Fwww.cnblogs.com%2Faggsite%2Fmycommented>
+2020-10-14 15:06:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://feed.cnblogs.com/blog/u/490223/rss/> (referer: None)
+2020-10-14 15:06:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiyuanMore/p/13810669.html> (referer: https://www.cnblogs.com/)
+2020-10-14 15:06:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/keeya/p/13814593.html> (referer: https://www.cnblogs.com/)
+2020-10-14 15:06:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/keeya/p/9361316.html> (referer: https://www.cnblogs.com/keeya/)
+2020-10-14 15:06:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/10393050.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:06:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/cate/all/3> (referer: https://www.cnblogs.com/cate/all)
+2020-10-14 15:06:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/cate/all/2> (referer: https://www.cnblogs.com/cate/all)
+2020-10-14 15:06:40 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'blog.csdn.net': <GET https://blog.csdn.net/wu9797/article/details/79489328>
+2020-10-14 15:06:40 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.jb51.net': <GET https://www.jb51.net/article/143962.htm>
+2020-10-14 15:06:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/comment/> (referer: https://www.cnblogs.com/)
+2020-10-14 15:06:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/keeya/archive/2018/07/24.html> (referer: https://www.cnblogs.com/keeya/)
+2020-10-14 15:06:41 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://www.cnblogs.com/brt2/p/13814958.html> (referer: https://www.cnblogs.com/cate/all)
+2020-10-14 15:06:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/keeya/default.html?page=2> (referer: https://www.cnblogs.com/keeya/)
+2020-10-14 15:06:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/cate/all/200> (referer: https://www.cnblogs.com/cate/all)
+2020-10-14 15:06:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/10344384.html> (referer: https://www.cnblogs.com/holmze/default.html?page=2)
+2020-10-14 15:06:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/archive/2019/01/31.html> (referer: https://www.cnblogs.com/holmze/default.html?page=2)
+2020-10-14 15:06:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/10393098.html> (referer: https://www.cnblogs.com/holmze/default.html?page=2)
+2020-10-14 15:06:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/Alier/p/6337151.html> (referer: https://www.cnblogs.com/holmze/p/10393050.html)
+2020-10-14 15:06:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/cmt/> (referer: https://www.cnblogs.com/)
+2020-10-14 15:06:43 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET https://b.cnblogs.com/skins.aspx> from <GET https://www.cnblogs.com/skins.aspx>
+2020-10-14 15:06:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://b.cnblogs.com/robots.txt> (referer: None)
+2020-10-14 15:06:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/comment/3/> (referer: https://www.cnblogs.com/comment/)
+2020-10-14 15:06:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/comment/2/> (referer: https://www.cnblogs.com/comment/)
+2020-10-14 15:06:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/comment/200/> (referer: https://www.cnblogs.com/comment/)
+2020-10-14 15:06:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/keeya/p/10025260.html> (referer: https://www.cnblogs.com/keeya/default.html?page=2)
+2020-10-14 15:06:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/cate/all/199> (referer: https://www.cnblogs.com/cate/all/200)
+2020-10-14 15:06:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/10393536.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-14 15:06:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/archive/2019/01/26.html> (referer: https://www.cnblogs.com/holmze/default.html?page=2)
+2020-10-14 15:06:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/Alier/> (referer: https://www.cnblogs.com/Alier/p/6337151.html)
+2020-10-14 15:06:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://b.cnblogs.com/skins.aspx> (referer: https://www.cnblogs.com/)
+2020-10-14 15:06:47 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'b.cnblogs.com': <GET https://b.cnblogs.com/topic/>
+2020-10-14 15:06:47 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'skintemplate.cnblogs.com': <GET http://skintemplate.cnblogs.com/>
+2020-10-14 15:06:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xwenwu/> (referer: https://www.cnblogs.com/cate/all/200)
+2020-10-14 15:06:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/keeya/archive/2018/11/27.html> (referer: https://www.cnblogs.com/keeya/default.html?page=2)
+2020-10-14 15:06:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/comment/4/> (referer: https://www.cnblogs.com/comment/3/)
+2020-10-14 15:06:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xwenwu/p/13808840.html> (referer: https://www.cnblogs.com/cate/all/200)
+2020-10-14 15:06:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/cate/all/4> (referer: https://www.cnblogs.com/cate/all/3)
+2020-10-14 15:06:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xiaolehua/p/13782369.html#4700770> (referer: https://www.cnblogs.com/comment/200/)
+2020-10-14 15:06:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/whenc/> (referer: https://www.cnblogs.com/cate/all/199)
+2020-10-14 15:06:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/10322470.html> (referer: https://www.cnblogs.com/holmze/default.html?page=2)
+2020-10-14 15:06:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/brt2/> (referer: https://www.cnblogs.com/cate/all)
+2020-10-14 15:06:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/cate/all/198> (referer: https://www.cnblogs.com/cate/all/199)
+2020-10-14 15:06:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/glzgc/p/10831877.html#4700771> (referer: https://www.cnblogs.com/comment/200/)
+2020-10-14 15:06:49 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://www.cnblogs.com/ad.aspx> from <GET http://www.cnblogs.com/ad.aspx>
+2020-10-14 15:06:49 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://www.cnblogs.com/ContactUs.aspx> from <GET http://www.cnblogs.com/ContactUs.aspx>
+2020-10-14 15:06:49 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'hackernoon.com': <GET https://hackernoon.com/what-does-the-time-complexity-o-log-n-actually-mean-45f94bb5bfbf>
+2020-10-14 15:06:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/comment/199/> (referer: https://www.cnblogs.com/comment/200/)
+2020-10-14 15:06:49 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://www.cnblogs.com/AboutUS.aspx> from <GET http://www.cnblogs.com/AboutUS.aspx>
+2020-10-14 15:06:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/insi2020/> (referer: https://www.cnblogs.com/cate/all/4)
+2020-10-14 15:06:49 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://www.cnblogs.com/bienfantaisie/> from <GET http://www.cnblogs.com/bienfantaisie/>
+2020-10-14 15:06:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/whenc/archive/2020/10/09.html> (referer: https://www.cnblogs.com/whenc/)
+2020-10-14 15:06:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/veagau/p/11734518.html#4705268> (referer: https://www.cnblogs.com/comment/3/)
+2020-10-14 15:06:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/cmt/default.html?page=2> (referer: https://www.cnblogs.com/cmt/)
+2020-10-14 15:06:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/wsl-hitsz/> (referer: https://www.cnblogs.com/cate/all/199)
+2020-10-14 15:06:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/hxb-superman/p/12848538.html#4705259> (referer: https://www.cnblogs.com/comment/4/)
+2020-10-14 15:06:51 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://about.cnblogs.com/contact/> from <GET https://www.cnblogs.com/ContactUs.aspx>
+2020-10-14 15:06:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/xwenwu/default.html?page=2> (referer: https://www.cnblogs.com/xwenwu/)
+2020-10-14 15:06:51 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://about.cnblogs.com/ad> from <GET https://www.cnblogs.com/ad.aspx>
+2020-10-14 15:06:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/glzgc/> (referer: https://www.cnblogs.com/glzgc/p/10831877.html)
+2020-10-14 15:06:51 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'links.jianshu.com': <GET https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2FTooTallNate%2FJava-WebSocket>
+2020-10-14 15:06:51 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://about.cnblogs.com/robots.txt> (referer: None)
+2020-10-14 15:06:51 [protego] DEBUG: Rule at line 8 without any user agent to enforce it on.
+2020-10-14 15:06:51 [protego] DEBUG: Rule at line 9 without any user agent to enforce it on.
+2020-10-14 15:06:51 [protego] DEBUG: Rule at line 10 without any user agent to enforce it on.
+2020-10-14 15:06:51 [protego] DEBUG: Rule at line 11 without any user agent to enforce it on.
+2020-10-14 15:06:51 [protego] DEBUG: Rule at line 12 without any user agent to enforce it on.
+2020-10-14 15:06:51 [protego] DEBUG: Rule at line 13 without any user agent to enforce it on.
+2020-10-14 15:06:51 [protego] DEBUG: Rule at line 18 without any user agent to enforce it on.
+2020-10-14 15:06:51 [protego] DEBUG: Rule at line 22 without any user agent to enforce it on.
+2020-10-14 15:06:51 [protego] DEBUG: Rule at line 31 without any user agent to enforce it on.
+2020-10-14 15:06:51 [protego] DEBUG: Rule at line 34 without any user agent to enforce it on.
+2020-10-14 15:06:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/cate/all/> (referer: https://www.cnblogs.com/cate/all)
+2020-10-14 15:06:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/brt2/default.html?page=2> (referer: https://www.cnblogs.com/brt2/)
+2020-10-14 15:06:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/veagau/> (referer: https://www.cnblogs.com/veagau/p/11734518.html)
+2020-10-14 15:06:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/comment/198/> (referer: https://www.cnblogs.com/comment/199/)
+2020-10-14 15:06:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/qa-freeroad/p/13407659.html#4700789> (referer: https://www.cnblogs.com/comment/199/)
+2020-10-14 15:06:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/cate/all/5> (referer: https://www.cnblogs.com/cate/all/4)
+2020-10-14 15:06:52 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://feed.cnblogs.com/blog/u/570921/rss/> from <GET https://www.cnblogs.com/hxb-superman/rss/>
+2020-10-14 15:06:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://about.cnblogs.com/contact/> (referer: None)
+2020-10-14 15:06:52 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'blog.51cto.com': <GET https://blog.51cto.com/14900374>
+2020-10-14 15:06:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/insi2020/default.html?page=2> (referer: https://www.cnblogs.com/insi2020/)
+2020-10-14 15:06:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/insi2020/p/13730898.html> (referer: https://www.cnblogs.com/insi2020/)
+2020-10-14 15:06:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://about.cnblogs.com/ad> (referer: None)
+2020-10-14 15:06:53 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'jumpserver.readthedocs.io': <GET https://jumpserver.readthedocs.io/zh/1.4.8/setup_by_fast.html>
+2020-10-14 15:06:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/luoli-zxr/p/13808940.html> (referer: https://www.cnblogs.com/cate/all/198)
+2020-10-14 15:06:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/glzgc/default.html?page=2> (referer: https://www.cnblogs.com/glzgc/)
+2020-10-14 15:06:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/glzgc/p/5169662.html> (referer: https://www.cnblogs.com/glzgc/)
+2020-10-14 15:06:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/brt2/p/13406080.html> (referer: https://www.cnblogs.com/brt2/default.html?page=2)
+2020-10-14 15:06:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/glzgc/p/5169351.html> (referer: https://www.cnblogs.com/glzgc/)
+2020-10-14 15:06:54 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.sohu.com': <GET https://www.sohu.com/a/405406125_120766131>
+2020-10-14 15:06:54 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.vyg.net': <GET https://www.vyg.net/15926.html>
+2020-10-14 15:06:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://feed.cnblogs.com/blog/u/570921/rss/> (referer: None)
+2020-10-14 15:06:56 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2020-10-14 15:06:56 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2020-10-14 15:06:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/brt2/p/13417109.html> (referer: https://www.cnblogs.com/brt2/default.html?page=2)
+2020-10-14 15:06:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/brt2/archive/2020/07/30.html> (referer: https://www.cnblogs.com/brt2/default.html?page=2)
+2020-10-14 15:06:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/insi2020/p/13671709.html> (referer: https://www.cnblogs.com/insi2020/default.html?page=2)
+2020-10-14 15:06:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/glzgc/p/5169037.html> (referer: https://www.cnblogs.com/glzgc/)
+2020-10-14 15:06:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/bienfantaisie/> (referer: None)
+2020-10-14 15:06:58 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2020-10-16 13:57:21 [scrapy.utils.log] INFO: Scrapy 2.3.0 started (bot: testSpider)
+2020-10-16 13:57:21 [scrapy.utils.log] INFO: Versions: lxml 4.5.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform Windows-10-10.0.17763-SP0
+2020-10-16 13:57:21 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-16 13:57:21 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'testSpider',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'testSpider.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['testSpider.spiders']}
+2020-10-16 13:57:21 [scrapy.extensions.telnet] INFO: Telnet Password: 4124140a06e84885
+2020-10-16 13:57:21 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-16 13:57:22 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-16 13:57:22 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-16 13:57:22 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-10-16 13:57:22 [scrapy.core.engine] INFO: Spider opened
+2020-10-16 13:57:22 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-16 13:57:22 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-16 13:57:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/robots.txt> (referer: None)
+2020-10-16 13:57:22 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://edu.cnblogs.com/robots.txt> (referer: None)
+2020-10-16 13:57:22 [protego] DEBUG: Rule at line 8 without any user agent to enforce it on.
+2020-10-16 13:57:22 [protego] DEBUG: Rule at line 9 without any user agent to enforce it on.
+2020-10-16 13:57:22 [protego] DEBUG: Rule at line 10 without any user agent to enforce it on.
+2020-10-16 13:57:22 [protego] DEBUG: Rule at line 11 without any user agent to enforce it on.
+2020-10-16 13:57:22 [protego] DEBUG: Rule at line 12 without any user agent to enforce it on.
+2020-10-16 13:57:22 [protego] DEBUG: Rule at line 13 without any user agent to enforce it on.
+2020-10-16 13:57:22 [protego] DEBUG: Rule at line 18 without any user agent to enforce it on.
+2020-10-16 13:57:22 [protego] DEBUG: Rule at line 22 without any user agent to enforce it on.
+2020-10-16 13:57:22 [protego] DEBUG: Rule at line 31 without any user agent to enforce it on.
+2020-10-16 13:57:22 [protego] DEBUG: Rule at line 34 without any user agent to enforce it on.
+2020-10-16 13:57:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/easteast/> (referer: None)
+2020-10-16 13:57:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://edu.cnblogs.com/campus/fzu/SE2020/homework/11277> (referer: None)
+2020-10-16 13:57:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://cn.bing.com/robots.txt> (referer: None)
+2020-10-16 13:57:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://github.com/robots.txt> (referer: None)
+2020-10-16 13:57:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://cn.bing.com/?FORM=Z9FD1> (referer: None)
+2020-10-16 13:57:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://github.com/Holmze/031804103-051806129> (referer: None)
+2020-10-16 13:57:23 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-16 13:57:23 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 2242,
+ 'downloader/request_count': 8,
+ 'downloader/request_method_count/GET': 8,
+ 'downloader/response_bytes': 106932,
+ 'downloader/response_count': 8,
+ 'downloader/response_status_count/200': 7,
+ 'downloader/response_status_count/404': 1,
+ 'elapsed_time_seconds': 1.458312,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 16, 5, 57, 23, 550071),
+ 'log_count/DEBUG': 18,
+ 'log_count/INFO': 10,
+ 'response_received_count': 8,
+ 'robotstxt/request_count': 4,
+ 'robotstxt/response_count': 4,
+ 'robotstxt/response_status_count/200': 3,
+ 'robotstxt/response_status_count/404': 1,
+ 'scheduler/dequeued': 4,
+ 'scheduler/dequeued/memory': 4,
+ 'scheduler/enqueued': 4,
+ 'scheduler/enqueued/memory': 4,
+ 'start_time': datetime.datetime(2020, 10, 16, 5, 57, 22, 91759)}
+2020-10-16 13:57:23 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-16 13:58:06 [scrapy.utils.log] INFO: Scrapy 2.3.0 started (bot: testSpider)
+2020-10-16 13:58:06 [scrapy.utils.log] INFO: Versions: lxml 4.5.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform Windows-10-10.0.17763-SP0
+2020-10-16 13:58:06 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-16 13:58:06 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'testSpider',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'testSpider.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['testSpider.spiders']}
+2020-10-16 13:58:06 [scrapy.extensions.telnet] INFO: Telnet Password: 6aa3c63e8497af95
+2020-10-16 13:58:06 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-16 13:58:06 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-16 13:58:06 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-16 13:58:06 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-10-16 13:58:06 [scrapy.core.engine] INFO: Spider opened
+2020-10-16 13:58:06 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-16 13:58:06 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-16 13:58:06 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://edu.cnblogs.com/robots.txt> (referer: None)
+2020-10-16 13:58:06 [protego] DEBUG: Rule at line 8 without any user agent to enforce it on.
+2020-10-16 13:58:06 [protego] DEBUG: Rule at line 9 without any user agent to enforce it on.
+2020-10-16 13:58:06 [protego] DEBUG: Rule at line 10 without any user agent to enforce it on.
+2020-10-16 13:58:06 [protego] DEBUG: Rule at line 11 without any user agent to enforce it on.
+2020-10-16 13:58:06 [protego] DEBUG: Rule at line 12 without any user agent to enforce it on.
+2020-10-16 13:58:06 [protego] DEBUG: Rule at line 13 without any user agent to enforce it on.
+2020-10-16 13:58:06 [protego] DEBUG: Rule at line 18 without any user agent to enforce it on.
+2020-10-16 13:58:06 [protego] DEBUG: Rule at line 22 without any user agent to enforce it on.
+2020-10-16 13:58:06 [protego] DEBUG: Rule at line 31 without any user agent to enforce it on.
+2020-10-16 13:58:06 [protego] DEBUG: Rule at line 34 without any user agent to enforce it on.
+2020-10-16 13:58:06 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/robots.txt> (referer: None)
+2020-10-16 13:58:07 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/easteast/> (referer: None)
+2020-10-16 13:58:07 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://edu.cnblogs.com/campus/fzu/SE2020/homework/11277> (referer: None)
+2020-10-16 13:58:07 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://cn.bing.com/robots.txt> (referer: None)
+2020-10-16 13:58:07 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://cn.bing.com/?FORM=Z9FD1> (referer: None)
+2020-10-16 13:58:08 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://github.com/robots.txt> (referer: None)
+2020-10-16 13:58:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://github.com/Holmze/031804103-051806129> (referer: None)
+2020-10-16 13:58:09 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-16 13:58:09 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 2232,
+ 'downloader/request_count': 8,
+ 'downloader/request_method_count/GET': 8,
+ 'downloader/response_bytes': 106968,
+ 'downloader/response_count': 8,
+ 'downloader/response_status_count/200': 7,
+ 'downloader/response_status_count/404': 1,
+ 'elapsed_time_seconds': 3.047889,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 16, 5, 58, 9, 646277),
+ 'log_count/DEBUG': 18,
+ 'log_count/INFO': 10,
+ 'response_received_count': 8,
+ 'robotstxt/request_count': 4,
+ 'robotstxt/response_count': 4,
+ 'robotstxt/response_status_count/200': 3,
+ 'robotstxt/response_status_count/404': 1,
+ 'scheduler/dequeued': 4,
+ 'scheduler/dequeued/memory': 4,
+ 'scheduler/enqueued': 4,
+ 'scheduler/enqueued/memory': 4,
+ 'start_time': datetime.datetime(2020, 10, 16, 5, 58, 6, 598388)}
+2020-10-16 13:58:09 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-16 13:58:15 [scrapy.utils.log] INFO: Scrapy 2.3.0 started (bot: testSpider)
+2020-10-16 13:58:15 [scrapy.utils.log] INFO: Versions: lxml 4.5.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform Windows-10-10.0.17763-SP0
+2020-10-16 13:58:15 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-16 13:58:15 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'testSpider',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'testSpider.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['testSpider.spiders']}
+2020-10-16 13:58:15 [scrapy.extensions.telnet] INFO: Telnet Password: 5d82f6d7f7b981a4
+2020-10-16 13:58:15 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-16 13:58:15 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-16 13:58:15 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-16 13:58:15 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-10-16 13:58:15 [scrapy.core.engine] INFO: Spider opened
+2020-10-16 13:58:15 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-16 13:58:15 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-16 13:58:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/robots.txt> (referer: None)
+2020-10-16 13:58:15 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://edu.cnblogs.com/robots.txt> (referer: None)
+2020-10-16 13:58:15 [protego] DEBUG: Rule at line 8 without any user agent to enforce it on.
+2020-10-16 13:58:15 [protego] DEBUG: Rule at line 9 without any user agent to enforce it on.
+2020-10-16 13:58:15 [protego] DEBUG: Rule at line 10 without any user agent to enforce it on.
+2020-10-16 13:58:15 [protego] DEBUG: Rule at line 11 without any user agent to enforce it on.
+2020-10-16 13:58:15 [protego] DEBUG: Rule at line 12 without any user agent to enforce it on.
+2020-10-16 13:58:15 [protego] DEBUG: Rule at line 13 without any user agent to enforce it on.
+2020-10-16 13:58:15 [protego] DEBUG: Rule at line 18 without any user agent to enforce it on.
+2020-10-16 13:58:15 [protego] DEBUG: Rule at line 22 without any user agent to enforce it on.
+2020-10-16 13:58:15 [protego] DEBUG: Rule at line 31 without any user agent to enforce it on.
+2020-10-16 13:58:15 [protego] DEBUG: Rule at line 34 without any user agent to enforce it on.
+2020-10-16 13:58:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/easteast/> (referer: None)
+2020-10-16 13:58:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://edu.cnblogs.com/campus/fzu/SE2020/homework/11277> (referer: None)
+2020-10-16 13:58:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://cn.bing.com/robots.txt> (referer: None)
+2020-10-16 13:58:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://github.com/robots.txt> (referer: None)
+2020-10-16 13:58:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://cn.bing.com/?FORM=Z9FD1> (referer: None)
+2020-10-16 13:58:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://github.com/Holmze/031804103-051806129> (referer: None)
+2020-10-16 13:58:16 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-16 13:58:16 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 2234,
+ 'downloader/request_count': 8,
+ 'downloader/request_method_count/GET': 8,
+ 'downloader/response_bytes': 106938,
+ 'downloader/response_count': 8,
+ 'downloader/response_status_count/200': 7,
+ 'downloader/response_status_count/404': 1,
+ 'elapsed_time_seconds': 1.208018,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 16, 5, 58, 16, 849714),
+ 'log_count/DEBUG': 18,
+ 'log_count/INFO': 10,
+ 'response_received_count': 8,
+ 'robotstxt/request_count': 4,
+ 'robotstxt/response_count': 4,
+ 'robotstxt/response_status_count/200': 3,
+ 'robotstxt/response_status_count/404': 1,
+ 'scheduler/dequeued': 4,
+ 'scheduler/dequeued/memory': 4,
+ 'scheduler/enqueued': 4,
+ 'scheduler/enqueued/memory': 4,
+ 'start_time': datetime.datetime(2020, 10, 16, 5, 58, 15, 641696)}
+2020-10-16 13:58:16 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-16 13:58:30 [scrapy.utils.log] INFO: Scrapy 2.3.0 started (bot: testSpider)
+2020-10-16 13:58:30 [scrapy.utils.log] INFO: Versions: lxml 4.5.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform Windows-10-10.0.17763-SP0
+2020-10-16 13:58:30 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-16 13:58:30 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'testSpider',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'testSpider.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['testSpider.spiders']}
+2020-10-16 13:58:31 [scrapy.extensions.telnet] INFO: Telnet Password: 237fc8d868336bb9
+2020-10-16 13:58:31 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-16 13:58:31 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-16 13:58:31 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-16 13:58:31 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-10-16 13:58:31 [scrapy.core.engine] INFO: Spider opened
+2020-10-16 13:58:31 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-16 13:58:31 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-16 13:58:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/robots.txt> (referer: None)
+2020-10-16 13:58:31 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://edu.cnblogs.com/robots.txt> (referer: None)
+2020-10-16 13:58:31 [protego] DEBUG: Rule at line 8 without any user agent to enforce it on.
+2020-10-16 13:58:31 [protego] DEBUG: Rule at line 9 without any user agent to enforce it on.
+2020-10-16 13:58:31 [protego] DEBUG: Rule at line 10 without any user agent to enforce it on.
+2020-10-16 13:58:31 [protego] DEBUG: Rule at line 11 without any user agent to enforce it on.
+2020-10-16 13:58:31 [protego] DEBUG: Rule at line 12 without any user agent to enforce it on.
+2020-10-16 13:58:31 [protego] DEBUG: Rule at line 13 without any user agent to enforce it on.
+2020-10-16 13:58:31 [protego] DEBUG: Rule at line 18 without any user agent to enforce it on.
+2020-10-16 13:58:31 [protego] DEBUG: Rule at line 22 without any user agent to enforce it on.
+2020-10-16 13:58:31 [protego] DEBUG: Rule at line 31 without any user agent to enforce it on.
+2020-10-16 13:58:31 [protego] DEBUG: Rule at line 34 without any user agent to enforce it on.
+2020-10-16 13:58:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/easteast/> (referer: None)
+2020-10-16 13:58:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://edu.cnblogs.com/campus/fzu/SE2020/homework/11277> (referer: None)
+2020-10-16 13:58:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://cn.bing.com/robots.txt> (referer: None)
+2020-10-16 13:58:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://cn.bing.com/?FORM=Z9FD1> (referer: None)
+2020-10-16 13:58:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://github.com/robots.txt> (referer: None)
+2020-10-16 13:58:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://github.com/Holmze/031804103-051806129> (referer: None)
+2020-10-16 13:58:33 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-16 13:58:33 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 2234,
+ 'downloader/request_count': 8,
+ 'downloader/request_method_count/GET': 8,
+ 'downloader/response_bytes': 106956,
+ 'downloader/response_count': 8,
+ 'downloader/response_status_count/200': 7,
+ 'downloader/response_status_count/404': 1,
+ 'elapsed_time_seconds': 1.975718,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 16, 5, 58, 33, 381903),
+ 'log_count/DEBUG': 18,
+ 'log_count/INFO': 10,
+ 'response_received_count': 8,
+ 'robotstxt/request_count': 4,
+ 'robotstxt/response_count': 4,
+ 'robotstxt/response_status_count/200': 3,
+ 'robotstxt/response_status_count/404': 1,
+ 'scheduler/dequeued': 4,
+ 'scheduler/dequeued/memory': 4,
+ 'scheduler/enqueued': 4,
+ 'scheduler/enqueued/memory': 4,
+ 'start_time': datetime.datetime(2020, 10, 16, 5, 58, 31, 406185)}
+2020-10-16 13:58:33 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-16 14:13:24 [scrapy.utils.log] INFO: Scrapy 2.3.0 started (bot: testSpider)
+2020-10-16 14:13:24 [scrapy.utils.log] INFO: Versions: lxml 4.5.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform Windows-10-10.0.17763-SP0
+2020-10-16 14:13:24 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-16 14:13:25 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'testSpider',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'testSpider.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['testSpider.spiders']}
+2020-10-16 14:13:25 [scrapy.extensions.telnet] INFO: Telnet Password: 08ed1af5371e5d72
+2020-10-16 14:13:25 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-16 14:13:25 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-16 14:13:25 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-16 14:13:25 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-10-16 14:13:25 [scrapy.core.engine] INFO: Spider opened
+2020-10-16 14:13:25 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-16 14:13:25 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-16 14:13:25 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/robots.txt> (referer: None)
+2020-10-16 14:13:25 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/13797920.html> (referer: None)
+2020-10-16 14:13:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'news.cnblogs.com': <GET https://news.cnblogs.com/>
+2020-10-16 14:13:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'q.cnblogs.com': <GET https://q.cnblogs.com/>
+2020-10-16 14:13:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'brands.cnblogs.com': <GET https://brands.cnblogs.com/>
+2020-10-16 14:13:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'ing.cnblogs.com': <GET https://ing.cnblogs.com/>
+2020-10-16 14:13:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'edu.cnblogs.com': <GET https://edu.cnblogs.com/>
+2020-10-16 14:13:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'passport.cnblogs.com': <GET https://passport.cnblogs.com/GetBlogApplyStatus.aspx>
+2020-10-16 14:13:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'msg.cnblogs.com': <GET https://msg.cnblogs.com/>
+2020-10-16 14:13:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'home.cnblogs.com': <GET https://home.cnblogs.com/>
+2020-10-16 14:13:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'account.cnblogs.com': <GET https://account.cnblogs.com/settings/account>
+2020-10-16 14:13:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'github.com': <GET https://github.com/Holmze/031804103-051806129>
+2020-10-16 14:13:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'nodejs.cn': <GET http://nodejs.cn/download/>
+2020-10-16 14:13:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'i.cnblogs.com': <GET https://i.cnblogs.com/EditPosts.aspx?postid=13797920>
+2020-10-16 14:13:26 [scrapy.dupefilters] DEBUG: Filtered duplicate request: <GET https://www.cnblogs.com/holmze/p/13797920.html#top> - no more duplicates will be shown (see DUPEFILTER_DEBUG to show all duplicates)
+2020-10-16 14:13:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-16 14:13:26 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://feed.cnblogs.com/blog/u/490223/rss/> from <GET https://www.cnblogs.com/holmze/rss/>
+2020-10-16 14:13:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-16 14:13:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/13797920.html> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-16 14:13:26 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://www.cnblogs.com/holmze/p/ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-16 14:13:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/KJ-23/> (referer: https://www.cnblogs.com/holmze/p/13797920.html)
+2020-10-16 14:13:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'group.cnblogs.com': <GET https://group.cnblogs.com/>
+2020-10-16 14:13:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'wz.cnblogs.com': <GET https://wz.cnblogs.com/>
+2020-10-16 14:13:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'job.cnblogs.com': <GET https://job.cnblogs.com/>
+2020-10-16 14:13:26 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'zzk.cnblogs.com': <GET https://zzk.cnblogs.com/>
+2020-10-16 14:13:26 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET https://account.cnblogs.com:443/signin?ReturnUrl=https%3A%2F%2Fwww.cnblogs.com%2Faggsite%2Fmycommented> from <GET https://www.cnblogs.com/aggsite/mycommented>
+2020-10-16 14:13:26 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET https://account.cnblogs.com:443/signin?ReturnUrl=https%3A%2F%2Fwww.cnblogs.com%2Ffollowing> from <GET https://www.cnblogs.com/following>
+2020-10-16 14:13:27 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET https://account.cnblogs.com:443/signin?ReturnUrl=https%3A%2F%2Fwww.cnblogs.com%2Fsubscription> from <GET https://www.cnblogs.com/subscription>
+2020-10-16 14:13:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/candidate/> (referer: https://www.cnblogs.com/)
+2020-10-16 14:13:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/pick/> (referer: https://www.cnblogs.com/)
+2020-10-16 14:13:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/leoninew/p/13825992.html> (referer: https://www.cnblogs.com/)
+2020-10-16 14:13:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/aggsite/topcommented24h> (referer: https://www.cnblogs.com/)
+2020-10-16 14:13:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/AllenMaster/p/13820726.html> (referer: https://www.cnblogs.com/)
+2020-10-16 14:13:27 [scrapy.core.engine] DEBUG: Crawled (404) <GET http://feed.cnblogs.com/robots.txt> (referer: None)
+2020-10-16 14:13:27 [protego] DEBUG: Rule at line 7 without any user agent to enforce it on.
+2020-10-16 14:13:27 [protego] DEBUG: Rule at line 11 without any user agent to enforce it on.
+2020-10-16 14:13:27 [protego] DEBUG: Rule at line 14 without any user agent to enforce it on.
+2020-10-16 14:13:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/cmt/p/13820677.html> (referer: https://www.cnblogs.com/)
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.vpsor.cn': <GET https://www.vpsor.cn>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.aliyun.com': <GET https://www.aliyun.com>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'cloud.tencent.com': <GET https://cloud.tencent.com/act/developer?fromSource=gwzcw.3196334.3196334.3196334&utm_medium=cpc&utm_id=gwzcw.3196334.3196334.3196334>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.huaweicloud.com': <GET https://www.huaweicloud.com/>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'cloud.baidu.com': <GET https://cloud.baidu.com>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.jdcloud.com': <GET https://www.jdcloud.com>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.yisu.com': <GET https://www.yisu.com/>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.163yun.com': <GET https://www.163yun.com>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.gcpowertools.com.cn': <GET http://www.gcpowertools.com.cn>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.chinaz.com': <GET http://www.chinaz.com/>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'dev.yesky.com': <GET http://dev.yesky.com>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.hightopo.com': <GET http://www.hightopo.com/cn-index.html>
+2020-10-16 14:13:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/aggsite/topdigged24h> (referer: https://www.cnblogs.com/)
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'wetest.qq.com': <GET http://wetest.qq.com/?from=links_cnblogs>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'yaq.qq.com': <GET http://yaq.qq.com/>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.ucancode.com': <GET http://www.ucancode.com/index.html>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to '163yun.cnblogs.com': <GET https://163yun.cnblogs.com/>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'kb.cnblogs.com': <GET https://kb.cnblogs.com>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'about.cnblogs.com': <GET https://about.cnblogs.com/>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.beian.miit.gov.cn': <GET http://www.beian.miit.gov.cn>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'ss.knet.cn': <GET https://ss.knet.cn/verifyseal.dll?sn=e131108110100433392itm000000&ct=df&a=1&pa=0.25787803245785335>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.beian.gov.cn': <GET http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011502001144>
+2020-10-16 14:13:27 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.shjbzx.cn': <GET http://www.shjbzx.cn>
+2020-10-16 14:13:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/aggsite/headline> (referer: https://www.cnblogs.com/)
+2020-10-16 14:13:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/alchemystar/p/13825332.html> (referer: https://www.cnblogs.com/)
+2020-10-16 14:13:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/KJ-23/p/13616559.html> (referer: https://www.cnblogs.com/KJ-23/)
+2020-10-16 14:13:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/default.html?page=2> (referer: https://www.cnblogs.com/holmze/)
+2020-10-16 14:13:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'docs.microsoft.com': <GET https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator?tabs=cli%2Cssl-netstd21>
+2020-10-16 14:13:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/legacy> (referer: https://www.cnblogs.com/)
+2020-10-16 14:13:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/10393536.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-16 14:13:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/10393050.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-16 14:13:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'stackoverflow.com': <GET https://stackoverflow.com/questions/19645430/changing-jenkins-build-number>
+2020-10-16 14:13:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'opendev.org': <GET https://opendev.org/jjb/python-jenkins>
+2020-10-16 14:13:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'localhost': <GET http://localhost:8080/queue/item/118/>
+2020-10-16 14:13:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/archive/2019/02/18.html> (referer: https://www.cnblogs.com/holmze/)
+2020-10-16 14:13:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/leoninew/> (referer: https://www.cnblogs.com/)
+2020-10-16 14:13:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/cicada-smile/p/13825724.html> (referer: https://www.cnblogs.com/)
+2020-10-16 14:13:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/sn8888/> (referer: https://www.cnblogs.com/candidate/)
+2020-10-16 14:13:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/sitehome/p/200> (referer: https://www.cnblogs.com/)
+2020-10-16 14:13:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/sitehome/p/3> (referer: https://www.cnblogs.com/)
+2020-10-16 14:13:28 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'dwz.date': <GET http://dwz.date/cts4>
+2020-10-16 14:13:28 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2020-10-16 14:13:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/sn8888/p/13826140.html> (referer: https://www.cnblogs.com/candidate/)
+2020-10-16 14:13:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/mu-ge/> (referer: https://www.cnblogs.com/candidate/)
+2020-10-16 14:13:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/sn8888/p/13826076.html> (referer: https://www.cnblogs.com/candidate/)
+2020-10-16 14:13:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://account.cnblogs.com:443/robots.txt> (referer: None)
+2020-10-16 14:13:29 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET https://account.cnblogs.com:443/signin?ReturnUrl=https%3A%2F%2Fwww.cnblogs.com%2Fsubscription>
+2020-10-16 14:13:29 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET https://account.cnblogs.com:443/signin?ReturnUrl=https%3A%2F%2Fwww.cnblogs.com%2Ffollowing>
+2020-10-16 14:13:29 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET https://account.cnblogs.com:443/signin?ReturnUrl=https%3A%2F%2Fwww.cnblogs.com%2Faggsite%2Fmycommented>
+2020-10-16 14:13:29 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://www.cnblogs.com/mipengine/> from <GET http://www.cnblogs.com/mipengine/>
+2020-10-16 14:13:29 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2020-10-16 14:13:29 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'feed.cnblogs.com': <GET http://feed.cnblogs.com/blog/sitehome/rss>
+2020-10-16 14:13:29 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'blog.csdn.net': <GET https://blog.csdn.net/wu9797/article/details/79489328>
+2020-10-16 14:13:29 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.jb51.net': <GET https://www.jb51.net/article/143962.htm>
+2020-10-16 14:13:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/zhaohongcheng/p/13820360.html> (referer: https://www.cnblogs.com/aggsite/topdigged24h)
+2020-10-16 14:13:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/mu-ge/p/13826084.html> (referer: https://www.cnblogs.com/candidate/)
+2020-10-16 14:13:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/zhaohongcheng/> (referer: https://www.cnblogs.com/aggsite/topdigged24h)
+2020-10-16 14:13:29 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'gitee.com': <GET https://gitee.com/cicadasmile>
+2020-10-16 14:13:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/archive/2019/01/26.html> (referer: https://www.cnblogs.com/holmze/default.html?page=2)
+2020-10-16 14:13:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/10344384.html> (referer: https://www.cnblogs.com/holmze/default.html?page=2)
+2020-10-16 14:13:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/zedd/> (referer: https://www.cnblogs.com/aggsite/topdigged24h)
+2020-10-16 14:13:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.cnblogs.com/holmze/p/10322470.html> (referer: https://www.cnblogs.com/holmze/default.html?page=2)
+2020-10-16 14:13:30 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.zhangxinxu.com': <GET https://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/>
+2020-10-16 14:13:30 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'developer.mozilla.org': <GET https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame>
+2020-10-16 14:13:30 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'zhaohongcheng.com': <GET https://zhaohongcheng.com>
+2020-10-16 14:13:30 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'jq.qq.com': <GET https://jq.qq.com/?_wv=1027&k=SELmB4Sz>
+2020-10-16 14:13:30 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.blogjava.net': <GET http://www.blogjava.net/>
+2020-10-16 14:13:30 [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to 'www.cppblog.com': <GET http://www.cppblog.com/>
+2020-10-16 14:13:32 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2020-10-16 14:13:33 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in http://feed.cnblogs.com/blog/u/490223/rss/. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2020-10-16 14:13:33 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://feed.cnblogs.com/blog/u/490223/rss/> (failed 1 times): [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>, <twisted.python.failure.Failure twisted.web.http._DataLoss: >]
+2020-10-16 14:13:33 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 4,
+ 'downloader/exception_type_count/scrapy.exceptions.IgnoreRequest': 3,
+ 'downloader/exception_type_count/twisted.web._newclient.ResponseFailed': 1,
+ 'downloader/request_bytes': 12197,
+ 'downloader/request_count': 45,
+ 'downloader/request_method_count/GET': 45,
+ 'downloader/response_bytes': 312595,
+ 'downloader/response_count': 44,
+ 'downloader/response_status_count/200': 37,
+ 'downloader/response_status_count/301': 1,
+ 'downloader/response_status_count/302': 4,
+ 'downloader/response_status_count/404': 2,
+ 'dupefilter/filtered': 474,
+ 'elapsed_time_seconds': 7.62012,
+ 'finish_reason': 'shutdown',
+ 'finish_time': datetime.datetime(2020, 10, 16, 6, 13, 33, 18289),
+ 'log_count/DEBUG': 105,
+ 'log_count/INFO': 12,
+ 'log_count/WARNING': 1,
+ 'offsite/domains': 53,
+ 'offsite/filtered': 901,
+ 'request_depth_max': 4,
+ 'response_received_count': 39,
+ 'retry/count': 1,
+ 'retry/reason_count/twisted.web._newclient.ResponseFailed': 1,
+ 'robotstxt/forbidden': 3,
+ 'robotstxt/request_count': 3,
+ 'robotstxt/response_count': 3,
+ 'robotstxt/response_status_count/200': 2,
+ 'robotstxt/response_status_count/404': 1,
+ 'scheduler/dequeued': 45,
+ 'scheduler/dequeued/memory': 45,
+ 'scheduler/enqueued': 399,
+ 'scheduler/enqueued/memory': 399,
+ 'start_time': datetime.datetime(2020, 10, 16, 6, 13, 25, 398169)}
+2020-10-16 14:13:33 [scrapy.core.engine] INFO: Spider closed (shutdown)
+2020-10-16 14:17:29 [scrapy.utils.log] INFO: Scrapy 2.3.0 started (bot: testSpider)
+2020-10-16 14:17:29 [scrapy.utils.log] INFO: Versions: lxml 4.5.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform Windows-10-10.0.17763-SP0
+2020-10-16 14:17:29 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-16 14:17:48 [scrapy.utils.log] INFO: Scrapy 2.3.0 started (bot: testSpider)
+2020-10-16 14:17:48 [scrapy.utils.log] INFO: Versions: lxml 4.5.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform Windows-10-10.0.17763-SP0
+2020-10-16 14:17:48 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-16 14:18:09 [scrapy.utils.log] INFO: Scrapy 2.3.0 started (bot: testSpider)
+2020-10-16 14:18:09 [scrapy.utils.log] INFO: Versions: lxml 4.5.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform Windows-10-10.0.17763-SP0
+2020-10-16 14:18:09 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-16 14:18:26 [scrapy.utils.log] INFO: Scrapy 2.3.0 started (bot: testSpider)
+2020-10-16 14:18:26 [scrapy.utils.log] INFO: Versions: lxml 4.5.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform Windows-10-10.0.17763-SP0
+2020-10-16 14:18:26 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-16 14:19:27 [scrapy.utils.log] INFO: Scrapy 2.3.0 started (bot: testSpider)
+2020-10-16 14:19:27 [scrapy.utils.log] INFO: Versions: lxml 4.5.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform Windows-10-10.0.17763-SP0
+2020-10-16 14:19:27 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-16 14:20:52 [scrapy.utils.log] INFO: Scrapy 2.3.0 started (bot: testSpider)
+2020-10-16 14:20:52 [scrapy.utils.log] INFO: Versions: lxml 4.5.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1h  22 Sep 2020), cryptography 3.1.1, Platform Windows-10-10.0.17763-SP0
+2020-10-16 14:20:52 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor

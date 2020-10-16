@@ -7,7 +7,7 @@ class ArticleSpider(scrapy.Spider):
         urls = ['https://cn.bing.com/?FORM=Z9FD1'
         ,'https://edu.cnblogs.com/campus/fzu/SE2020/homework/11277'
         ,'https://www.cnblogs.com/easteast/'
-        ,'https://github.com/Holmze/031804103-051806129'
+        # ,'https://github.com/Holmze/031804103-051806129'
         ]
         return [scrapy.Request(url = url,callback = self.parse) for url in urls]
 
