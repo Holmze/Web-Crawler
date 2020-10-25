@@ -5,8 +5,10 @@ from cnblogSpider.items import Article
 
 class ArticleSpider(CrawlSpider):
     name = 'articlesPiplines'
-    allowed_domains = ['www.cnblogs.com']
-    start_urls = ['https://www.cnblogs.com/holmze/']
+    # allowed_domains = ['www.cnblogs.com']
+    # start_urls = ['https://www.cnblogs.com/holmze/']
+    allowed_domains = ['https://pdos.csail.mit.edu/6.824/']
+    start_urls = ['https://pdos.csail.mit.edu/6.824/schedule.html']
     # start_urls = ['https://www.cnblogs.com/holmze/p/13797920.html']
     ## 使用re匹配，爬取cnblog上的所有个人博客页面
     rules = [Rule(LinkExtractor(allow = r'.*holmze\/p.*'),callback = 'parse_items',follow = True)]
@@ -22,7 +24,7 @@ class ArticleSpider(CrawlSpider):
         # print(article['lastUpdated'])
         # print(article['lastUpdated'],":",article['title'])
         # lastUpdated = lastUpdated.replace('This page was last edited on ','')
-        # print('URL is: {}'.format(url))
+        print('URL is: {}'.format(url))
         # print('title is: {} '.format(title))
         # print('text is: {}'.format(text))
         # print('Last updated: {}'.format(lastUpdated))

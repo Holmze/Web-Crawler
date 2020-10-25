@@ -4,8 +4,10 @@ from cnblogSpider.items import Article
 
 class ArticleSpider(CrawlSpider):
     name = 'articles'
-    allowed_domains = ['www.cnblogs.com']
-    start_urls = ['https://www.cnblogs.com/holmze/p/13797920.html']
+    allowed_domains = ['https://pdos.csail.mit.edu/6.824/']
+    start_urls = ['https://pdos.csail.mit.edu/6.824/schedule.html']
+    # allowed_domains = ['www.cnblogs.com']
+    # start_urls = ['https://www.cnblogs.com/holmze/p/13797920.html']
     ## 使用re匹配，爬取cnblog上的所有个人博客页面
     rules = [Rule(LinkExtractor(allow = r'.*holmze.*'),callback = 'parse_items',follow = True)]
 
