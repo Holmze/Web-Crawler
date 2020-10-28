@@ -6,15 +6,16 @@
 
 # useful for handling different item types with a single interface
 # from itemadapter import ItemAdapter
-import pymysql
+import pymssql
 
 class DangdangPipeline(object):
 
     def open_spider(self,spider):
         print("opened")
         try:
-            self.con = pymysql.connect(host = "127.0.0.1",post = 3306,user = "root",passwd = "02071035",db = "MyDB",charset = "utf8")
-            self.cursor = self.con.cursor(pymysql.cursors.DictCursor)
+            self.con = pymssql.connect(host = "127.0.0.1",post = 3306,user = "root",passwd = "02071035",db = "MyDB",charset = "utf8")
+            self.con = pymssql.connect(r'SERVER=192.168.1.1,3433;DATABASE=test;UID=user;PWD=password;d              b=database')
+            self.cursor = self.con.cursor(pymssql.cursors.DictCursor)
             self.cursor.execute("delete from books")
             self.opened = True
             self.count = 0
