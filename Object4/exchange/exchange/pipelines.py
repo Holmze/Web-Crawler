@@ -5,11 +5,10 @@
 
 
 # useful for handling different item types with a single interface
-# from itemadapter import ItemAdapter
+from itemadapter import ItemAdapter
 import pymysql
 
-class DangdangPipeline(object):
-
+class ExchangePipeline:
     opened = False
     count = 0
     def open_spider(self,spider):
@@ -39,19 +38,19 @@ class DangdangPipeline(object):
             # self.count = 0
             self.opened = False
         print("closed")
-        print("一共爬取",self.count,"本书籍")
+        print("一共爬取",self.count,"种外汇")
 
     def process_item(self, item, spider):
         try:
-            print(item["title"])
-            print(item["author"])
-            print(item["publisher"])
-            print(item["date"])
-            print(item["price"])
-            print(item["detail"])
-            print()
+            # print(item["currency"])
+            # print(item["tsp"])
+            # print(item["csp"])
+            # print(item["tbp"])
+            # print(item["cbp"])
+            # print(item["time"])
+            # print()
             if self.opened:
-                self.cursor.execute("insert books(bTitle,bAuthor,bPublisher,bDate,bPrice,bDetail) values (%s,%s,%s,%s,%s,%s)",(item["title"],item["author"],item["publisher"],item["date"],item["price"],item["detail"]))
+                self.cursor.execute("insert exchanges(id,currency,tsp,csp,tbp,cbp,time) values (%s,%s,%s,%s,%s,%s,%s)",(self.count,item["currency"],item["tsp"],item["csp"],item["tbp"],item["cbp"],item["time"]))
                 self.count+=1
         except Exception as err:
             print(err)

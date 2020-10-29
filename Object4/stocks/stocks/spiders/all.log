@@ -1,0 +1,2619 @@
+2020-10-29 16:56:25 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 16:56:25 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 16:56:25 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 16:57:55 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 16:57:55 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 16:57:55 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 16:58:13 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 16:58:13 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 16:58:13 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 16:58:13 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 16:58:13 [scrapy.extensions.telnet] INFO: Telnet Password: aff4cdfba088675a
+2020-10-29 16:58:13 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 16:58:14 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 16:58:14 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 16:58:14 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-10-29 16:58:14 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 16:58:14 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 16:58:14 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 16:58:14 [scrapy.utils.signal] ERROR: Error caught on signal handler: <bound method RefererMiddleware.request_scheduled of <scrapy.spidermiddlewares.referer.RefererMiddleware object at 0x0000027C7F14BB48>>
+Traceback (most recent call last):
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\utils\signal.py", line 32, in send_catch_log
+    response = robustApply(receiver, signal=signal, sender=sender, *arguments, **named)
+  File "c:\programdata\anaconda3\lib\site-packages\pydispatch\robustapply.py", line 55, in robustApply
+    return receiver(*arguments, **named)
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 344, in request_scheduled
+    redirected_urls = request.meta.get('redirect_urls', [])
+AttributeError: 'list' object has no attribute 'meta'
+2020-10-29 16:58:14 [twisted] CRITICAL: Unhandled Error
+Traceback (most recent call last):
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\commands\runspider.py", line 56, in run
+    self.crawler_process.start()
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\crawler.py", line 327, in start
+    reactor.run(installSignalHandlers=False)  # blocking call
+  File "c:\programdata\anaconda3\lib\site-packages\twisted\internet\base.py", line 1283, in run
+    self.mainLoop()
+  File "c:\programdata\anaconda3\lib\site-packages\twisted\internet\base.py", line 1292, in mainLoop
+    self.runUntilCurrent()
+--- <exception caught here> ---
+  File "c:\programdata\anaconda3\lib\site-packages\twisted\internet\base.py", line 913, in runUntilCurrent
+    call.func(*call.args, **call.kw)
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\utils\reactor.py", line 50, in __call__
+    return self._func(*self._a, **self._kw)
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\core\engine.py", line 137, in _next_request
+    self.crawl(request, spider)
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\core\engine.py", line 218, in crawl
+    self.schedule(request, spider)
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\core\engine.py", line 223, in schedule
+    if not self.slot.scheduler.enqueue_request(request):
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\core\scheduler.py", line 90, in enqueue_request
+    if not request.dont_filter and self.df.request_seen(request):
+builtins.AttributeError: 'list' object has no attribute 'dont_filter'
+
+2020-10-29 16:58:19 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 16:58:19 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'elapsed_time_seconds': 5.008004,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 8, 58, 19, 126612),
+ 'log_count/CRITICAL': 1,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 10,
+ 'start_time': datetime.datetime(2020, 10, 29, 8, 58, 14, 118608)}
+2020-10-29 16:58:19 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 16:59:32 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 16:59:32 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 16:59:32 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 16:59:32 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 16:59:32 [scrapy.extensions.telnet] INFO: Telnet Password: 203ed5d3414d9d77
+2020-10-29 16:59:32 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 16:59:33 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 16:59:33 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 16:59:33 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-10-29 16:59:33 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 16:59:33 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 16:59:33 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 16:59:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/robots.txt> (referer: None)
+2020-10-29 16:59:33 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=1&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 16:59:33 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=2&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 16:59:33 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=3&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 16:59:33 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=4&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 16:59:33 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=5&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 16:59:33 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 16:59:33 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 5,
+ 'downloader/exception_type_count/scrapy.exceptions.IgnoreRequest': 5,
+ 'downloader/request_bytes': 232,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 86,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.301469,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 8, 59, 33, 368602),
+ 'log_count/DEBUG': 6,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'robotstxt/forbidden': 5,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 5,
+ 'scheduler/dequeued/memory': 5,
+ 'scheduler/enqueued': 5,
+ 'scheduler/enqueued/memory': 5,
+ 'start_time': datetime.datetime(2020, 10, 29, 8, 59, 33, 67133)}
+2020-10-29 16:59:33 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:02:15 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:02:15 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:02:15 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:02:15 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:02:15 [scrapy.extensions.telnet] INFO: Telnet Password: a975e78f89e527e8
+2020-10-29 17:02:15 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:02:15 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:02:15 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:02:15 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-10-29 17:02:15 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:02:15 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:02:15 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:02:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/robots.txt> (referer: None)
+2020-10-29 17:02:15 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=1&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 17:02:15 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=2&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 17:02:15 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=3&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 17:02:15 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=4&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 17:02:15 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=5&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 17:02:16 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:02:16 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 5,
+ 'downloader/exception_type_count/scrapy.exceptions.IgnoreRequest': 5,
+ 'downloader/request_bytes': 232,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 86,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.363058,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 2, 16, 176374),
+ 'log_count/DEBUG': 6,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'robotstxt/forbidden': 5,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 5,
+ 'scheduler/dequeued/memory': 5,
+ 'scheduler/enqueued': 5,
+ 'scheduler/enqueued/memory': 5,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 2, 15, 813316)}
+2020-10-29 17:02:16 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:02:56 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:02:56 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:02:56 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:02:56 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:02:56 [scrapy.extensions.telnet] INFO: Telnet Password: 4577f39ef77aecce
+2020-10-29 17:02:56 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:02:57 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:02:57 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:02:57 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:02:57 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:02:57 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:02:57 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:02:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/robots.txt> (referer: None)
+2020-10-29 17:02:57 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=1&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 17:02:57 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=2&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 17:02:57 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=3&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 17:02:57 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=4&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 17:02:57 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=5&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 17:02:57 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:02:57 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 5,
+ 'downloader/exception_type_count/scrapy.exceptions.IgnoreRequest': 5,
+ 'downloader/request_bytes': 232,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 86,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.323455,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 2, 57, 463211),
+ 'log_count/DEBUG': 6,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'robotstxt/forbidden': 5,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 5,
+ 'scheduler/dequeued/memory': 5,
+ 'scheduler/enqueued': 5,
+ 'scheduler/enqueued/memory': 5,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 2, 57, 139756)}
+2020-10-29 17:02:57 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:09:11 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:09:11 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:09:11 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:09:11 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:09:11 [scrapy.extensions.telnet] INFO: Telnet Password: f90fcd67c73c74e4
+2020-10-29 17:09:11 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:09:11 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:09:11 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:09:11 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:09:11 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:09:11 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:09:11 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:09:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/robots.txt> (referer: None)
+2020-10-29 17:09:12 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=1&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 17:09:12 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=2&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 17:09:12 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=3&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 17:09:12 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=4&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 17:09:12 [scrapy.downloadermiddlewares.robotstxt] DEBUG: Forbidden by robots.txt: <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=5&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157>
+2020-10-29 17:09:12 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:09:12 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 5,
+ 'downloader/exception_type_count/scrapy.exceptions.IgnoreRequest': 5,
+ 'downloader/request_bytes': 232,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 86,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.301238,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 9, 12, 289859),
+ 'log_count/DEBUG': 6,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'robotstxt/forbidden': 5,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 5,
+ 'scheduler/dequeued/memory': 5,
+ 'scheduler/enqueued': 5,
+ 'scheduler/enqueued/memory': 5,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 9, 11, 988621)}
+2020-10-29 17:09:12 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:16:25 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:16:25 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:16:25 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:16:25 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:16:25 [scrapy.extensions.telnet] INFO: Telnet Password: f0b6129eae0d2ac8
+2020-10-29 17:16:25 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:16:26 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:16:26 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:16:26 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:16:26 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:16:26 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:16:26 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:16:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=1&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:16:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=3&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:16:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=5&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:16:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=4&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:16:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=2&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:16:26 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:16:26 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 2705,
+ 'downloader/request_count': 5,
+ 'downloader/request_method_count/GET': 5,
+ 'downloader/response_bytes': 39145,
+ 'downloader/response_count': 5,
+ 'downloader/response_status_count/200': 5,
+ 'elapsed_time_seconds': 0.20841,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 16, 26, 372230),
+ 'log_count/DEBUG': 5,
+ 'log_count/INFO': 10,
+ 'response_received_count': 5,
+ 'scheduler/dequeued': 5,
+ 'scheduler/dequeued/memory': 5,
+ 'scheduler/enqueued': 5,
+ 'scheduler/enqueued/memory': 5,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 16, 26, 163820)}
+2020-10-29 17:16:26 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:18:04 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:18:04 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:18:04 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:18:04 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:18:04 [scrapy.extensions.telnet] INFO: Telnet Password: cf4ae0dac6a140d3
+2020-10-29 17:18:04 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:18:04 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:18:04 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:18:04 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:18:04 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:18:04 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:18:04 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:18:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=1&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:18:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=5&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:18:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=4&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:18:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=2&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:18:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=3&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:18:05 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:18:05 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 2705,
+ 'downloader/request_count': 5,
+ 'downloader/request_method_count/GET': 5,
+ 'downloader/response_bytes': 39145,
+ 'downloader/response_count': 5,
+ 'downloader/response_status_count/200': 5,
+ 'elapsed_time_seconds': 0.215102,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 18, 5, 72064),
+ 'log_count/DEBUG': 5,
+ 'log_count/INFO': 10,
+ 'response_received_count': 5,
+ 'scheduler/dequeued': 5,
+ 'scheduler/dequeued/memory': 5,
+ 'scheduler/enqueued': 5,
+ 'scheduler/enqueued/memory': 5,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 18, 4, 856962)}
+2020-10-29 17:18:05 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:18:32 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:18:32 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:18:32 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:18:32 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:18:32 [scrapy.extensions.telnet] INFO: Telnet Password: 3640cbf70ba7a193
+2020-10-29 17:18:32 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:18:32 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:18:32 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:18:32 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:18:32 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:18:32 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:18:32 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:18:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=1&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:18:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=3&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:18:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=4&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:18:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=2&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:18:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=5&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:18:32 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:18:32 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 2705,
+ 'downloader/request_count': 5,
+ 'downloader/request_method_count/GET': 5,
+ 'downloader/response_bytes': 39145,
+ 'downloader/response_count': 5,
+ 'downloader/response_status_count/200': 5,
+ 'elapsed_time_seconds': 0.223742,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 18, 32, 624258),
+ 'log_count/DEBUG': 5,
+ 'log_count/INFO': 10,
+ 'response_received_count': 5,
+ 'scheduler/dequeued': 5,
+ 'scheduler/dequeued/memory': 5,
+ 'scheduler/enqueued': 5,
+ 'scheduler/enqueued/memory': 5,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 18, 32, 400516)}
+2020-10-29 17:18:32 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:19:30 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:19:30 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:19:30 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:19:30 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:19:30 [scrapy.extensions.telnet] INFO: Telnet Password: 559caa0600b4af94
+2020-10-29 17:19:30 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:19:30 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:19:30 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:19:30 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:19:30 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:19:30 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:19:30 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:19:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=4&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:19:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=5&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:19:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=2&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:19:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=3&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:19:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=1&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:19:30 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:19:30 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 2705,
+ 'downloader/request_count': 5,
+ 'downloader/request_method_count/GET': 5,
+ 'downloader/response_bytes': 39395,
+ 'downloader/response_count': 5,
+ 'downloader/response_status_count/200': 5,
+ 'elapsed_time_seconds': 0.220541,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 19, 30, 799247),
+ 'log_count/DEBUG': 5,
+ 'log_count/INFO': 10,
+ 'response_received_count': 5,
+ 'scheduler/dequeued': 5,
+ 'scheduler/dequeued/memory': 5,
+ 'scheduler/enqueued': 5,
+ 'scheduler/enqueued/memory': 5,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 19, 30, 578706)}
+2020-10-29 17:19:30 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:19:47 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:19:47 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:19:47 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:19:47 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:19:47 [scrapy.extensions.telnet] INFO: Telnet Password: 9b9ef78dbb319659
+2020-10-29 17:19:48 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:19:48 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:19:48 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:19:48 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:19:48 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:19:48 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:19:48 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:19:48 [scrapy.utils.signal] ERROR: Error caught on signal handler: <bound method RefererMiddleware.request_scheduled of <scrapy.spidermiddlewares.referer.RefererMiddleware object at 0x0000018722DA2D48>>
+Traceback (most recent call last):
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\utils\signal.py", line 32, in send_catch_log
+    response = robustApply(receiver, signal=signal, sender=sender, *arguments, **named)
+  File "c:\programdata\anaconda3\lib\site-packages\pydispatch\robustapply.py", line 55, in robustApply
+    return receiver(*arguments, **named)
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 344, in request_scheduled
+    redirected_urls = request.meta.get('redirect_urls', [])
+AttributeError: 'list' object has no attribute 'meta'
+2020-10-29 17:19:48 [twisted] CRITICAL: Unhandled Error
+Traceback (most recent call last):
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\commands\runspider.py", line 56, in run
+    self.crawler_process.start()
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\crawler.py", line 327, in start
+    reactor.run(installSignalHandlers=False)  # blocking call
+  File "c:\programdata\anaconda3\lib\site-packages\twisted\internet\base.py", line 1283, in run
+    self.mainLoop()
+  File "c:\programdata\anaconda3\lib\site-packages\twisted\internet\base.py", line 1292, in mainLoop
+    self.runUntilCurrent()
+--- <exception caught here> ---
+  File "c:\programdata\anaconda3\lib\site-packages\twisted\internet\base.py", line 913, in runUntilCurrent
+    call.func(*call.args, **call.kw)
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\utils\reactor.py", line 50, in __call__
+    return self._func(*self._a, **self._kw)
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\core\engine.py", line 137, in _next_request
+    self.crawl(request, spider)
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\core\engine.py", line 218, in crawl
+    self.schedule(request, spider)
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\core\engine.py", line 223, in schedule
+    if not self.slot.scheduler.enqueue_request(request):
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\core\scheduler.py", line 90, in enqueue_request
+    if not request.dont_filter and self.df.request_seen(request):
+builtins.AttributeError: 'list' object has no attribute 'dont_filter'
+
+2020-10-29 17:19:53 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:19:53 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'elapsed_time_seconds': 5.013219,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 19, 53, 281721),
+ 'log_count/CRITICAL': 1,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 10,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 19, 48, 268502)}
+2020-10-29 17:19:53 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:20:51 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:20:51 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:20:51 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:20:51 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:20:51 [scrapy.extensions.telnet] INFO: Telnet Password: 6322ca9e7653edad
+2020-10-29 17:20:51 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:20:51 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:20:51 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:20:51 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:20:51 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:20:51 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:20:51 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:20:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=1&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:20:51 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:20:52 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 541,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 7906,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.192809,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 20, 52, 4795),
+ 'log_count/DEBUG': 1,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 20, 51, 811986)}
+2020-10-29 17:20:52 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:21:16 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:21:16 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:21:16 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:21:16 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:21:16 [scrapy.extensions.telnet] INFO: Telnet Password: cd69f603b45e2960
+2020-10-29 17:21:16 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:21:16 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:21:16 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:21:16 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:21:16 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:21:16 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:21:16 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:21:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=1&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:21:16 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:21:16 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 541,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 7906,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.20219,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 21, 16, 671267),
+ 'log_count/DEBUG': 1,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 21, 16, 469077)}
+2020-10-29 17:21:16 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:22:54 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:22:54 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:22:54 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:22:54 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:22:54 [scrapy.extensions.telnet] INFO: Telnet Password: 1d318bd0d5a875bc
+2020-10-29 17:22:54 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:22:54 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:22:54 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:22:54 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:22:54 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:22:55 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:22:55 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:22:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=1&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:22:55 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:22:55 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 541,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 7956,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.247942,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 22, 55, 253490),
+ 'log_count/DEBUG': 1,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 22, 55, 5548)}
+2020-10-29 17:22:55 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:30:02 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:30:02 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:30:02 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:30:02 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:30:02 [scrapy.extensions.telnet] INFO: Telnet Password: b64822385f7470c4
+2020-10-29 17:30:02 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:30:03 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:30:03 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:30:03 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:30:03 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:30:03 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:30:03 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:30:03 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\core\engine.py", line 129, in _next_request
+    request = next(slot.start_requests)
+  File "D:\Course\数据采集与融合技术\Object4\stocks\stocks\spiders\mySpider.py", line 21, in start_requests
+    yield scrapy.Request(url=url,callback=self.parse)
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\http\request\__init__.py", line 25, in __init__
+    self._set_url(url)
+  File "c:\programdata\anaconda3\lib\site-packages\scrapy\http\request\__init__.py", line 73, in _set_url
+    raise ValueError(f'Missing scheme in request url: {self._url}')
+ValueError: Missing scheme in request url: 97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=1&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157
+2020-10-29 17:30:03 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:30:03 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'elapsed_time_seconds': 0.010972,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 30, 3, 94758),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 10,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 30, 3, 83786)}
+2020-10-29 17:30:03 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:30:21 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:30:21 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:30:21 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:30:21 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:30:21 [scrapy.extensions.telnet] INFO: Telnet Password: ae6b15b9c01f5391
+2020-10-29 17:30:21 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:30:21 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:30:21 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:30:22 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:30:22 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:30:22 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:30:22 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:30:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=1&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:30:22 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:30:22 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 541,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 7956,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.268314,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 30, 22, 283487),
+ 'log_count/DEBUG': 1,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 30, 22, 15173)}
+2020-10-29 17:30:22 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:34:19 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:34:19 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:34:19 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:34:19 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:34:19 [scrapy.extensions.telnet] INFO: Telnet Password: 9b4c2c44670bc01b
+2020-10-29 17:34:19 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:34:19 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:34:19 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:34:19 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:34:19 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:34:19 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:34:19 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:34:20 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=1&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:34:20 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:34:20 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 541,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 7906,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.371559,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 34, 20, 135907),
+ 'log_count/DEBUG': 1,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 34, 19, 764348)}
+2020-10-29 17:34:20 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:34:40 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:34:40 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:34:40 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:34:40 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:34:40 [scrapy.extensions.telnet] INFO: Telnet Password: b0ae87a3627e3222
+2020-10-29 17:34:40 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:34:40 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:34:40 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:34:40 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:34:40 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:34:40 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:34:40 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:34:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=1&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:34:40 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:34:40 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 541,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 7906,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.213711,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 34, 40, 588835),
+ 'log_count/DEBUG': 1,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 34, 40, 375124)}
+2020-10-29 17:34:40 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:35:43 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:35:43 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:35:43 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:35:43 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:35:43 [scrapy.extensions.telnet] INFO: Telnet Password: 5a88a1b9f358e6b0
+2020-10-29 17:35:43 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:35:43 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:35:43 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:35:43 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:35:43 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:35:43 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:35:43 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:35:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://97.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406971740416068926_1601446076156&pn=1&pz=20&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f3&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152&_=1601446076157> (referer: None)
+2020-10-29 17:35:44 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:35:44 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 541,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 7956,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.201897,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 35, 44, 143308),
+ 'log_count/DEBUG': 1,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 35, 43, 941411)}
+2020-10-29 17:35:44 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:37:56 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:37:56 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:37:56 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:37:56 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:37:56 [scrapy.extensions.telnet] INFO: Telnet Password: ef167021581dfb9e
+2020-10-29 17:37:56 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:37:56 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:37:56 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:37:56 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:37:56 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:37:56 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:37:56 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:37:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385> (referer: None)
+2020-10-29 17:37:57 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:37:57 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 508,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 3111,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.233578,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 37, 57, 159366),
+ 'log_count/DEBUG': 1,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 37, 56, 925788)}
+2020-10-29 17:37:57 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:41:20 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:41:20 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:41:20 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:41:20 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:41:20 [scrapy.extensions.telnet] INFO: Telnet Password: 27d4a524118fe1b1
+2020-10-29 17:41:20 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:41:20 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:41:20 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:41:21 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:41:21 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:41:21 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:41:21 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:41:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385> (referer: None)
+2020-10-29 17:41:21 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): 5.push2.eastmoney.com:80
+2020-10-29 17:41:21 [urllib3.connectionpool] DEBUG: http://5.push2.eastmoney.com:80 "GET /api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385 HTTP/1.1" 200 2856
+2020-10-29 17:41:21 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:41:21 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 508,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 3110,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.372636,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 41, 21, 384513),
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 41, 21, 11877)}
+2020-10-29 17:41:21 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:41:59 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:41:59 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:41:59 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:41:59 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:41:59 [scrapy.extensions.telnet] INFO: Telnet Password: 472726e1d6ed8c44
+2020-10-29 17:41:59 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:41:59 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:41:59 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:41:59 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:41:59 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:41:59 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:41:59 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:41:59 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385> (referer: None)
+2020-10-29 17:42:00 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): 5.push2.eastmoney.com:80
+2020-10-29 17:42:00 [urllib3.connectionpool] DEBUG: http://5.push2.eastmoney.com:80 "GET /api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385 HTTP/1.1" 200 2858
+2020-10-29 17:42:00 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:42:00 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 508,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 3110,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.317481,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 42, 0, 214033),
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 41, 59, 896552)}
+2020-10-29 17:42:00 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:43:20 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:43:20 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:43:20 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:43:20 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:43:20 [scrapy.extensions.telnet] INFO: Telnet Password: 1fd7111322f48574
+2020-10-29 17:43:20 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:43:21 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:43:21 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:43:21 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:43:21 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:43:21 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:43:21 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:43:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385> (referer: None)
+2020-10-29 17:43:21 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): 5.push2.eastmoney.com:80
+2020-10-29 17:43:21 [urllib3.connectionpool] DEBUG: http://5.push2.eastmoney.com:80 "GET /api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385 HTTP/1.1" 200 2857
+2020-10-29 17:43:21 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:43:21 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 508,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 3110,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.356599,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 43, 21, 556039),
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 43, 21, 199440)}
+2020-10-29 17:43:21 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:43:38 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:43:38 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:43:38 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:43:38 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:43:38 [scrapy.extensions.telnet] INFO: Telnet Password: 5a1b02b32d78566b
+2020-10-29 17:43:38 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:43:38 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:43:38 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:43:38 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:43:38 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:43:38 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:43:38 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:43:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385> (referer: None)
+2020-10-29 17:43:39 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): 5.push2.eastmoney.com:80
+2020-10-29 17:43:39 [urllib3.connectionpool] DEBUG: http://5.push2.eastmoney.com:80 "GET /api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385 HTTP/1.1" 200 2857
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.79',
+ 'Quote_change': '0.11',
+ 'Turnover': '278605664256.0',
+ 'Ups_and_downs': '3.49',
+ 'Volume': '184703588',
+ 'money': '3272.73',
+ 'name': '"上证指数"',
+ 'num': '000001"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.85',
+ 'Quote_change': '0.98',
+ 'Turnover': '501666721792.0',
+ 'Ups_and_downs': '131.56',
+ 'Volume': '333961871',
+ 'money': '13519.66',
+ 'name': '"深证成指"',
+ 'num': '399001"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.61',
+ 'Quote_change': '0.75',
+ 'Turnover': '252303503360.0',
+ 'Ups_and_downs': '35.65',
+ 'Volume': '117117251',
+ 'money': '4772.92',
+ 'name': '"沪深300"',
+ 'num': '000300"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.77',
+ 'Quote_change': '0.54',
+ 'Turnover': '158660743168.0',
+ 'Ups_and_downs': '49.27',
+ 'Volume': '109862277',
+ 'money': '9173.54',
+ 'name': '"中小板指"',
+ 'num': '399005"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '3.09',
+ 'Quote_change': '1.1',
+ 'Turnover': '264852049920.0',
+ 'Ups_and_downs': '29.44',
+ 'Volume': '161475013',
+ 'money': '2699.92',
+ 'name': '"创业板指"',
+ 'num': '399006"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.18',
+ 'Quote_change': '0.33',
+ 'Turnover': '127979003904.0',
+ 'Ups_and_downs': '31.68',
+ 'Volume': '67972273',
+ 'money': '9740.08',
+ 'name': '"上证180"',
+ 'num': '000010"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.22',
+ 'Quote_change': '0.34',
+ 'Turnover': '69727043584.0',
+ 'Ups_and_downs': '11.21',
+ 'Volume': '30218954',
+ 'money': '3324.44',
+ 'name': '"上证50"',
+ 'num': '000016"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.78',
+ 'Quote_change': '0.09',
+ 'Turnover': '56346827264.0',
+ 'Ups_and_downs': '5.01',
+ 'Volume': '43318866',
+ 'money': '5663.48',
+ 'name': '"上证380"',
+ 'num': '000009"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.8',
+ 'Quote_change': '0.16',
+ 'Turnover': '15022799616.0',
+ 'Ups_and_downs': '11.03',
+ 'Volume': '9311785',
+ 'money': '6777.05',
+ 'name': '"上证100"',
+ 'num': '000132"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.48',
+ 'Quote_change': '-0.27',
+ 'Turnover': '9828500736.0',
+ 'Ups_and_downs': '-12.67',
+ 'Volume': '7215341',
+ 'money': '4740.56',
+ 'name': '"上证150"',
+ 'num': '000133"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '0.76',
+ 'Quote_change': '-0.21',
+ 'Turnover': '103362101.0',
+ 'Ups_and_downs': '-0.52',
+ 'Volume': '123213',
+ 'money': '247.05',
+ 'name': '"Ｂ股指数"',
+ 'num': '000003"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '0.09',
+ 'Quote_change': '-0.07',
+ 'Turnover': '141263571.0',
+ 'Ups_and_downs': '-0.13',
+ 'Volume': '148408',
+ 'money': '183.04',
+ 'name': '"国债指数"',
+ 'num': '000012"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '0.02',
+ 'Quote_change': '0.0',
+ 'Turnover': '1596730080.0',
+ 'Ups_and_downs': '0.0',
+ 'Volume': '1645159',
+ 'money': '248.43',
+ 'name': '"企债指数"',
+ 'num': '000013"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.28',
+ 'Quote_change': '0.23',
+ 'Turnover': '46945988352.0',
+ 'Ups_and_downs': '16.24',
+ 'Volume': '103218207',
+ 'money': '7140.45',
+ 'name': '"基金指数"',
+ 'num': '000011"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.85',
+ 'Quote_change': '0.98',
+ 'Turnover': '78081536000.0',
+ 'Ups_and_downs': '163.2',
+ 'Volume': '62451451',
+ 'money': '16770.92',
+ 'name': '"深成指R"',
+ 'num': '399002"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.33',
+ 'Quote_change': '-0.15',
+ 'Turnover': '72390942.0',
+ 'Ups_and_downs': '-8.87',
+ 'Volume': '173129',
+ 'money': '5836.05',
+ 'name': '"成份Ｂ指"',
+ 'num': '399003"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.43',
+ 'Quote_change': '0.47',
+ 'Turnover': '501664579584.0',
+ 'Ups_and_downs': '10.46',
+ 'Volume': '333886231',
+ 'money': '2249.57',
+ 'name': '"深证综指"',
+ 'num': '399106"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '3.49',
+ 'Quote_change': '1.61',
+ 'Turnover': '127603535872.0',
+ 'Ups_and_downs': '130.11',
+ 'Volume': '41321099',
+ 'money': '8212.73',
+ 'name': '"深证100R"',
+ 'num': '399004"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '3.0',
+ 'Quote_change': '1.14',
+ 'Turnover': '196267819008.0',
+ 'Ups_and_downs': '66.37',
+ 'Volume': '85396362',
+ 'money': '5874.34',
+ 'name': '"深证300"',
+ 'num': '399007"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.45',
+ 'Quote_change': '0.39',
+ 'Turnover': '115165753344.0',
+ 'Ups_and_downs': '6.6',
+ 'Volume': '60899180',
+ 'money': '1687.68',
+ 'name': '"中小300"',
+ 'num': '399008"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '3.14',
+ 'Quote_change': '1.28',
+ 'Turnover': '46878102016.0',
+ 'Ups_and_downs': '64.76',
+ 'Volume': '10841421',
+ 'money': '5133.05',
+ 'name': '"创业大盘"',
+ 'num': '399293"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.48',
+ 'Quote_change': '0.55',
+ 'Turnover': '491198046208.0',
+ 'Ups_and_downs': '56.23',
+ 'Volume': '323474596',
+ 'money': '10253.76',
+ 'name': '"新 指 数"',
+ 'num': '399100"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.64',
+ 'Quote_change': '0.93',
+ 'Turnover': '63346588928.0',
+ 'Ups_and_downs': '77.03',
+ 'Volume': '17988315',
+ 'money': '8402.28',
+ 'name': '"央视50"',
+ 'num': '399550"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.06',
+ 'Quote_change': '0.15',
+ 'Turnover': '109761286144.0',
+ 'Ups_and_downs': '9.19',
+ 'Volume': '92587484',
+ 'money': '6255.19',
+ 'name': '"中证500"',
+ 'num': '000905"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.57',
+ 'Quote_change': '0.7',
+ 'Turnover': '128731836416.0',
+ 'Ups_and_downs': '33.79',
+ 'Volume': '57998385',
+ 'money': '4858.49',
+ 'name': '"中证100"',
+ 'num': '000903"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.44',
+ 'Quote_change': '0.61',
+ 'Turnover': '362064789504.0',
+ 'Ups_and_downs': '30.32',
+ 'Volume': '209704732',
+ 'money': '5009.26',
+ 'name': '"中证800"',
+ 'num': '000906"'}
+2020-10-29 17:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.21',
+ 'Quote_change': '0.43',
+ 'Turnover': '26794454272.0',
+ 'Ups_and_downs': '5.99',
+ 'Volume': '4612046',
+ 'money': '1412.06',
+ 'name': '"科创50"',
+ 'num': '000688"'}
+2020-10-29 17:43:39 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:43:39 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 508,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 3110,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.424707,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 43, 39, 259089),
+ 'item_scraped_count': 27,
+ 'log_count/DEBUG': 30,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 43, 38, 834382)}
+2020-10-29 17:43:39 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:47:53 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:47:53 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:47:53 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:47:53 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:47:53 [scrapy.extensions.telnet] INFO: Telnet Password: baaea449dd86aaf1
+2020-10-29 17:47:53 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:47:53 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:47:53 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:47:53 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:47:53 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:47:53 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:47:53 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:47:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385> (referer: None)
+2020-10-29 17:47:54 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): 5.push2.eastmoney.com:80
+2020-10-29 17:47:54 [urllib3.connectionpool] DEBUG: http://5.push2.eastmoney.com:80 "GET /api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385 HTTP/1.1" 200 2858
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.79',
+ 'Quote_change': '0.11',
+ 'Turnover': '278605664256.0',
+ 'Ups_and_downs': '3.49',
+ 'Volume': '184703588',
+ 'money': '3272.73',
+ 'name': '"上证指数"',
+ 'num': '000001"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.85',
+ 'Quote_change': '0.98',
+ 'Turnover': '501666721792.0',
+ 'Ups_and_downs': '131.56',
+ 'Volume': '333961871',
+ 'money': '13519.66',
+ 'name': '"深证成指"',
+ 'num': '399001"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.61',
+ 'Quote_change': '0.75',
+ 'Turnover': '252303503360.0',
+ 'Ups_and_downs': '35.65',
+ 'Volume': '117117251',
+ 'money': '4772.92',
+ 'name': '"沪深300"',
+ 'num': '000300"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.77',
+ 'Quote_change': '0.54',
+ 'Turnover': '158660743168.0',
+ 'Ups_and_downs': '49.27',
+ 'Volume': '109862277',
+ 'money': '9173.54',
+ 'name': '"中小板指"',
+ 'num': '399005"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '3.09',
+ 'Quote_change': '1.1',
+ 'Turnover': '264852049920.0',
+ 'Ups_and_downs': '29.44',
+ 'Volume': '161475013',
+ 'money': '2699.92',
+ 'name': '"创业板指"',
+ 'num': '399006"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.18',
+ 'Quote_change': '0.33',
+ 'Turnover': '127979003904.0',
+ 'Ups_and_downs': '31.68',
+ 'Volume': '67972273',
+ 'money': '9740.08',
+ 'name': '"上证180"',
+ 'num': '000010"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.22',
+ 'Quote_change': '0.34',
+ 'Turnover': '69727043584.0',
+ 'Ups_and_downs': '11.21',
+ 'Volume': '30218954',
+ 'money': '3324.44',
+ 'name': '"上证50"',
+ 'num': '000016"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.78',
+ 'Quote_change': '0.09',
+ 'Turnover': '56346827264.0',
+ 'Ups_and_downs': '5.01',
+ 'Volume': '43318866',
+ 'money': '5663.48',
+ 'name': '"上证380"',
+ 'num': '000009"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.8',
+ 'Quote_change': '0.16',
+ 'Turnover': '15022799616.0',
+ 'Ups_and_downs': '11.03',
+ 'Volume': '9311785',
+ 'money': '6777.05',
+ 'name': '"上证100"',
+ 'num': '000132"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.48',
+ 'Quote_change': '-0.27',
+ 'Turnover': '9828500736.0',
+ 'Ups_and_downs': '-12.67',
+ 'Volume': '7215341',
+ 'money': '4740.56',
+ 'name': '"上证150"',
+ 'num': '000133"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '0.76',
+ 'Quote_change': '-0.21',
+ 'Turnover': '103362101.0',
+ 'Ups_and_downs': '-0.52',
+ 'Volume': '123213',
+ 'money': '247.05',
+ 'name': '"Ｂ股指数"',
+ 'num': '000003"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '0.09',
+ 'Quote_change': '-0.07',
+ 'Turnover': '141263571.0',
+ 'Ups_and_downs': '-0.13',
+ 'Volume': '148408',
+ 'money': '183.04',
+ 'name': '"国债指数"',
+ 'num': '000012"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '0.02',
+ 'Quote_change': '0.0',
+ 'Turnover': '1596730080.0',
+ 'Ups_and_downs': '0.0',
+ 'Volume': '1645159',
+ 'money': '248.43',
+ 'name': '"企债指数"',
+ 'num': '000013"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.28',
+ 'Quote_change': '0.23',
+ 'Turnover': '46945988352.0',
+ 'Ups_and_downs': '16.24',
+ 'Volume': '103218207',
+ 'money': '7140.45',
+ 'name': '"基金指数"',
+ 'num': '000011"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.85',
+ 'Quote_change': '0.98',
+ 'Turnover': '78081536000.0',
+ 'Ups_and_downs': '163.2',
+ 'Volume': '62451451',
+ 'money': '16770.92',
+ 'name': '"深成指R"',
+ 'num': '399002"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.33',
+ 'Quote_change': '-0.15',
+ 'Turnover': '72390942.0',
+ 'Ups_and_downs': '-8.87',
+ 'Volume': '173129',
+ 'money': '5836.05',
+ 'name': '"成份Ｂ指"',
+ 'num': '399003"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.43',
+ 'Quote_change': '0.47',
+ 'Turnover': '501664579584.0',
+ 'Ups_and_downs': '10.46',
+ 'Volume': '333886231',
+ 'money': '2249.57',
+ 'name': '"深证综指"',
+ 'num': '399106"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '3.49',
+ 'Quote_change': '1.61',
+ 'Turnover': '127603535872.0',
+ 'Ups_and_downs': '130.11',
+ 'Volume': '41321099',
+ 'money': '8212.73',
+ 'name': '"深证100R"',
+ 'num': '399004"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '3.0',
+ 'Quote_change': '1.14',
+ 'Turnover': '196267819008.0',
+ 'Ups_and_downs': '66.37',
+ 'Volume': '85396362',
+ 'money': '5874.34',
+ 'name': '"深证300"',
+ 'num': '399007"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.45',
+ 'Quote_change': '0.39',
+ 'Turnover': '115165753344.0',
+ 'Ups_and_downs': '6.6',
+ 'Volume': '60899180',
+ 'money': '1687.68',
+ 'name': '"中小300"',
+ 'num': '399008"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '3.14',
+ 'Quote_change': '1.28',
+ 'Turnover': '46878102016.0',
+ 'Ups_and_downs': '64.76',
+ 'Volume': '10841421',
+ 'money': '5133.05',
+ 'name': '"创业大盘"',
+ 'num': '399293"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.48',
+ 'Quote_change': '0.55',
+ 'Turnover': '491198046208.0',
+ 'Ups_and_downs': '56.23',
+ 'Volume': '323474596',
+ 'money': '10253.76',
+ 'name': '"新 指 数"',
+ 'num': '399100"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.64',
+ 'Quote_change': '0.93',
+ 'Turnover': '63346588928.0',
+ 'Ups_and_downs': '77.03',
+ 'Volume': '17988315',
+ 'money': '8402.28',
+ 'name': '"央视50"',
+ 'num': '399550"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.06',
+ 'Quote_change': '0.15',
+ 'Turnover': '109761286144.0',
+ 'Ups_and_downs': '9.19',
+ 'Volume': '92587484',
+ 'money': '6255.19',
+ 'name': '"中证500"',
+ 'num': '000905"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.57',
+ 'Quote_change': '0.7',
+ 'Turnover': '128731836416.0',
+ 'Ups_and_downs': '33.79',
+ 'Volume': '57998385',
+ 'money': '4858.49',
+ 'name': '"中证100"',
+ 'num': '000903"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.44',
+ 'Quote_change': '0.61',
+ 'Turnover': '362064789504.0',
+ 'Ups_and_downs': '30.32',
+ 'Volume': '209704732',
+ 'money': '5009.26',
+ 'name': '"中证800"',
+ 'num': '000906"'}
+2020-10-29 17:47:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.21',
+ 'Quote_change': '0.43',
+ 'Turnover': '26794454272.0',
+ 'Ups_and_downs': '5.99',
+ 'Volume': '4612046',
+ 'money': '1412.06',
+ 'name': '"科创50"',
+ 'num': '000688"'}
+2020-10-29 17:47:54 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:47:54 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 508,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 3060,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.624202,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 47, 54, 324017),
+ 'item_scraped_count': 27,
+ 'log_count/DEBUG': 30,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 47, 53, 699815)}
+2020-10-29 17:47:54 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:49:47 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:49:47 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:49:47 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:49:47 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:49:47 [scrapy.extensions.telnet] INFO: Telnet Password: 05d919e7df7d720e
+2020-10-29 17:49:47 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:49:47 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:49:47 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:49:47 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:49:47 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:49:47 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:49:47 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:49:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385> (referer: None)
+2020-10-29 17:49:48 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): 5.push2.eastmoney.com:80
+2020-10-29 17:49:48 [urllib3.connectionpool] DEBUG: http://5.push2.eastmoney.com:80 "GET /api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385 HTTP/1.1" 200 2858
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.79',
+ 'Quote_change': '0.11',
+ 'Turnover': '278605664256.0',
+ 'Ups_and_downs': '3.49',
+ 'Volume': '184703588',
+ 'money': '3272.73',
+ 'name': '"上证指数"',
+ 'num': '000001"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.85',
+ 'Quote_change': '0.98',
+ 'Turnover': '501666721792.0',
+ 'Ups_and_downs': '131.56',
+ 'Volume': '333961871',
+ 'money': '13519.66',
+ 'name': '"深证成指"',
+ 'num': '399001"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.61',
+ 'Quote_change': '0.75',
+ 'Turnover': '252303503360.0',
+ 'Ups_and_downs': '35.65',
+ 'Volume': '117117251',
+ 'money': '4772.92',
+ 'name': '"沪深300"',
+ 'num': '000300"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.77',
+ 'Quote_change': '0.54',
+ 'Turnover': '158660743168.0',
+ 'Ups_and_downs': '49.27',
+ 'Volume': '109862277',
+ 'money': '9173.54',
+ 'name': '"中小板指"',
+ 'num': '399005"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '3.09',
+ 'Quote_change': '1.1',
+ 'Turnover': '264852049920.0',
+ 'Ups_and_downs': '29.44',
+ 'Volume': '161475013',
+ 'money': '2699.92',
+ 'name': '"创业板指"',
+ 'num': '399006"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.18',
+ 'Quote_change': '0.33',
+ 'Turnover': '127979003904.0',
+ 'Ups_and_downs': '31.68',
+ 'Volume': '67972273',
+ 'money': '9740.08',
+ 'name': '"上证180"',
+ 'num': '000010"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.22',
+ 'Quote_change': '0.34',
+ 'Turnover': '69727043584.0',
+ 'Ups_and_downs': '11.21',
+ 'Volume': '30218954',
+ 'money': '3324.44',
+ 'name': '"上证50"',
+ 'num': '000016"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.78',
+ 'Quote_change': '0.09',
+ 'Turnover': '56346827264.0',
+ 'Ups_and_downs': '5.01',
+ 'Volume': '43318866',
+ 'money': '5663.48',
+ 'name': '"上证380"',
+ 'num': '000009"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.8',
+ 'Quote_change': '0.16',
+ 'Turnover': '15022799616.0',
+ 'Ups_and_downs': '11.03',
+ 'Volume': '9311785',
+ 'money': '6777.05',
+ 'name': '"上证100"',
+ 'num': '000132"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.48',
+ 'Quote_change': '-0.27',
+ 'Turnover': '9828500736.0',
+ 'Ups_and_downs': '-12.67',
+ 'Volume': '7215341',
+ 'money': '4740.56',
+ 'name': '"上证150"',
+ 'num': '000133"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '0.76',
+ 'Quote_change': '-0.21',
+ 'Turnover': '103362101.0',
+ 'Ups_and_downs': '-0.52',
+ 'Volume': '123213',
+ 'money': '247.05',
+ 'name': '"Ｂ股指数"',
+ 'num': '000003"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '0.09',
+ 'Quote_change': '-0.07',
+ 'Turnover': '141263571.0',
+ 'Ups_and_downs': '-0.13',
+ 'Volume': '148408',
+ 'money': '183.04',
+ 'name': '"国债指数"',
+ 'num': '000012"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '0.02',
+ 'Quote_change': '0.0',
+ 'Turnover': '1596730080.0',
+ 'Ups_and_downs': '0.0',
+ 'Volume': '1645159',
+ 'money': '248.43',
+ 'name': '"企债指数"',
+ 'num': '000013"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.28',
+ 'Quote_change': '0.23',
+ 'Turnover': '46945988352.0',
+ 'Ups_and_downs': '16.24',
+ 'Volume': '103218207',
+ 'money': '7140.45',
+ 'name': '"基金指数"',
+ 'num': '000011"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.85',
+ 'Quote_change': '0.98',
+ 'Turnover': '78081536000.0',
+ 'Ups_and_downs': '163.2',
+ 'Volume': '62451451',
+ 'money': '16770.92',
+ 'name': '"深成指R"',
+ 'num': '399002"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.33',
+ 'Quote_change': '-0.15',
+ 'Turnover': '72390942.0',
+ 'Ups_and_downs': '-8.87',
+ 'Volume': '173129',
+ 'money': '5836.05',
+ 'name': '"成份Ｂ指"',
+ 'num': '399003"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.43',
+ 'Quote_change': '0.47',
+ 'Turnover': '501664579584.0',
+ 'Ups_and_downs': '10.46',
+ 'Volume': '333886231',
+ 'money': '2249.57',
+ 'name': '"深证综指"',
+ 'num': '399106"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '3.49',
+ 'Quote_change': '1.61',
+ 'Turnover': '127603535872.0',
+ 'Ups_and_downs': '130.11',
+ 'Volume': '41321099',
+ 'money': '8212.73',
+ 'name': '"深证100R"',
+ 'num': '399004"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '3.0',
+ 'Quote_change': '1.14',
+ 'Turnover': '196267819008.0',
+ 'Ups_and_downs': '66.37',
+ 'Volume': '85396362',
+ 'money': '5874.34',
+ 'name': '"深证300"',
+ 'num': '399007"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.45',
+ 'Quote_change': '0.39',
+ 'Turnover': '115165753344.0',
+ 'Ups_and_downs': '6.6',
+ 'Volume': '60899180',
+ 'money': '1687.68',
+ 'name': '"中小300"',
+ 'num': '399008"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '3.14',
+ 'Quote_change': '1.28',
+ 'Turnover': '46878102016.0',
+ 'Ups_and_downs': '64.76',
+ 'Volume': '10841421',
+ 'money': '5133.05',
+ 'name': '"创业大盘"',
+ 'num': '399293"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.48',
+ 'Quote_change': '0.55',
+ 'Turnover': '491198046208.0',
+ 'Ups_and_downs': '56.23',
+ 'Volume': '323474596',
+ 'money': '10253.76',
+ 'name': '"新 指 数"',
+ 'num': '399100"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.64',
+ 'Quote_change': '0.93',
+ 'Turnover': '63346588928.0',
+ 'Ups_and_downs': '77.03',
+ 'Volume': '17988315',
+ 'money': '8402.28',
+ 'name': '"央视50"',
+ 'num': '399550"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.06',
+ 'Quote_change': '0.15',
+ 'Turnover': '109761286144.0',
+ 'Ups_and_downs': '9.19',
+ 'Volume': '92587484',
+ 'money': '6255.19',
+ 'name': '"中证500"',
+ 'num': '000905"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.57',
+ 'Quote_change': '0.7',
+ 'Turnover': '128731836416.0',
+ 'Ups_and_downs': '33.79',
+ 'Volume': '57998385',
+ 'money': '4858.49',
+ 'name': '"中证100"',
+ 'num': '000903"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.44',
+ 'Quote_change': '0.61',
+ 'Turnover': '362064789504.0',
+ 'Ups_and_downs': '30.32',
+ 'Volume': '209704732',
+ 'money': '5009.26',
+ 'name': '"中证800"',
+ 'num': '000906"'}
+2020-10-29 17:49:48 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.21',
+ 'Quote_change': '0.43',
+ 'Turnover': '26794454272.0',
+ 'Ups_and_downs': '5.99',
+ 'Volume': '4612046',
+ 'money': '1412.06',
+ 'name': '"科创50"',
+ 'num': '000688"'}
+2020-10-29 17:49:48 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:49:48 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 508,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 3061,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.322624,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 49, 48, 260026),
+ 'item_scraped_count': 27,
+ 'log_count/DEBUG': 30,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 49, 47, 937402)}
+2020-10-29 17:49:48 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-10-29 17:50:07 [scrapy.utils.log] INFO: Scrapy 2.4.0 started (bot: stocks)
+2020-10-29 17:50:07 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Windows-10-10.0.19041-SP0
+2020-10-29 17:50:07 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-10-29 17:50:07 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'stocks',
+ 'LOG_FILE': 'all.log',
+ 'NEWSPIDER_MODULE': 'stocks.spiders',
+ 'SPIDER_LOADER_WARN_ONLY': True,
+ 'SPIDER_MODULES': ['stocks.spiders']}
+2020-10-29 17:50:07 [scrapy.extensions.telnet] INFO: Telnet Password: 92ca01fac6057551
+2020-10-29 17:50:07 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-29 17:50:07 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-29 17:50:07 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-29 17:50:07 [scrapy.middleware] INFO: Enabled item pipelines:
+['stocks.pipelines.StocksPipeline']
+2020-10-29 17:50:07 [scrapy.core.engine] INFO: Spider opened
+2020-10-29 17:50:07 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-29 17:50:07 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-29 17:50:07 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385> (referer: None)
+2020-10-29 17:50:07 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): 5.push2.eastmoney.com:80
+2020-10-29 17:50:07 [urllib3.connectionpool] DEBUG: http://5.push2.eastmoney.com:80 "GET /api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385 HTTP/1.1" 200 2858
+2020-10-29 17:50:07 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.79',
+ 'Quote_change': '0.11',
+ 'Turnover': '278605664256.0',
+ 'Ups_and_downs': '3.49',
+ 'Volume': '184703588',
+ 'money': '3272.73',
+ 'name': '"上证指数"',
+ 'num': '000001"'}
+2020-10-29 17:50:07 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.85',
+ 'Quote_change': '0.98',
+ 'Turnover': '501666721792.0',
+ 'Ups_and_downs': '131.56',
+ 'Volume': '333961871',
+ 'money': '13519.66',
+ 'name': '"深证成指"',
+ 'num': '399001"'}
+2020-10-29 17:50:07 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.61',
+ 'Quote_change': '0.75',
+ 'Turnover': '252303503360.0',
+ 'Ups_and_downs': '35.65',
+ 'Volume': '117117251',
+ 'money': '4772.92',
+ 'name': '"沪深300"',
+ 'num': '000300"'}
+2020-10-29 17:50:07 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.77',
+ 'Quote_change': '0.54',
+ 'Turnover': '158660743168.0',
+ 'Ups_and_downs': '49.27',
+ 'Volume': '109862277',
+ 'money': '9173.54',
+ 'name': '"中小板指"',
+ 'num': '399005"'}
+2020-10-29 17:50:07 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '3.09',
+ 'Quote_change': '1.1',
+ 'Turnover': '264852049920.0',
+ 'Ups_and_downs': '29.44',
+ 'Volume': '161475013',
+ 'money': '2699.92',
+ 'name': '"创业板指"',
+ 'num': '399006"'}
+2020-10-29 17:50:07 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.18',
+ 'Quote_change': '0.33',
+ 'Turnover': '127979003904.0',
+ 'Ups_and_downs': '31.68',
+ 'Volume': '67972273',
+ 'money': '9740.08',
+ 'name': '"上证180"',
+ 'num': '000010"'}
+2020-10-29 17:50:07 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.22',
+ 'Quote_change': '0.34',
+ 'Turnover': '69727043584.0',
+ 'Ups_and_downs': '11.21',
+ 'Volume': '30218954',
+ 'money': '3324.44',
+ 'name': '"上证50"',
+ 'num': '000016"'}
+2020-10-29 17:50:07 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.78',
+ 'Quote_change': '0.09',
+ 'Turnover': '56346827264.0',
+ 'Ups_and_downs': '5.01',
+ 'Volume': '43318866',
+ 'money': '5663.48',
+ 'name': '"上证380"',
+ 'num': '000009"'}
+2020-10-29 17:50:07 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.8',
+ 'Quote_change': '0.16',
+ 'Turnover': '15022799616.0',
+ 'Ups_and_downs': '11.03',
+ 'Volume': '9311785',
+ 'money': '6777.05',
+ 'name': '"上证100"',
+ 'num': '000132"'}
+2020-10-29 17:50:07 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.48',
+ 'Quote_change': '-0.27',
+ 'Turnover': '9828500736.0',
+ 'Ups_and_downs': '-12.67',
+ 'Volume': '7215341',
+ 'money': '4740.56',
+ 'name': '"上证150"',
+ 'num': '000133"'}
+2020-10-29 17:50:07 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '0.76',
+ 'Quote_change': '-0.21',
+ 'Turnover': '103362101.0',
+ 'Ups_and_downs': '-0.52',
+ 'Volume': '123213',
+ 'money': '247.05',
+ 'name': '"Ｂ股指数"',
+ 'num': '000003"'}
+2020-10-29 17:50:07 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '0.09',
+ 'Quote_change': '-0.07',
+ 'Turnover': '141263571.0',
+ 'Ups_and_downs': '-0.13',
+ 'Volume': '148408',
+ 'money': '183.04',
+ 'name': '"国债指数"',
+ 'num': '000012"'}
+2020-10-29 17:50:07 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '0.02',
+ 'Quote_change': '0.0',
+ 'Turnover': '1596730080.0',
+ 'Ups_and_downs': '0.0',
+ 'Volume': '1645159',
+ 'money': '248.43',
+ 'name': '"企债指数"',
+ 'num': '000013"'}
+2020-10-29 17:50:07 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.28',
+ 'Quote_change': '0.23',
+ 'Turnover': '46945988352.0',
+ 'Ups_and_downs': '16.24',
+ 'Volume': '103218207',
+ 'money': '7140.45',
+ 'name': '"基金指数"',
+ 'num': '000011"'}
+2020-10-29 17:50:07 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.85',
+ 'Quote_change': '0.98',
+ 'Turnover': '78081536000.0',
+ 'Ups_and_downs': '163.2',
+ 'Volume': '62451451',
+ 'money': '16770.92',
+ 'name': '"深成指R"',
+ 'num': '399002"'}
+2020-10-29 17:50:07 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '1.33',
+ 'Quote_change': '-0.15',
+ 'Turnover': '72390942.0',
+ 'Ups_and_downs': '-8.87',
+ 'Volume': '173129',
+ 'money': '5836.05',
+ 'name': '"成份Ｂ指"',
+ 'num': '399003"'}
+2020-10-29 17:50:08 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.43',
+ 'Quote_change': '0.47',
+ 'Turnover': '501664579584.0',
+ 'Ups_and_downs': '10.46',
+ 'Volume': '333886231',
+ 'money': '2249.57',
+ 'name': '"深证综指"',
+ 'num': '399106"'}
+2020-10-29 17:50:08 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '3.49',
+ 'Quote_change': '1.61',
+ 'Turnover': '127603535872.0',
+ 'Ups_and_downs': '130.11',
+ 'Volume': '41321099',
+ 'money': '8212.73',
+ 'name': '"深证100R"',
+ 'num': '399004"'}
+2020-10-29 17:50:08 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '3.0',
+ 'Quote_change': '1.14',
+ 'Turnover': '196267819008.0',
+ 'Ups_and_downs': '66.37',
+ 'Volume': '85396362',
+ 'money': '5874.34',
+ 'name': '"深证300"',
+ 'num': '399007"'}
+2020-10-29 17:50:08 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.45',
+ 'Quote_change': '0.39',
+ 'Turnover': '115165753344.0',
+ 'Ups_and_downs': '6.6',
+ 'Volume': '60899180',
+ 'money': '1687.68',
+ 'name': '"中小300"',
+ 'num': '399008"'}
+2020-10-29 17:50:08 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '3.14',
+ 'Quote_change': '1.28',
+ 'Turnover': '46878102016.0',
+ 'Ups_and_downs': '64.76',
+ 'Volume': '10841421',
+ 'money': '5133.05',
+ 'name': '"创业大盘"',
+ 'num': '399293"'}
+2020-10-29 17:50:08 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.48',
+ 'Quote_change': '0.55',
+ 'Turnover': '491198046208.0',
+ 'Ups_and_downs': '56.23',
+ 'Volume': '323474596',
+ 'money': '10253.76',
+ 'name': '"新 指 数"',
+ 'num': '399100"'}
+2020-10-29 17:50:08 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.64',
+ 'Quote_change': '0.93',
+ 'Turnover': '63346588928.0',
+ 'Ups_and_downs': '77.03',
+ 'Volume': '17988315',
+ 'money': '8402.28',
+ 'name': '"央视50"',
+ 'num': '399550"'}
+2020-10-29 17:50:08 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.06',
+ 'Quote_change': '0.15',
+ 'Turnover': '109761286144.0',
+ 'Ups_and_downs': '9.19',
+ 'Volume': '92587484',
+ 'money': '6255.19',
+ 'name': '"中证500"',
+ 'num': '000905"'}
+2020-10-29 17:50:08 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.57',
+ 'Quote_change': '0.7',
+ 'Turnover': '128731836416.0',
+ 'Ups_and_downs': '33.79',
+ 'Volume': '57998385',
+ 'money': '4858.49',
+ 'name': '"中证100"',
+ 'num': '000903"'}
+2020-10-29 17:50:08 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.44',
+ 'Quote_change': '0.61',
+ 'Turnover': '362064789504.0',
+ 'Ups_and_downs': '30.32',
+ 'Volume': '209704732',
+ 'money': '5009.26',
+ 'name': '"中证800"',
+ 'num': '000906"'}
+2020-10-29 17:50:08 [scrapy.core.scraper] DEBUG: Scraped from <200 http://5.push2.eastmoney.com/api/qt/clist/get?cb=jQuery112406332527910963062_1603964168360&pn=1&pz=50&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=&fs=b:MK0010&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f26,f22,f11,f62,f128,f136,f115,f152&_=1603964168385>
+{'Increase': '2.21',
+ 'Quote_change': '0.43',
+ 'Turnover': '26794454272.0',
+ 'Ups_and_downs': '5.99',
+ 'Volume': '4612046',
+ 'money': '1412.06',
+ 'name': '"科创50"',
+ 'num': '000688"'}
+2020-10-29 17:50:08 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-29 17:50:08 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 508,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 3062,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 0.287476,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 29, 9, 50, 8, 15463),
+ 'item_scraped_count': 27,
+ 'log_count/DEBUG': 30,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 10, 29, 9, 50, 7, 727987)}
+2020-10-29 17:50:08 [scrapy.core.engine] INFO: Spider closed (finished)

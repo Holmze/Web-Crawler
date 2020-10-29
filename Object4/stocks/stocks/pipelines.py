@@ -8,13 +8,12 @@
 # from itemadapter import ItemAdapter
 import pymysql
 
-class DangdangPipeline(object):
+class StocksPipeline(object):
 
     opened = False
     count = 0
     def open_spider(self,spider):
         try:
-            print("*********************opened*********************")
             # self.con = pymysql.connect(host = "127.0.0.1",post = 3306,user = "root",passwd = "02071035",db = "MyDB",charset = "utf8")
             # serverName = "127.0.0.1:1433"
             serverName = "127.0.0.1"
@@ -39,19 +38,21 @@ class DangdangPipeline(object):
             # self.count = 0
             self.opened = False
         print("closed")
-        print("一共爬取",self.count,"本书籍")
+        print("一共爬取",self.count,"支股票")
 
     def process_item(self, item, spider):
         try:
-            print(item["title"])
-            print(item["author"])
-            print(item["publisher"])
-            print(item["date"])
-            print(item["price"])
-            print(item["detail"])
-            print()
+            # print(item["name"])
+            # print(item["money"])
+            # print(item["num"])
+            # print(item["Quote_change"])
+            # print(item["Ups_and_downs"])
+            # print(item["Volume"])
+            # print(item["Turnover"])
+            # print(item["Increase"])
+            # print()
             if self.opened:
-                self.cursor.execute("insert books(bTitle,bAuthor,bPublisher,bDate,bPrice,bDetail) values (%s,%s,%s,%s,%s,%s)",(item["title"],item["author"],item["publisher"],item["date"],item["price"],item["detail"]))
+                self.cursor.execute("insert stocks(num,name,money,Quote_change,Ups_and_downs,Volume,Turnover,Increase) values (%s,%s,%s,%s,%s,%s,%s,%s)",(item["name"],item["money"],item["num"],item["Quote_change"],item["Ups_and_downs"],item["Volume"],item["Turnover"],item["Increase"]))
                 self.count+=1
         except Exception as err:
             print(err)
