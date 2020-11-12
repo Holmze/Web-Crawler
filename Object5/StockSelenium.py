@@ -42,12 +42,19 @@ class Spider():
         #     print(td.text,end = " ")
         # print()
         # Volume
-        num = tds[1].text
-        name = tds[2].text
-        value = tds[4].text
-        Quote_change = tds[5].text
-        Ups_and_downs = tds[6].text
-        print(count,num,name,value,Quote_change,Ups_and_downs)
+        num = tds[1].text #编号
+        name = tds[2].text #名称
+        value = tds[4].text # 最新价
+        Quote_change = tds[5].text # 涨跌幅
+        Ups_and_downs = tds[6].text # 涨跌额
+        Volume = tds[7].text # 成交量
+        Turnover = tds[8].text # 成交额
+        amplitude = tds[9].text # 振幅
+        highest = tds[10].text # 最高
+        lowest = tds[11].text # 最低
+        today_begin = tds[12].text # 进开
+        last_day = tds[13].text # 昨收
+        print(count,num,name,value,Quote_change,Ups_and_downs,Volume,Turnover,amplitude,highest,lowest,today_begin,last_day)
         # for value in values:
         # print(num,name,values[0].text,values[1].text)
 
