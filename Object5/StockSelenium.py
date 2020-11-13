@@ -1,5 +1,6 @@
 from selenium import webdriver
 import time
+import pymysql
 
 class Spider():
     headers = {
@@ -51,9 +52,33 @@ class Spider():
         today_begin = tds[12].text # 进开
         last_day = tds[13].text # 昨收
         print(count,num,name,value,Quote_change,Ups_and_downs,Volume,Turnover,amplitude,highest,lowest,today_begin,last_day)
+        self.writeMySQL()
         # for value in values:
         # print(num,name,values[0].text,values[1].text)
 
+    def initDatabase(self):
+        try:
+            serverName = "127.0.0.1"
+            # userName = "sa"
+            passWord = "02071035"
+            self.con = pymysql.connect(host = serverName,port = 3307,user = "root",password = passWord,database = "Stock",charset = "utf8")
+            self.cursor = self.con.cursor()
+            self.cursor.execute("use Stock")
+            print("init DB over")
+            self.cursor.execute("select * from stock")
+        except:
+            print("init err")
+
+    def writeMySQL(self):
+        try:
+            print()
+            self.cursor.execute("insert stock(count,num,name,value,Quote_change,Ups_and_downs,Volume,Turnover,amplitude,highest,lowest,today_begin,last_day) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(self.count,self.num,self.name,self.value,self.Quote_change,self.Ups_and_downs,self.Volume,self.Turnover,self.amplitude,self.highest,self.lowest,self.today_begin,self.last_day))
+            self.con.commit()
+        except Exception as err:
+            print(err)
+            # self.opened = False
+
+
 spider = Spider()
-# spider.initDriver()
+spider.initDatabase()
 spider.getInfo()
