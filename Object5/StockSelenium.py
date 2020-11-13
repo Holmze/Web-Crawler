@@ -38,10 +38,6 @@ class Spider():
     def StockDetailInfo(self,elem):
         tds = elem.find_elements_by_tag_name("td")
         count = tds[0].text
-        # for td in tds:
-        #     print(td.text,end = " ")
-        # print()
-        # Volume
         num = tds[1].text #编号
         name = tds[2].text #名称
         value = tds[4].text # 最新价
