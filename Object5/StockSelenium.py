@@ -51,8 +51,8 @@ class Spider():
         lowest = tds[11].text # 最低
         today_begin = tds[12].text # 进开
         last_day = tds[13].text # 昨收
-        print(count,num,name,value,Quote_change,Ups_and_downs,Volume,Turnover,amplitude,highest,lowest,today_begin,last_day)
-        self.writeMySQL()
+        # print(count,num,name,value,Quote_change,Ups_and_downs,Volume,Turnover,amplitude,highest,lowest,today_begin,last_day)
+        self.writeMySQL(count,num,name,value,Quote_change,Ups_and_downs,Volume,Turnover,amplitude,highest,lowest,today_begin,last_day)
         # for value in values:
         # print(num,name,values[0].text,values[1].text)
 
@@ -69,10 +69,10 @@ class Spider():
         except:
             print("init err")
 
-    def writeMySQL(self):
+    def writeMySQL(self,count,num,name,value,Quote_change,Ups_and_downs,Volume,Turnover,amplitude,highest,lowest,today_begin,last_day):
         try:
-            print()
-            self.cursor.execute("insert stock(count,num,name,value,Quote_change,Ups_and_downs,Volume,Turnover,amplitude,highest,lowest,today_begin,last_day) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(self.count,self.num,self.name,self.value,self.Quote_change,self.Ups_and_downs,self.Volume,self.Turnover,self.amplitude,self.highest,self.lowest,self.today_begin,self.last_day))
+            print(count,num,name,value,Quote_change,Ups_and_downs,Volume,Turnover,amplitude,highest,lowest,today_begin,last_day)
+            self.cursor.execute("insert stock(count,num,name,value,Quote_change,Ups_and_downs,Volume,Turnover,amplitude,highest,lowest,today_begin,last_day) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(count,num,name,value,Quote_change,Ups_and_downs,Volume,Turnover,amplitude,highest,lowest,today_begin,last_day))
             self.con.commit()
         except Exception as err:
             print(err)
