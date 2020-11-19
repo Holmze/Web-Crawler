@@ -60,7 +60,7 @@ class Spider():
         try:
             serverName = "127.0.0.1"
             # userName = "sa"
-            passWord = "02071035"
+            passWord = "********"
             self.con = pymysql.connect(host = serverName,port = 3307,user = "root",password = passWord,database = "Stock",charset = "utf8")
             self.cursor = self.con.cursor()
             self.cursor.execute("use Stock")

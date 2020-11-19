@@ -18,7 +18,7 @@ class StocksPipeline(object):
             # serverName = "127.0.0.1:1433"
             serverName = "127.0.0.1"
             # userName = "sa"
-            passWord = "02071035"
+            passWord = "********"
             # port = "1433",user = userName,password = password,
             # ,server='SZS\SQLEXPRESS'
             self.con = pymysql.connect(host = serverName,port = 3306,user = "root",password = passWord,database = "MyDB",charset = "utf8")
