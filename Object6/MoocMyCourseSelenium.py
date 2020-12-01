@@ -48,10 +48,7 @@ class Spider():
         MyCourse.click()
 
     def get_course_info(self):
-        # time.sleep(10)
         courses = self.driver.find_elements_by_class_name("course-card-wrapper")
-        # names = self.driver.find_elements_by_class_name("text")
-        # schools = self.driver.find_elements_by_class_name("school")
         for i in range(len(courses)):
             course = courses[i]
             # name = names[i]
