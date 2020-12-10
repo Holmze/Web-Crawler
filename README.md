@@ -12,7 +12,7 @@ Data collection and fusion technology (web crawler) code, related files and note
 - 3. [***Object3 blog***](https://www.cnblogs.com/holmze/p/13813775.html)
 - 4. [***Object4 blog***](https://www.cnblogs.com/holmze/p/13902396.html)
 - 5. [***Object5 blog***](https://www.cnblogs.com/holmze/p/13971034.html)
-- 6. [***Object6 blog***]()
+- 6. [***Object6 blog***](https://www.cnblogs.com/holmze/p/14074881.html)
 
 ## WebScrapingWithPy
 The floder WebScrapingWithPy is some code of book ```The definitive guide to Python web crawlers```.
