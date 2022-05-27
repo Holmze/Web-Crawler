@@ -4,7 +4,7 @@ Data collection and fusion technology (web crawler) code, related files and note
    - The definitive guide to Python web crawlers(Python网络爬虫权威指南)
    - Data collection technology-Python web crawler project tutorial(数据采集技术-Python网络爬虫项目化教程)
    - Python3 web crawler development practice(Python3网络爬虫开发实践)
-- Teacher : [WuLing](http://cmcs.fzu.edu.cn/website/f/teacherDetail?id=378259299be3407cbaa4765afc1f5882)
+- Teacher : [WuLing](https://ccds.fzu.edu.cn/info/1203/8456.htm)
 
 ## Object blog (Coursework):
 - 1. [***Object1 blog***](https://www.cnblogs.com/holmze/p/13745347.html)
